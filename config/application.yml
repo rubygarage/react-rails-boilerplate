@@ -1,0 +1,16 @@
+default: &default
+  DEVISE_SECRET: 'a64f1423f8a3da8730f2510a70c16b1f32a64057e41408b95cb6ea59c49bb4d537b16061406d5aa2d86299353f84bdc85eda0ee64e584e902672406cec3e9fcb'
+  SECRET_KEY_BASE: '4ee28a5ad3b6d00d4073591c6b94e224d783e9264877ec34005fe99011c94d5be67fa613e17572b542ab6edf596eab0ca92b001e52a214bce8c90fc0e1bea2cf'
+
+development:
+  <<: *default
+  NO_REPLY_EMAIL:      'noreply@rg-boilerplate.org'
+  HOST:                "http://localhost:3000"
+  MAILTRAP_USERNAME:   'b3052bd03ae019'
+  MAILTRAP_PASSWORD:   '14bd42c0b62122'
+  DOMAIN_NAME:         'lvh.me'
+  FACEBOOK_APP_ID:     '324374737760937'
+  FACEBOOK_APP_SECRET: '60e8320860aa6a590bdb45cebecd0d1c'
+
+test:
+  <<: *default
