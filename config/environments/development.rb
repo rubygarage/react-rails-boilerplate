@@ -40,13 +40,6 @@ Rails.application.configure do
     authentication: :cram_md5
   }
 
-  config.middleware.insert_before 0, Rack::Cors do
-    allow do
-      origins '*'
-      resource '*', :headers => :any, :methods => [:get, :post, :options]
-    end
-  end
-
   config.action_mailer.perform_deliveries = true
   config.action_mailer.perform_caching = false
 
@@ -70,4 +63,17 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  config.after_initialize do
+    Bullet.tap do |bullet|
+      bullet.enable = true
+      bullet.alert = false
+      bullet.bullet_logger = true
+      bullet.console = false
+      bullet.growl = false
+      bullet.rails_logger = true
+      bullet.add_footer = false
+      bullet.airbrake = false
+    end
+  end
 end

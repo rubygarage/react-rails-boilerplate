@@ -11,6 +11,7 @@ development:
   DOMAIN_NAME:         'lvh.me'
   FACEBOOK_APP_ID:     '324374737760937'
   FACEBOOK_APP_SECRET: '60e8320860aa6a590bdb45cebecd0d1c'
+  JWT_SIGNATURE:       'test-1234'
 
 test:
   <<: *default

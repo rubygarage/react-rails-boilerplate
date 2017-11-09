@@ -4,3 +4,5 @@ en:
       user:
         unique?: is not unique
         eql?: doesn't match
+        confirmed?: email is not confirmed
+        credentials_valid?: invalid credentials
