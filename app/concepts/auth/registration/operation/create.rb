@@ -1,14 +1,11 @@
-require "trailblazer/operation"
-
 class Auth::Registration::Create < Trailblazer::Operation
   step Model(User, :new)
   step Contract::Build(constant: Auth::Registration::Contract::Create)
   step Contract::Validate()
   step Contract::Persist()
-  # step :set_auth_header!
+  step :send_confirmation_email!
 
-  # def set_auth_header!(options, model:, response:, **)
-  #   jwt_token = JWT.encode({ user_id: model.id }, Figaro.env.JWT_SIGNATURE)
-  #   response.set_header('Authorization', "Bearer #{jwt_token}")
-  # end
+  def send_confirmation_email!(_options, model:, **)
+    ConfirmationMailer.confirmation_email(model).deliver_later
+  end
 end

@@ -1,0 +1,58 @@
+%head
+  :css
+    @media screen and (max-width: 750px) {
+      .width-full {
+        width: 100% !important;
+      }
+    }
+    @media screen and (min-width: 750px) {
+      .main-title {
+        font-size: 24px !important;
+        padding-bottom: 15px !important;
+      }
+      .main-mail-text {
+        font-size: 20px !important;
+      }
+      .main-img-container {
+        padding-bottom: 60px !important;
+      }
+    }
+%body
+  %body
+  /[if mso| (IE)]
+    <table align="center" border="0" cellpadding="0" cellspacing="0" width="750">
+    <tr>
+    <td>
+  %table.width-full{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0", :style => "max-width: 620px; Margin: 0 auto !important; background-color: white; text-align: center; font-family: 'Roboto', Arial, sans-serif; padding: 60px 0 35px;", :width => "100%"}
+    %tr
+      %td{:style => "padding: 0 0 25px;"}
+        = image_tag 'logo.svg', width: 63, height: 70, alt: 'logo'
+    %tr
+      %td{:style => "border-top: 2px solid #e6e6e6; padding: 0 0 20px;"}
+    %tr
+      %td{:style => "padding: 0 0 30px; color: black; font-family: Roboto, Arial, sans-serif; font-size: 18px;"}= t('.confirm_link_message')
+    %tr
+      %td{:style => "padding: 0 0 15px;"}
+        /[if mso]
+          <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://" style="height:51px;v-text-anchor:middle;width:150px;" arcsize="10%" stroke="f" fillcolor="#4aa8ff">
+          <w:anchorlock/>
+          <center>
+        = link_to t('.confirm_account_link'), "#{Figaro.env.host}/email_confirmation/#{@token}", :style => "Margin: 0 0 10px; background-color:#4aa8ff; border-radius:5px; color:#ffffff; display:inline-block; font-family: Roboto, Arial, sans-serif; font-size:15px; line-height:51px; text-decoration:none; width:150px; -webkit-text-size-adjust:none;"
+        /[if mso]
+          </center>
+          </v:roundrect>
+    %tr
+      %td{:style => "border-top: 2px solid #e6e6e6; padding: 0 0 25px;"}
+    %tr
+      %td{:style => "padding: 0 0 25px; color: black; font-family: Roboto, Arial, sans-serif; font-size: 18px;"}
+        = t('mailer.follow_on')
+    %tr
+      %td{:style => "padding: 0 0 15px;"}
+        %a{:href => "https://www.facebook.com/rubygarage", :style => "display:inline-block; width: 51px; height: 52px; Margin: 0 15px 15px;"}
+          = image_tag 'facebook.svg', width: 51, height: 52, alt: 'facebook logo'
+        %a{:href => "https://www.twitter.com/rubygarage", :style => "display:inline-block; width: 51px; height: 52px; Margin: 0 15px 15px;"}
+          = image_tag 'twitter.svg', width: 51, height: 52, alt: 'twitter logo'
+  /[if mso| (IE)]
+    </td>
+    </tr>
+    </table>

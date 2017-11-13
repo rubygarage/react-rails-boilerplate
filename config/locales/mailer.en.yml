@@ -1,0 +1,8 @@
+en:
+  mailer:
+    follow_on: Follow us on
+  confirmation_mailer:
+    confirmation_email:
+      subject: Confirm email
+      confirm_account_link: Confirm
+      confirm_link_message: Please verify your email by clicking on the 'Confirm' button below

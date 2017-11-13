@@ -1,3 +1,3 @@
 class User < ApplicationRecord
-  devise :database_authenticatable, :registerable, :recoverable, :confirmable
+  has_secure_password
 end

@@ -9,6 +9,8 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
+  config.active_job.queue_adapter = :sidekiq
+
   # Show full error reports.
   config.consider_all_requests_local = true
 
@@ -28,6 +30,7 @@ Rails.application.configure do
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.asset_host = Figaro.env.host
   config.action_mailer.default_url_options = { host: Figaro.env.host, port: 3000 }
 
   config.action_mailer.delivery_method = :smtp

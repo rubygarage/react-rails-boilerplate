@@ -1,6 +1,3 @@
-require 'reform'
-require 'reform/form/dry'
-
 class Auth::Password::Contract::Update < Reform::Form
   include Dry
 

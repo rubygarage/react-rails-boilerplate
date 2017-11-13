@@ -1,5 +1,3 @@
-require "trailblazer/operation"
-
 class Auth::Password::Create < Trailblazer::Operation
   success :set_user!
   step Contract::Build(constant: Auth::Password::Contract::Create)
@@ -11,6 +9,6 @@ class Auth::Password::Create < Trailblazer::Operation
   end
 
   def send_reset_password_email!(_options, model:, **)
-    model.send_reset_password_instructions if model
+    ResetPasswordMailer.reset_instructions(model).deliver_later if model
   end
 end

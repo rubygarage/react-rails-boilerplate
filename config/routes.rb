@@ -4,14 +4,11 @@ Rails.application.routes.draw do
       resources :users, only: [:show]
 
       namespace :auth do
-        devise_for :users, controllers: {
-                                          confirmations: 'api/v1/auth/confirmations',
-                                          sessions: 'api/v1/auth/sessions',
-                                          registrations: 'api/v1/auth/registrations',
-                                          passwords: 'api/v1/auth/passwords'
-                                        }
         scope :users do
-          resource :password, only: [:show]
+          resource :confirmation, only: [:create]
+          resource :session, only: %i[show create]
+          resource :registration, only: [:create]
+          resource :password, only: %i[show create update]
         end
       end
     end

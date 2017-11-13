@@ -1,6 +1,3 @@
-require 'reform'
-require 'reform/form/dry'
-
 class Auth::Session::Contract::Create < Reform::Form
   include Dry
 
@@ -14,12 +11,12 @@ class Auth::Session::Contract::Create < Reform::Form
       config.namespace = :user
 
       def confirmed?
-        form.model.confirmed?
+        form.model.confirmed_at?
       end
 
       def credentials_valid?
         return false unless form.model
-        form.model.valid_password?(form.password)
+        form.model.authenticate(form.password)
       end
     end
 

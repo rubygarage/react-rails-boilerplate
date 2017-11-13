@@ -1,6 +1,8 @@
 module Api
   module V1
     class UsersController < ::Api::V1::BaseApiController
+      before_action :check_authorization
+
       def show
         result = run ::User::Show
 
@@ -12,9 +14,8 @@ module Api
       end
 
       def update
-        debugger
-
         result = run ::User::Update
+
         if result.success?
           render json: @model, serializer: Api::V1::UserSerializer
         else

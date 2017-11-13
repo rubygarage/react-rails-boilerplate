@@ -6,9 +6,10 @@ git_source(:github) do |repo_name|
 end
 
 gem 'active_model_serializers'
-gem 'devise'
+gem 'bcrypt'
 gem 'dry-validation'
 gem 'figaro'
+gem 'haml-rails'
 gem 'jwt'
 gem 'omniauth'
 gem 'omniauth-facebook'
@@ -16,9 +17,8 @@ gem 'pg'
 gem 'puma', '~> 3.0'
 gem 'pundit'
 gem 'rails', '~> 5.1.4'
-gem "trailblazer-rails"
-gem "dry-validation"
-gem 'email_validator'
+gem 'sidekiq'
+gem 'trailblazer-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri

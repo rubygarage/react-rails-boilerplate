@@ -1,6 +1,3 @@
-require 'reform'
-require 'reform/form/dry'
-
 class Auth::Registration::Contract::Create < Reform::Form
   include Dry
 

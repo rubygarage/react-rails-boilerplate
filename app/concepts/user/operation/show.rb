@@ -1,5 +1,3 @@
-require "trailblazer/operation"
-
 class User::Show < Trailblazer::Operation
-  step Model( User, :find_by )
+  step Model(User, :find_by)
 end
