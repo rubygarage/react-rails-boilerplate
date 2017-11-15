@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Oauth /> renders oauth button 1`] = `
+<OauthButton
+  color="blue-dark"
+  onClick={[Function]}
+  type="icon-fb"
+/>
+`;
+
+exports[`<Oauth /> renders oauth link 1`] = `
+<OauthLink
+  onClick={[Function]}
+  type="icon-fb"
+/>
+`;

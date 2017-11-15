@@ -1,0 +1,11 @@
+body {
+  background-color: #EFEFEF;
+}
+
+.primary-color {
+  background: rgb(96,125,139);
+}
+
+.secondary-color {
+  background: rgb(255,82,82);
+}

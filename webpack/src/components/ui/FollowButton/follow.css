@@ -1,0 +1,20 @@
+.card-btn {
+  flex-grow: 1;
+  flex-basis: 10rem;
+  display: flex;
+  color: white;
+  align-items: center;
+  text-align: left;
+
+  &:first-of-type {
+    padding-right: 1rem;
+  }
+
+  &:last-of-type {
+    padding-left: 1rem;
+  }
+
+  &:hover {
+    opacity: 0.6;
+  }
+}

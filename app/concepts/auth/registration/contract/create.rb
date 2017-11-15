@@ -6,9 +6,8 @@ class Auth::Registration::Contract::Create < Reform::Form
   property :password
   property :password_confirmation
 
-  validation :default, with: { form: true } do
+  validation :default do
     configure do
-      option :form
       config.messages = :i18n
       config.namespace = :user
 

@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PlaceholderWithIcon /> renders placeholder with icon 1`] = `
+<span>
+  <Icon
+    className="mr-10"
+    type="icon-audio-circle"
+  />
+  Select...
+</span>
+`;

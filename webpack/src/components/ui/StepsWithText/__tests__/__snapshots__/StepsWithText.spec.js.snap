@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<StepsWithText /> renders second step as active 1`] = `
+<div
+  className="menu"
+>
+  <StepWithText
+    active={false}
+    passed={true}
+    text="Invitation"
+  />
+  <StepWithText
+    active={true}
+    passed={false}
+    text="Additional info"
+  />
+  <StepWithText
+    active={false}
+    passed={false}
+    text="Membership"
+  />
+</div>
+`;

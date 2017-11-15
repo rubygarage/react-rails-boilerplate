@@ -4,7 +4,7 @@ default: &default
 
 development:
   <<: *default
-  NO_REPLY_EMAIL:      'noreply@rg-boilerplate.org'
+  NO_REPLY_EMAIL:      'noreply@rubygarage.org'
   HOST:                "http://localhost:3000"
   MAILTRAP_USERNAME:   'b3052bd03ae019'
   MAILTRAP_PASSWORD:   '14bd42c0b62122'

@@ -1,0 +1,9 @@
+node_modules
+coverage/
+tmp/
+.yarnclean
+npm-debug.log
+test-report.xml
+static/dist/*
+src/static/dist/*
+yarn-error.log

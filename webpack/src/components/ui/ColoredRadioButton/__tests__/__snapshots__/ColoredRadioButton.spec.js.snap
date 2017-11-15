@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ColoredRadioButton /> renders with empty props 1`] = `
+<Field
+  component={[Function]}
+  type="radio"
+/>
+`;
+
+exports[`<ColoredRadioButton /> renders with props 1`] = `
+<Field
+  className="theme-color black"
+  component={[Function]}
+  type="radio"
+/>
+`;

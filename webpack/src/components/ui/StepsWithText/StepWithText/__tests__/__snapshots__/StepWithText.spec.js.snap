@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<StepWithText /> renders active step 1`] = `
+<div
+  className="step active"
+>
+  <span
+    className="step-text"
+  >
+    text
+  </span>
+</div>
+`;
+
+exports[`<StepWithText /> renders passed step 1`] = `
+<div
+  className="step passed"
+>
+  <span
+    className="step-text"
+  >
+    text
+  </span>
+</div>
+`;

@@ -1,0 +1,192 @@
+.btn {
+  display: inline-block;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  padding: 0.8rem 2rem;
+  background: none;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.15s all ease-in-out;
+  border-radius: 0.3rem;
+  border-style: solid;
+  border-width: 0.2rem;
+  border-color: transparent;
+  position: relative;
+
+  &[disabled] {
+    opacity: 0.8;
+    color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(109,109,109,0.3);
+
+    &:hover {
+      background-color: rgba(109,109,109,0.7);
+      cursor: not-allowed;
+    }
+  }
+}
+
+.xs {
+  font-size: 1.3rem;
+  font-weight: 500;
+  line-height: 1.4;
+  padding: 0.5rem 1.5rem;
+  border-width: 0.1rem;
+}
+
+.sm {
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1.5;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  border-width: 0.1rem;
+}
+
+.md {
+  line-height: 1.25;
+  min-width: 9rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.lg {
+  font-size: 1.8rem;
+  padding-top: 0.9rem;
+  padding-bottom: 1rem;
+}
+
+.blue-dark {
+  color: white;
+  background-color: #3c599b;
+
+  &:hover {
+    background-color: rgba(60, 89, 155, 0.7);
+  }
+}
+
+.blue-light {
+  color: white;
+  background-color: #32cdfd;
+
+  &:hover {
+    background-color: rgba(50, 205, 253, 0.7);
+  }
+}
+
+.blue,
+.blue-grey {
+  color: white;
+  background-color: #627fa0;
+
+  &:hover {
+    background-color: rgba(98, 127, 160, 0.7);
+  }
+}
+
+.grey {
+  color: white;
+  background-color: #818181;
+
+  &:hover {
+    background-color: rgba(129, 129, 129, 0.7);
+  }
+}
+
+.red {
+  color: white;
+  background-color: #e94f3b;
+
+  &:hover {
+    background-color: rgba(233, 79, 59, 0.7);
+  }
+}
+
+.green {
+  color: white;
+  background-color: #47cc52;
+
+  &:hover {
+    background-color: rgba(71, 204, 82, 0.7);
+  }
+}
+
+.orange {
+  color: white;
+  background-color: #f2a200;
+
+  &:hover {
+    background-color: rgba(242, 162, 0, 0.7);
+  }
+}
+
+.pink {
+  color: white;
+  background-color: #ff4d4d;
+
+  &:hover {
+    background-color: rgba(255, 77, 77, 0.7);
+  }
+}
+
+.magenta {
+  color: white;
+  background-color: #c6f;
+
+  &:hover {
+    background-color: rgba(204, 102, 255, 0.7);
+  }
+}
+
+.aquamarine {
+  color: white;
+  background-color: #3c9;
+
+  &:hover {
+    background-color: rgba(51, 204, 153, 0.7);
+  }
+}
+
+.white {
+  color: #4a4a4a;
+  background-color: white;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.clear-white {
+  color: white;
+  border-color: white;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.clear-grey {
+  color: #6d6d6d;
+  border-color: #6d6d6d;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.clear-blue {
+  color: #627fa0;
+  border-color: #627fa0;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.clear-black {
+  color: black;
+  border-color: black;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}

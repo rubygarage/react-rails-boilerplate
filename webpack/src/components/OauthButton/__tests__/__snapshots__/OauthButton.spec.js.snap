@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<OathButton /> renders oauth button 1`] = `
+<Button
+  className="mb-20"
+  color="blue-dark"
+  href=""
+  onClick={[Function]}
+  size="md"
+  to=""
+>
+  <Icon
+    className="social-icon"
+    type="icon-fb"
+  />
+</Button>
+`;

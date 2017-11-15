@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> renders A 1`] = `
+<a
+  className="btn blue md"
+  href="/"
+  rel="noopener noreferrer"
+  target="_blank"
+/>
+`;
+
+exports[`<Button /> renders Button 1`] = `
+<button
+  className="btn blue md"
+/>
+`;
+
+exports[`<Button /> renders Link 1`] = `
+<Link
+  className="btn blue md"
+  onlyActiveOnIndex={false}
+  style={Object {}}
+  to="/"
+/>
+`;

@@ -1,0 +1,28 @@
+.label-search {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 0;
+  max-width: 100%;
+}
+
+.input-search {
+  padding: 0.5rem 1rem 0.5rem 4rem;
+
+  &:focus {
+    padding: 0.5rem 1rem 0.5rem 4rem;
+  }
+  &.disable {
+    color: #6d6d6d;
+    cursor: not-allowed;
+  }
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: #ccc;
+  opacity: 0.3;
+}

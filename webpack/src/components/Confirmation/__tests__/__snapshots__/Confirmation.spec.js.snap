@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Confirmation /> renders spinner 1`] = `
+<div
+  className="app-wrap"
+>
+  <div
+    className="app-main public-main"
+  >
+    <div
+      className="text-center mb-35"
+    >
+      <Link
+        onlyActiveOnIndex={false}
+        style={Object {}}
+        to="/"
+      >
+        <img
+          alt="logo"
+          src="test-file-stub"
+        />
+      </Link>
+    </div>
+    <div
+      className="content"
+    >
+      <Spinner
+        color="white"
+        size="large"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Confirmation /> renders success message 1`] = `
+<div
+  className="app-wrap"
+>
+  <div
+    className="app-main public-main"
+  >
+    <div
+      className="text-center mb-35"
+    >
+      <Link
+        onlyActiveOnIndex={false}
+        style={Object {}}
+        to="/"
+      >
+        <img
+          alt="logo"
+          src="test-file-stub"
+        />
+      </Link>
+    </div>
+    <div
+      className="content"
+    >
+      <div
+        className="text-center"
+      >
+        <p
+          className="font-24"
+        >
+          <FormattedMessage
+            id="email_confirmation.success"
+            values={Object {}}
+          />
+        </p>
+        <Link
+          className="main-link inline-block mb-20"
+          onlyActiveOnIndex={false}
+          style={Object {}}
+          to="/sign_in"
+        >
+          <Icon
+            className="font-22 mr-10"
+            type="icon-user-circle"
+          />
+          <span
+            className="font-14"
+          >
+            <FormattedMessage
+              id="email_confirmation.login"
+              values={Object {}}
+            />
+          </span>
+          <Icon
+            className="font-10 ml-10"
+            type="icon-arrow-right-long"
+          />
+        </Link>
+      </div>
+    </div>
+  </div>
+</div>
+`;

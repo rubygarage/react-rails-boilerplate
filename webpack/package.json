@@ -1,0 +1,205 @@
+{
+  "name": "rg-react-redux-isomorphic-example",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "author": "Denis Kostyrko",
+  "license": "GPL v2",
+  "repository": {
+    "private": false
+  },
+  "main": "bin/server.js",
+  "scripts": {
+    "start-dev": "better-npm-run start-dev",
+    "build-dev": "better-npm-run build-dev",
+    "build": "better-npm-run build",
+    "start-prod": "better-npm-run start-prod",
+    "dev": "concurrently --kill-others \"npm run watch-client\" \"npm run start-dev\"",
+    "watch-client": "better-npm-run watch-client",
+    "eslint:all": "eslint --format codeframe src/",
+    "eslint:file": "eslint --format codeframe",
+    "eslint:fix": "eslint --format codeframe --fix",
+    "stylefmt": "stylefmt -r src/**/*.css",
+    "stylelint": "stylelint src/**/*.css",
+    "test": "NODE_ENV=test ENV=test jest",
+    "test:ci": "NODE_ENV=test ENV=test jest --maxWorkers=3",
+    "test:coverage": "NODE_ENV=test ENV=test jest --coverage",
+    "test:watch": "NODE_ENV=test ENV=test jest --watch"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "moduleDirectories": [
+      "src",
+      "vendor",
+      "node_modules"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/file_mock.js",
+      "\\.(css)$": "identity-obj-proxy"
+    },
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "testResultsProcessor": "./node_modules/jest-junit-reporter",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/vendor/",
+      "test-setup.js",
+      "webpack.config.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 0,
+        "functions": 0,
+        "lines": 0,
+        "statements": 0
+      }
+    }
+  },
+  "betterScripts": {
+    "start-prod": {
+      "command": "node ./bin/server.js",
+      "env": {
+        "NODE_PATH": "./src",
+        "NODE_ENV": "production",
+        "ENV": "production",
+        "PORT": 4000
+      }
+    },
+    "start-dev": {
+      "command": "node ./bin/server.js",
+      "env": {
+        "NODE_PATH": "./src",
+        "NODE_ENV": "development",
+        "ENV": "development",
+        "PORT": 4000
+      }
+    },
+    "build-dev": {
+      "command": "webpack --colors --display-error-details --config webpack-config/dev.config.js",
+      "env": {
+        "NODE_ENV": "development",
+        "ENV": "development"
+      }
+    },
+    "build": {
+      "command": "webpack --colors --display-error-details --config webpack-config/prod.config.js",
+      "env": {
+        "NODE_ENV": "production",
+        "ENV": "production"
+      }
+    },
+    "watch-client": {
+      "command": "node webpack-config/webpack-dev-server.js",
+      "env": {
+        "UV_THREADPOOL_SIZE": 100,
+        "NODE_PATH": "./src",
+        "PORT": 4000
+      }
+    }
+  },
+  "dependencies": {
+    "axios": "^0.17.1",
+    "bootstrap": "4.0.0-alpha.6",
+    "classnames": "^2.2.5",
+    "compression": "^1.7.1",
+    "express": "^4.16.2",
+    "express-http-proxy": "^0.10.0",
+    "file-loader": "^1.1.5",
+    "history": "^4.7.2",
+    "identity-obj-proxy": "3.0.0",
+    "image-webpack-loader": "^3.3.1",
+    "istanbul-reports": "^1.1.3",
+    "json-loader": "^0.5.7",
+    "lodash": "^4.15.0",
+    "normalize-json-api": "file:vendor/normalize-json-api",
+    "react": "^16.1.0",
+    "react-css-modules": "^4.6.0",
+    "react-dom": "^16.1.0",
+    "react-ga": "^2.3.5",
+    "react-helmet": "^5.2.0",
+    "react-hot-loader": "^3.1.2",
+    "react-intl": "^2.3.0",
+    "react-maskedinput": "^4.0.0",
+    "react-redux": "^5.0.6",
+    "react-router-config": "^1.0.0-beta.4",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "redux-devtools": "^3.4.1",
+    "redux-devtools-dock-monitor": "^1.1.2",
+    "redux-devtools-log-monitor": "^1.4.0",
+    "redux-form": "^7.1.2",
+    "redux-logger": "^3.0.6",
+    "redux-saga": "^0.16.0",
+    "reselect": "^3.0.1",
+    "resolve-url-loader": "^2.2.0",
+    "serialize-javascript": "^1.3.0",
+    "serve-favicon": "^2.4.5",
+    "universal-cookie": "^2.1.0",
+    "url-loader": "^0.6.2",
+    "webpack-isomorphic-tools": "^3.0.5"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.6",
+    "babel-core": "^6.24.1",
+    "babel-eslint": "^7.0.0",
+    "babel-jest": "^20.0.3",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-react-transform": "^2.0.2",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-react-display-name": "^6.8.0",
+    "babel-plugin-transform-runtime": "^6.9.0",
+    "babel-plugin-typecheck": "^3.9.0",
+    "babel-preset-env": "^1.5.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-0": "^6.5.0",
+    "babel-register": "^6.9.0",
+    "babel-runtime": "^6.9.2",
+    "better-npm-run": "0.0.12",
+    "caniuse-db": "^1.0.30000760",
+    "clean-webpack-plugin": "^0.1.17",
+    "concurrently": "^3.1.0",
+    "css-loader": "^0.28.7",
+    "doiuse": "^4.0.0",
+    "enzyme": "^3.1.1",
+    "enzyme-to-json": "^3.2.2",
+    "eslint": "^4.10.0",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-react": "^7.1.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "happypack": "^4.0.0",
+    "jest": "^21.2.1",
+    "jest-junit-reporter": "^1.1.0",
+    "node-sass": "^4.6.0",
+    "postcss-loader": "^2.0.8",
+    "precss": "^2.0.0",
+    "react-a11y": "^0.3.3",
+    "react-addons-test-utils": "^15.6.2",
+    "react-transform-catch-errors": "^1.0.2",
+    "react-transform-hmr": "^1.0.4",
+    "redux-mock-store": "^1.3.0",
+    "remote-redux-devtools": "^0.5.7",
+    "resolve-url-loader": "^2.1.0",
+    "sass-loader": "^6.0.6",
+    "strip-loader": "^0.1.2",
+    "style-loader": "^0.19.0",
+    "timekeeper": "^2.0.0",
+    "uglify-js": "^3.1.8",
+    "webpack": "^3.8.1",
+    "webpack-bundle-analyzer": "^2.9.1",
+    "webpack-dev-middleware": "^1.10.2",
+    "webpack-hot-middleware": "^2.20.0"
+  }
+}

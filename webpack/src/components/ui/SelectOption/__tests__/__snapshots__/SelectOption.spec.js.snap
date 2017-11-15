@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SelectOption /> renders select option with icon 1`] = `
+<div
+  onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseMove={[Function]}
+  title="Audio"
+>
+  <div
+    className="flex align-center"
+  >
+    <Icon
+      className="font-20 mr-10"
+      type="icon-audio-circle"
+    />
+    <span
+      className="select-value-text"
+    />
+  </div>
+</div>
+`;
