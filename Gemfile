@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'active_model_serializers'
+gem 'activeadmin'
 gem 'bcrypt'
 gem 'dry-validation'
 gem 'figaro'
@@ -19,10 +20,12 @@ gem 'pundit'
 gem 'rails', '~> 5.1.4'
 gem 'sidekiq'
 gem 'trailblazer-rails'
+gem 'shrine'
+gem "aws-sdk-s3", "~> 1.2" # for Amazon S3 storage
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem 'inquisition', github: 'rubygarage/inquisition'
+  gem 'inquisition', path: '~/apps/inquisition'
   gem 'rspec-rails'
 end
 
