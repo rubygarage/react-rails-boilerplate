@@ -23,12 +23,12 @@ gem 'trailblazer-rails'
 gem 'shrine'
 gem 'image_processing'
 gem 'mini_magick'
-gem 'aws-sdk-s3', "~> 1.2" # for Amazon S3 storage
+gem 'aws-sdk-s3', '~> 1.2' # for Amazon S3 storage
 gem 'rolify'
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem 'inquisition', path: '~/apps/inquisition'
+  gem 'inquisition', github: 'rubygarage/inquisition'
   gem 'rspec-rails'
 end
 
