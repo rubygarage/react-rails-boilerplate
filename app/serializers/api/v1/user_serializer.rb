@@ -4,6 +4,8 @@ module Api
       type 'users'
 
       attributes :id, :email, :username
+
+      has_one :avatar, serializer: Api::V1::AvatarSerializer
     end
   end
 end

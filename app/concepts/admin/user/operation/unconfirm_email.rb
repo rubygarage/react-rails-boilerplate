@@ -1,4 +1,4 @@
-class Admin::User::ConfirmEmail < Trailblazer::Operation
+class Admin::User::UnconfirmEmail < Trailblazer::Operation
   step :set_user!
   success :unconfirm_email!
 
@@ -6,7 +6,7 @@ class Admin::User::ConfirmEmail < Trailblazer::Operation
     options['model'] = user
   end
 
-  def confirm_email!(_options, model:, **)
+  def unconfirm_email!(_options, model:, **)
     model.update(confirmed_at: nil)
   end
 end

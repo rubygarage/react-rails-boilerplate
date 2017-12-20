@@ -1,4 +1,4 @@
-ActiveAdmin.register User do
+ActiveAdmin.register Admin::User, as: "User" do
   permit_params :username, :email, avatar_attributes: [:id, :image, :_destroy]
 
   index do
@@ -25,7 +25,7 @@ ActiveAdmin.register User do
 
     f.has_many :avatar, class: 'has_one', allow_destroy: true do |avatar|
       avatar.input :image, as: :file, :hint => f.object.avatar.present? \
-        ? image_tag(f.object.avatar.image_url)
+        ? image_tag(f.object.avatar.image_url(:thumb))
         : content_tag(:span, "no avatar yet")
     end
 
@@ -50,32 +50,5 @@ ActiveAdmin.register User do
 
   action_item :unconfirm_email, only: %i[show edit], if: proc { resource.confirmed_at? } do
     link_to 'Unconfirm Email', unconfirm_email_admin_user_path(resource), method: :post
-  end
-
-  controller do
-    include Admin::FormHelper
-
-    def update
-      super
-
-      # result = run ::Admin::User::Update, permitted_params[:user], user: resource
-      #
-      # if result.success?
-      #   redirect_to resource_path(resource), notice: "User updated successfuly"
-      # else
-      #   copy_errors_to_resource(@form, resource)
-      #   render :edit
-      # end
-    end
-
-    # def confirm_email
-    #   Admin::User::ConfirmEmail.(permitted_params, user: resource)
-    #   redirect_to resource_path(resource), notice: 'Email confirmed'
-    # end
-    #
-    # def unconfirm_email
-    #   Admin::User::UnconfirmEmail.(permitted_params, user: resource)
-    #   redirect_to resource_path(resource), notice: 'Email unconfirmed'
-    # end
   end
 end

@@ -21,7 +21,10 @@ gem 'rails', '~> 5.1.4'
 gem 'sidekiq'
 gem 'trailblazer-rails'
 gem 'shrine'
-gem "aws-sdk-s3", "~> 1.2" # for Amazon S3 storage
+gem 'image_processing'
+gem 'mini_magick'
+gem 'aws-sdk-s3', "~> 1.2" # for Amazon S3 storage
+gem 'rolify'
 
 group :development, :test do
   gem 'byebug', platform: :mri

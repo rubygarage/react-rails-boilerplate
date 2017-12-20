@@ -1,0 +1,25 @@
+<div class="login">
+  <h2><%= t('admin.log_in') %></h2>
+
+  <div class="login-form">
+    <%= form_tag admin_session_path, html: { id: 'session_new' } do %>
+
+    <div class="field">
+      <%= label_tag :email %><br />
+      <%= text_field_tag :email, params[:email] %>
+    </div>
+
+    <div class="field">
+      <%= label_tag :password %><br />
+      <%= password_field_tag :password %>
+    </div>
+
+    <%= flash[:notice] %>
+
+    <div class="actions">
+      <%= submit_tag t('admin.log_in') %>
+    </div>
+
+    <% end %>
+  </div>
+</div>

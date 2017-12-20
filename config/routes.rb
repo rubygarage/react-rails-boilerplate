@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   ActiveAdmin.routes(self)
+  namespace :admin do
+    resource :session, only: %i[show create destroy], path: :sign_in
+  end
+
   namespace :api, defaults: { format: 'json' } do
     namespace :v1 do
       resources :users, only: [:show]
