@@ -14,8 +14,7 @@ function renderClient() {
   window.store = store
 
   hydrate(
-    <Root store={store} />,
-    dest
+    <Root store={store} />, dest
   )
 }
 
