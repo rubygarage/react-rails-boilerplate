@@ -8,4 +8,3 @@ services:
     image: redis:4.0.0
     ports:
       - 6379:6379
-      
