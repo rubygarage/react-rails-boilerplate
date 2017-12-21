@@ -1,0 +1,9 @@
+{
+  "id": "deployer",
+  "password": "$1$pLkeCZ5O$zKvLFmXDtQhhB3Ur6ual71",
+  "ssh_keys": [
+    "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDGdZV2j4R4GkSotgqzTazptW8NaHIfnQBRuFwPEEELtXBicc7F8S3VGEQwIpgKpjNLibRnLF7/5TauM5FU1O5Ws1tSHoj6H6umlsO+WJ5/NJtSP50xsOfP3qIfOozW+pILZi74uZZpkBlTQaNc9D9NNxwe93dh7z5TVgqbkv/qIMznCXXsterxZtbIV/XfDodokFaNfeRnIzZdT2YhTvUxJ+Wx1DCYnx4Z0LCegiEs3SUADHfazGcHkCJuvCtVbX5epq74UIf/EtpY1hSFxlaqCh9lTkWVspS8tL5AoFbRLSmFNSHaY3upzA49YV3/y2BDv2CLBBB4tbHuabQXfb3p vatnajokull89@gmail.com"
+  ],
+  "groups": ["sudo" ,"sysadmin", "www-data"],
+  "shell": "/bin/zsh"
+}
