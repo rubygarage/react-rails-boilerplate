@@ -28,7 +28,7 @@ gem 'rolify'
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem 'inquisition', path: '~/apps/inquisition'
+  gem 'inquisition', github: 'rubygarage/inquisition'
   gem 'rspec-rails'
 end
 
