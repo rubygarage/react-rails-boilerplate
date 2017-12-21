@@ -1,9 +1,6 @@
 default: &default
   DEVISE_SECRET: 'a64f1423f8a3da8730f2510a70c16b1f32a64057e41408b95cb6ea59c49bb4d537b16061406d5aa2d86299353f84bdc85eda0ee64e584e902672406cec3e9fcc'
   SECRET_KEY_BASE: '4ee28a5ad3b6d00d4073591c6b94e224d783e9264877ec34005fe99011c94d5be67fa613e17572b542ab6edf596eab0ca92b001e52a214bce8c90fc0e1bea2cc'
-
-development:
-  <<: *default
   NO_REPLY_EMAIL:       'noreply@rubygarage.org'
   HOST:                 "http://localhost:3000"
   MAILTRAP_USERNAME:    ''
@@ -14,6 +11,9 @@ development:
   S3_SECRET_ACCESS_KEY: ''
   S3_REGION:            ''
   S3_BUCKET:            ''
+
+development:
+  <<: *default
 
 test:
   <<: *default

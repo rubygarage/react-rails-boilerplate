@@ -24,3 +24,5 @@
 /config/database.yml
 /coverage
 /doc
+
+/webpack/webpack-assets.json
