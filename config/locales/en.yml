@@ -6,3 +6,11 @@ en:
         eql?: doesn't match
         confirmed?: email is not confirmed
         credentials_valid?: invalid credentials
+  active_admin:
+    user:
+      confirm_email: 'Confirm Email'
+      unconfirm_email: 'Unconfirm Email'
+      without_avatar: 'no avatar yet'
+    notices:
+      email_confirmed: 'Email confirmed'
+      email_unconfirmed: 'Email unconfirmed'
