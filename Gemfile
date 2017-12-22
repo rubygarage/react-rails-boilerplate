@@ -29,11 +29,17 @@ gem 'rolify'
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'inquisition', github: 'rubygarage/inquisition'
+  gem 'factory_girl_rails', '~> 4.9'
   gem 'rspec-rails'
 end
 
 group :development do
   gem 'listen', '~> 3.0.5'
+end
+
+group :test do
+  gem 'database_cleaner', '~> 1.6'
+  gem 'ffaker', '~> 2.7'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
