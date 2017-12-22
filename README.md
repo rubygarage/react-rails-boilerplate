@@ -1,24 +1,26 @@
-# README
+## Installation
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+```
+bundle install
+```
 
-Things you may want to cover:
+```
+docker-compose up
+```
+then:
+```
+bundle exec rake db:setup
+```
 
-* Ruby version
+## Web server
+Run: 
+```
+bundle exec rails s
+```
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Worker
+Run:
+```
+bundle exec sidekiq
+```
+it will take configs from "config/sidekiq.yml"
