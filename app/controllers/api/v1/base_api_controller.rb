@@ -10,7 +10,7 @@ module Api
       end
 
       def check_authorization
-        head :not_authorized unless current_user
+        head :unauthorized unless current_user
       end
 
       private

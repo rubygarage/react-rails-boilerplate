@@ -1,0 +1,15 @@
+{
+  "data": {
+    "id": 1,
+    "type": "users",
+    "attributes": {
+      "email": "test@example.com",
+      "username": "new_test_user",
+      "relationships": {
+        "avatar": {
+          "data": null
+        }
+      }
+    }
+  }
+}

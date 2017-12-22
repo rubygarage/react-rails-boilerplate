@@ -2,7 +2,7 @@ module Api
   module V1
     module Auth
       class SessionsController < ::Api::V1::BaseApiController
-        before_action :check_authorization, only: :update
+        before_action :check_authorization, only: :show
 
         def show
           render json: current_user, serializer: Api::V1::UserSerializer, key_transform: :camel_lower, include: '**'

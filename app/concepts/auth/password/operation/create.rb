@@ -3,6 +3,7 @@ class Auth::Password::Create < Trailblazer::Operation
   success :send_reset_password_email!
 
   def set_user!(options, params:, **)
+    binding.pry
     options['model'] = User.find_by(email: params[:email])
   end
 

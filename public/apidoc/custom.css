@@ -1,0 +1,10 @@
+.swagger-ui .info {
+  background: url(/apidoc/rubygarage.svg) no-repeat 0 0 transparent;
+  padding: 70px 0 0;
+  margin: 20px 0 0;
+  background-size: 180px auto;
+}
+
+.swagger-ui .scheme-container {
+  padding: 15px 0;
+}

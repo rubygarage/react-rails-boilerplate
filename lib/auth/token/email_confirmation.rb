@@ -17,6 +17,8 @@ module Auth
           user_id = token[0]['sub']
 
           User.find_by(id: user_id)
+        rescue JWT::VerificationError
+          nil
         end
       end
     end

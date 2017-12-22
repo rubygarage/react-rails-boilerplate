@@ -1,17 +1,4 @@
-require 'simplecov'
-
-SimpleCov.start 'rails' do
-  coverage_dir File.join('doc', 'coverage')
-
-  groups = %w[channels commands controllers decorators features forms
-              helpers jobs libs mailers models policies queries
-              serializers services tasks uploaders values]
-
-  groups.each { |name| add_group name.capitalize, "/app/#{name}" }
-end
-
 RSpec.configure do |config|
-
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
@@ -21,4 +8,22 @@ RSpec.configure do |config|
   end
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
+
+  # Fuubar ------------------------------------------------------------------------------------------------------------
+
+  config.fuubar_progress_bar_options = {
+    format:         '[ %c/%C | %p%% ] [%b%i] [ %a | %e ]',
+    progress_mark:  '#',
+    remainder_mark: '-',
+    starting_at:    10
+  }
+
+  # -------------------------------------------------------------------------------------------------------------------
+
+  config.filter_run :focus
+  config.run_all_when_everything_filtered = true
+  config.order = :random
+  config.disable_monkey_patching!
+
+  Kernel.srand config.seed
 end
