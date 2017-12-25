@@ -26,3 +26,6 @@
 /doc
 
 /webpack/webpack-assets.json
+
+/chef/cookbooks/**/*
+/chef/encrypted_data_bag_secret
