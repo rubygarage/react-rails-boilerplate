@@ -1,0 +1,40 @@
+{
+  "errors": [
+    {
+      "source": {
+        "pointer": "/data/attributes/email"
+      },
+      "detail": "must be filled"
+    },
+    {
+      "source": {
+        "pointer": "/data/attributes/email"
+      },
+      "detail": "is not unique"
+    },
+    {
+      "source": {
+        "pointer": "/data/attributes/username"
+      },
+      "detail": "must be filled"
+    },
+    {
+      "source": {
+        "pointer": "/data/attributes/username"
+      },
+      "detail": "is not unique"
+    },
+    {
+      "source": {
+        "pointer": "/data/attributes/password"
+      },
+      "detail": "must be filled"
+    },
+    {
+      "source": {
+        "pointer": "/data/attributes/password"
+      },
+      "detail": "size cannot be less than 8"
+    }
+  ]
+}

@@ -20,19 +20,19 @@ RSpec.describe 'Registration', type: :request do
 
         it 'returns User information' do |example|
           post api_v1_auth_registration_path, params: params
-
-          assert_response_matches_metadata(example.metadata)
         end
 
-        examples 'application/json' => response_schema('auth/registration', :create)
+        examples 'application/vnd.api+json' => response_schema('auth', :user_info)
       end
 
       response '422', 'Invalid request' do
         it 'returns an error' do |example|
           post api_v1_auth_registration_path, params: {}
 
-          assert_response_matches_metadata(example.metadata)
+          expect(body).to be_json_eql response_schema('auth', :registration_error).to_json
         end
+
+        examples 'application/vnd.api+json' => response_schema('auth', :registration_error)
       end
     end
   end
