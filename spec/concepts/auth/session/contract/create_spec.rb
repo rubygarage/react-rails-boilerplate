@@ -14,13 +14,13 @@ RSpec.describe Auth::Session::Contract::Create do
 
     it 'fail on empty fields' do
       expect(subject.validate(missed_params)).to eq false
-      subject.errors[:username].include? 'must be filled'
-      subject.errors[:password].include? 'must be filled'
+      expect(subject.errors[:username]).to include 'must be filled'
+      expect(subject.errors[:password]).to include 'must be filled'
     end
 
     it 'fail on fake password' do
       expect(subject.validate(invalid_params)).to eq false
-      subject.errors[:username].include? 'invalid credentials'
+      expect(subject.errors[:username]).to include 'invalid credentials'
     end
   end
 end

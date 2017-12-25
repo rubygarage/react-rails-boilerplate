@@ -3,7 +3,7 @@ module Api
     module Auth
       class RegistrationsController < ::Api::V1::BaseApiController
         def create
-          result = run ::Auth::Registration::Create, params, response: response
+          result = run ::Auth::Registration::Create
 
           if result.success?
             render json: @model, serializer: Api::V1::UserSerializer
