@@ -24,3 +24,7 @@
 /config/database.yml
 /coverage
 /doc
+
+
+/chef/cookbooks/**/*
+/chef/encrypted_data_bag_secret
