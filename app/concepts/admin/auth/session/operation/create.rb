@@ -3,7 +3,7 @@ class Admin::Auth::Session::Create < Trailblazer::Operation
   step Contract::Build(constant: Auth::Session::Contract::Create)
   step Contract::Validate()
   step :set_token!
-  step :set_response_auth_headers!
+  step :set_token_to_cookies!
 
   def set_user!(options, params:, **)
     options['model'] = User.find_by(username: params[:username])
@@ -13,7 +13,7 @@ class Admin::Auth::Session::Create < Trailblazer::Operation
     options['auth_token'] = Auth::Token::Session.generate(model, params[:remember])
   end
 
-  def set_response_auth_headers!(_options, auth_token:, response:, **)
-    response.set_header('Authorization', "Bearer #{auth_token}")
+  def set_token_to_cookies!(_options, auth_token:, cookies:, **)
+    cookies['authToken'] = "Bearer #{auth_token}"
   end
 end
