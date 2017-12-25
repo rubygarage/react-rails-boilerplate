@@ -10,13 +10,13 @@ module Admin
       if result.success?
         redirect_to admin_dashboard_path
       else
-        flash[:alert] = I18n.t('errors.admin.invalid')
+        flash.now[:alert] = I18n.t('errors.admin.invalid')
         render :show, layout: false
       end
     end
 
     def destroy
-      request.cookies['authToken'] = nil
+      run ::Admin::Auth::Session::Delete, params, cookies: cookies
       redirect_to '/admin/sign_in'
     end
   end
