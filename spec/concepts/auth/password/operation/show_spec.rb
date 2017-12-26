@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Auth::Password::Show do
-  let(:params) { ActionController::Parameters.new() }
+  let(:params) { ActionController::Parameters.new }
   let(:subject) { described_class.call(params) }
   let(:user) { FactoryGirl.build(:user) }
 
