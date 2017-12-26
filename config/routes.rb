@@ -1,4 +1,8 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
+  mount Sidekiq::Web => '/sidekiq'
+
   ActiveAdmin.routes(self)
   namespace :admin do
     resource :session, only: %i[show create destroy], path: :sign_in

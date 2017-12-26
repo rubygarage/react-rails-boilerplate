@@ -12,7 +12,7 @@ class ImageUploader < Shrine
     thumb = resize_to_limit!(original, 300, 300) { |cmd| cmd.auto_orient } # orient rotated images
 
     { original: io, thumb: thumb }
-end
+  end
 
   Attacher.validate do
     validate_mime_type_inclusion %w[image/jpeg image/jpg image/png]
