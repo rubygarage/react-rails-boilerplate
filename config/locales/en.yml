@@ -1,5 +1,7 @@
 en:
   errors:
+    admin:
+      invalid: Invalid email or password.
     rules:
       user:
         unique?: is not unique
