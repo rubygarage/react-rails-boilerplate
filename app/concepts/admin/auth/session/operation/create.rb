@@ -1,5 +1,7 @@
 class Admin::Auth::Session::Create < Trailblazer::Operation
   step :set_user!
+  step Contract::Build(constant: Admin::Auth::Session::Contract::Create)
+  step Contract::Validate()
   step :set_token!
   step :set_token_to_cookies!
 
