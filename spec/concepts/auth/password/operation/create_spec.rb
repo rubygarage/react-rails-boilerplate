@@ -27,8 +27,8 @@ RSpec.describe Auth::Password::Create do
       end
     end
 
-    context 'unexisted user' do
-      let(:params) { ActionController::Parameters.new({ email: 'unexisted_email@domain.lol' }) }
+    context 'nonexistent user' do
+      let(:params) { ActionController::Parameters.new({ email: 'nonexistent_email@domain.lol' }) }
 
       it 'fail' do
         expect(subject).not_to be_success
