@@ -2,17 +2,10 @@ machine:
   ruby:
     version:
       2.4.3
-  environment:
-      AWS_ACCESS_KEY_ID: 'secret id is here'
-      AWS_SECRET_ACCESS_KEY: 'secret access key is here'
-      S3_BUCKET_NAME: 'bucket name is here'
-      S3_REGION: 'region is here'
 
-dependencies:
-  pre:
-    - gem install bundler
-    - gem install rubygems-bundler
-    - 'echo -e "test:\n  secret_key_base: abcd1234" > config/secrets.yml'
+services:
+    - redis
+    - sidekiq
 
 database:
   override:

@@ -18,4 +18,4 @@ production:
   <<: *default
   database: react_rails_boilerplate_production
   username: react_rails_boilerplate
-  password: <%= ENV['ERP_DATABASE_PASSWORD'] %>
+  password: <%= ENV['RRB_DATABASE_PASSWORD'] %>
