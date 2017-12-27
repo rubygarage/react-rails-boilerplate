@@ -1,0 +1,16 @@
+{
+  "name": "rg-isomorphic",
+  "environment": "production",
+  "project": {
+    "branch": "features/configure-deploy-for-frontend"
+  },
+  "run_list": [
+    "role[setup]",
+    "role[database]",
+    "role[web]",
+    "role[security]"
+  ],
+  "automatic": {
+    "ipaddress": "54.86.24.42"
+  }
+}

@@ -1,11 +1,11 @@
 module.exports = {
   apps: [
     {
-      name: 'pindify-node-client',
+      name: 'rg-react-redux-isomorphic-example',
       script: 'bin/server.js',
-      pid_file: '../tmp/pids/pindify-node.pid',
-      out_file: '../log/pindify-node-out.log',
-      error_file: '../log/pindify-node-err.log',
+      pid_file: '../tmp/pids/rg-react-redux-isomorphic-example-node.pid',
+      out_file: '../log/rg-react-redux-isomorphic-example-node-out.log',
+      error_file: '../log/rg-react-redux-isomorphic-example-node-err.log',
       merge_logs: true,
       combine_logs: true,
       env_development: {
