@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  user: postgres
+
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: react_rails_boilerplate_development
+
+test:
+  <<: *default
+  database: react_rails_boilerplate_test
+
+production:
+  <<: *default
+  database: react_rails_boilerplate_production

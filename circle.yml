@@ -1,0 +1,27 @@
+machine:
+  ruby:
+    version:
+      2.4.3
+dependencies:
+  pre:
+    - gem install bundler -v '1.16.0'
+
+services:
+    - redis
+    - sidekiq
+
+database:
+  override:
+    - cp config/database.example.yml config/database.yml
+    - bundle exec rails db:create --trace
+    - bundle exec rails db:migrate --trace
+    - bundle exec rails db:migrate RAILS_ENV=test --trace
+
+machine:
+  timezone: Europe/Kiev
+  environment:
+    timezone: Europe/Kiev
+
+test:
+  override:
+    - bundle exec rspec spec/ --format doc
