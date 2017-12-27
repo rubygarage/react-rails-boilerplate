@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Admin::User::ConfirmEmail do
-  let!(:params) { Hash.new }
+  let!(:params) { {} }
   let(:subject) { described_class.call(params, user: user) }
   let(:user) { create(:user, confirmed_at: nil) }
 

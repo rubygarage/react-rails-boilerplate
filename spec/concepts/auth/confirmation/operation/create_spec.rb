@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Auth::Confirmation::Create do
-  let!(:params) { Hash.new }
+  let!(:params) { {} }
   let(:subject) { described_class.call(params) }
   let!(:user) { create(:user) }
 

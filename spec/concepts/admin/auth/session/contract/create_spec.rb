@@ -22,7 +22,7 @@ RSpec.describe Admin::Auth::Session::Contract::Create do
     end
 
     context 'missed params' do
-      let(:missed_params) { Hash.new }
+      let(:missed_params) { {} }
 
       before do
         subject.validate(missed_params)

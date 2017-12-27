@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Auth::Session::Contract::Create do
   subject { described_class.new(user) }
-  let(:missed_params) { Hash.new }
+  let(:missed_params) { {} }
   let(:valid_params) { { username: user.username, password: user.password } }
   let(:invalid_params) { { username: user.username, password: 'fake password' } }
   let!(:user) { create(:user) }
