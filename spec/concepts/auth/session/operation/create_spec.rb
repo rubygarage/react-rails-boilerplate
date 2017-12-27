@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Auth::Session::Create do
   subject { described_class.call(params, response) }
 
-  let!(:user) { FactoryGirl.create(:user) }
+  let!(:user) { create(:user) }
   let(:response) { { response: ActionDispatch::Response.new } }
 
   describe 'create session' do
@@ -15,11 +15,11 @@ RSpec.describe Auth::Session::Create do
       end
 
       it 'setup token' do
-        expect(subject['auth_token']).not_to be_nil
+        expect(subject['auth_token']).to be
       end
 
       it 'setup response_auth_headers' do
-        expect(subject[:response].header['Authorization']).to match 'Bearer '
+        expect(subject[:response].header['Authorization']).to start_with 'Bearer '
       end
 
       it 'has no errors' do

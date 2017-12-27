@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Auth::Password::Update do
   let(:params) { ActionController::Parameters.new({ password: '123456789', password_confirmation: '123456789' }) }
   let(:subject) { described_class.call(params) }
-  let(:user) { FactoryGirl.create(:user, password: 'super_duper_secured_password') }
+  let(:user) { create(:user, password: 'super_duper_secured_password') }
 
   describe 'password reset' do
     context 'valid token' do

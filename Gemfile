@@ -29,7 +29,7 @@ gem 'rolify'
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'inquisition', github: 'rubygarage/inquisition'
-  gem 'factory_girl_rails', '~> 4.9'
+  gem 'factory_bot_rails', '~> 4.8'
   gem 'rspec-rails'
 end
 

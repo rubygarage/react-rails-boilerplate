@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Auth::Password::Create do
   let(:params) { ActionController::Parameters.new({ email: user.email }) }
   let(:subject) { described_class.call(params) }
-  let!(:user) { FactoryGirl.create(:user) }
+  let!(:user) { create(:user) }
 
   describe 'creating password' do
     context 'persisted user' do
@@ -31,7 +31,7 @@ RSpec.describe Auth::Password::Create do
       let(:params) { ActionController::Parameters.new({ email: 'nonexistent_email@domain.lol' }) }
 
       it 'fail' do
-        expect(subject).not_to be_success
+        expect(subject).to be_failure
       end
 
       it 'is not send reset password email' do

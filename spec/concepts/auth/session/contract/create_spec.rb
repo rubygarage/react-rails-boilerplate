@@ -5,7 +5,7 @@ RSpec.describe Auth::Session::Contract::Create do
   let(:missed_params) { Hash.new }
   let(:valid_params) { { username: user.username, password: user.password } }
   let(:invalid_params) { { username: user.username, password: 'fake password' } }
-  let!(:user) { FactoryGirl.create(:user) }
+  let!(:user) { create(:user) }
 
   describe 'validations' do
     it 'success' do
@@ -14,8 +14,9 @@ RSpec.describe Auth::Session::Contract::Create do
 
     it 'fail on empty fields' do
       expect(subject.validate(missed_params)).to eq false
-      expect(subject.errors[:username]).to include 'must be filled'
-      expect(subject.errors[:password]).to include 'must be filled'
+      %i(username password).each do |key|
+        expect(subject.errors[key]).to include 'must be filled'
+      end
     end
 
     it 'fail on fake password' do

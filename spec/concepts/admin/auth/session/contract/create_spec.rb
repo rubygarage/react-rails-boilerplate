@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Admin::Auth::Session::Contract::Create do
   let(:subject) { described_class.new(admin) }
-  let!(:admin) { FactoryGirl.create(:user, :admin) }
+  let!(:admin) { create(:user, :admin) }
 
   describe 'validations' do
     context 'valid params' do
@@ -33,8 +33,9 @@ RSpec.describe Admin::Auth::Session::Contract::Create do
       end
 
       it 'show errors' do
-        expect(subject.errors[:username]).to include 'must be filled'
-        expect(subject.errors[:password]).to include 'must be filled'
+        %i(username password).each do |key|
+          expect(subject.errors[key]).to include 'must be filled'
+        end
       end
     end
 

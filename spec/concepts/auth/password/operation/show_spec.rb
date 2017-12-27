@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Auth::Password::Show do
   let(:params) { ActionController::Parameters.new }
   let(:subject) { described_class.call(params) }
-  let(:user) { FactoryGirl.build(:user) }
+  let(:user) { build(:user) }
 
   describe 'validate token' do
     context 'valid token' do

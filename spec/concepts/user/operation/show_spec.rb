@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User::Show do
   let(:subject) { described_class.call(params) }
-  let!(:user) { FactoryGirl.create(:user) }
+  let!(:user) { create(:user) }
 
   describe 'setup user' do
     let(:params) { { id: user.id } }
