@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Admin::Auth::Session::Create do
-  subject { described_class.call(params, response) }
+  subject { described_class.call(params, cookies) }
   let!(:admin) { create(:user, :admin) }
-  let(:response) { { response: ActionDispatch::Response.new } }
+  let(:cookies) { { cookies: {} } }
 
   describe 'create session' do
     context 'valid params' do
@@ -17,8 +17,8 @@ RSpec.describe Admin::Auth::Session::Create do
         expect(subject['auth_token']).to be
       end
 
-      it 'setup response_auth_headers' do
-        expect(subject[:response].header['Authorization']).to start_with 'Bearer '
+      it 'setup authToken to cookies' do
+        expect(subject[:cookies]['authToken']).to start_with 'Bearer '
       end
 
       it 'has no errors' do
@@ -37,8 +37,8 @@ RSpec.describe Admin::Auth::Session::Create do
         expect(subject['auth_token']).to be_nil
       end
 
-      it 'it not setup response_auth_headers' do
-        expect(subject[:response].header).to be_empty
+      it 'it not setup authToken to cookies' do
+        expect(subject[:cookies]['authToken']).to be_falsey
       end
     end
 
