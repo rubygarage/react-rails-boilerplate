@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Auth::Password::Create do
-  let(:params) { ActionController::Parameters.new({ email: user.email }) }
+  let(:params) { ActionController::Parameters.new(email: user.email) }
   let(:subject) { described_class.call(params) }
   let!(:user) { create(:user) }
 
@@ -13,28 +13,25 @@ RSpec.describe Auth::Password::Create do
         allow(ResetPasswordMailer).to receive(:reset_instructions) { instructions }
       end
 
-      it 'success' do
+      it 'sets model us user' do
+        expect(subject['model']).to eq user
         expect(subject).to be_success
       end
 
-      it 'setup model as existed user' do
-        expect(subject['model']).to eq user
-      end
-
-      it 'send reset password email' do
+      it 'sends reset password email' do
         expect(ResetPasswordMailer).to receive_message_chain(:reset_instructions, :deliver_later)
         subject
       end
     end
 
     context 'nonexistent user' do
-      let(:params) { ActionController::Parameters.new({ email: 'nonexistent_email@domain.lol' }) }
+      let(:params) { ActionController::Parameters.new(email: 'nonexistent_email@domain.lol') }
 
-      it 'fail' do
+      it 'fails' do
         expect(subject).to be_failure
       end
 
-      it 'is not send reset password email' do
+      it 'does not send reset password email' do
         expect(ResetPasswordMailer).not_to receive(:reset_instructions)
         subject
       end

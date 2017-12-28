@@ -10,43 +10,28 @@ RSpec.describe Auth::Session::Create do
     context 'valid params' do
       let(:params) { { username: user.username, password: user.password } }
 
-      it 'setup user' do
+      it 'creates session' do
         expect(subject['model']).to eq user
-      end
-
-      it 'setup token' do
         expect(subject['auth_token']).to be
-      end
-
-      it 'setup response_auth_headers' do
         expect(subject[:response].header['Authorization']).to start_with 'Bearer '
-      end
-
-      it 'has no errors' do
         expect(subject['contract.default'].errors).to be_empty
       end
     end
 
-    context 'invalid params, fake user' do
+    context 'invalid params' do
       let(:params) { { username: 'fake name', password: 'fake password' } }
 
-      it 'is not setup user' do
+      it 'does not create session' do
         expect(subject['model']).to be_nil
-      end
-
-      it 'is not setup token' do
         expect(subject['auth_token']).to be_nil
-      end
-
-      it 'it not setup response_auth_headers' do
         expect(subject[:response].header).to be_empty
       end
     end
 
-    context 'only invalid password, real user' do
+    context 'invalid password' do
       let(:params) { { username: user.username, password: 'fake password' } }
 
-      it 'setup user' do
+      it 'sets model as user' do
         expect(subject['model']).to eq user
         expect(subject['auth_token']).to be_nil
       end

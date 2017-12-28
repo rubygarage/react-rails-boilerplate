@@ -11,15 +11,9 @@ RSpec.describe Auth::Confirmation::Create do
         allow(Auth::Token::EmailConfirmation).to receive(:user_by_token) { user }
       end
 
-      it 'success' do
+      it 'confirms' do
         expect(subject).to be_success
-      end
-
-      it 'setup model as existed user' do
         expect(subject['model']).to eq user
-      end
-
-      it 'mark as confirmed' do
         expect(subject['model']).to be_confirmed_at
       end
     end
@@ -29,15 +23,9 @@ RSpec.describe Auth::Confirmation::Create do
         allow(Auth::Token::EmailConfirmation).to receive(:user_by_token) { nil }
       end
 
-      it 'fail' do
+      it 'stays unconfirmed' do
         expect(subject).to be_failure
-      end
-
-      it 'is not setup model' do
         expect(subject['model']).to be_nil
-      end
-
-      it 'is not mark as confirmed' do
         expect(subject['model']).not_to receive(:update)
       end
     end

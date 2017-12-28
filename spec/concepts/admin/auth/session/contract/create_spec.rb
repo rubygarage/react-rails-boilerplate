@@ -12,28 +12,23 @@ RSpec.describe Admin::Auth::Session::Contract::Create do
         subject.validate(valid_params)
       end
 
-      it 'success' do
+      it 'is success' do
         expect(subject).to be_valid
-      end
-
-      it 'has no errors' do
         expect(subject.errors).to be_empty
       end
     end
 
-    context 'missed params' do
-      let(:missed_params) { {} }
+    context 'empty params' do
+      let(:empty_params) { {} }
 
       before do
-        subject.validate(missed_params)
+        subject.validate(empty_params)
       end
 
-      it 'fail on empty fields' do
+      it 'fails with empty params' do
         expect(subject).not_to be_valid
-      end
 
-      it 'show errors' do
-        %i(username password).each do |key|
+        %i[username password].each do |key|
           expect(subject.errors[key]).to include 'must be filled'
         end
       end
@@ -46,11 +41,8 @@ RSpec.describe Admin::Auth::Session::Contract::Create do
         subject.validate(invalid_params)
       end
 
-      it 'fail on fake password' do
+      it 'fails' do
         expect(subject).not_to be_valid
-      end
-
-      it 'show invalid credentials' do
         expect(subject.errors[:username]).to include 'invalid credentials'
       end
     end

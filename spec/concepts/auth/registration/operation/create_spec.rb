@@ -6,14 +6,14 @@ RSpec.describe Auth::Registration::Create do
 
   describe 'create user' do
     context 'valid params' do
-      let(:params) {
+      let(:params) do
         {
           username: user.username,
           password: user.password,
           password_confirmation: user.password,
           email: user.email
         }
-      }
+      end
 
       before do
         confirmation = double('email confirmation')
@@ -21,12 +21,9 @@ RSpec.describe Auth::Registration::Create do
         allow(ConfirmationMailer).to receive(:confirmation_email) { confirmation }
       end
 
-      it 'setup user' do
+      it 'sets user as persisted model' do
         expect(subject['model'].username).to eq user.username
         expect(subject['model'].email).to eq user.email
-      end
-
-      it 'persist user' do
         expect(subject['model']).to be_persisted
       end
 
@@ -39,24 +36,18 @@ RSpec.describe Auth::Registration::Create do
     context 'invalid params' do
       let(:params) { { username: user.username, password: user.password, email: user.email } }
 
-      it 'is not setup user' do
+      it 'does not set model as user' do
         expect(subject['model'].username).to be_nil
         expect(subject['model'].email).to be_nil
       end
 
-      it 'show errors' do
+      it 'fails' do
+        expect(subject).to be_failure
+        expect(subject['model']).not_to be_persisted
         expect(subject['result.contract.default'].errors[:password_confirmation]).to include "doesn't match"
       end
 
-      it 'fail validation' do
-        expect(subject).to be_failure
-      end
-
-      it 'not to persist user' do
-        expect(subject['model']).not_to be_persisted
-      end
-
-      it 'is not send confirmation email' do
+      it 'does not send confirmation email' do
         expect(ConfirmationMailer).not_to receive(:confirmation_email)
         subject
       end
