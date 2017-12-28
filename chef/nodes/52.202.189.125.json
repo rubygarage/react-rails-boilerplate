@@ -2,7 +2,7 @@
   "name": "rg-isomorphic",
   "environment": "production",
   "project": {
-    "branch": "features/configure-deploy-for-frontend"
+    "branch": "feature/configure-deploy-for-backend"
   },
   "run_list": [
     "role[setup]",
@@ -11,6 +11,6 @@
     "role[security]"
   ],
   "automatic": {
-    "ipaddress": "54.86.24.42"
+    "ipaddress": "52.202.189.125"
   }
 }

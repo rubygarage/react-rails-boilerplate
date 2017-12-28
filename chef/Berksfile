@@ -12,6 +12,7 @@ cookbook 'postgresql_lwrp'
 cookbook 'sudo'
 cookbook 'swap_tuning'
 cookbook 'users'
+cookbook 'pm2'
 
 # dependencies for the local cookbooks
 cookbook 'git'

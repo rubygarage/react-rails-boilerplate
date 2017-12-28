@@ -8,6 +8,7 @@ DEPENDENCIES
   nginx
   nodejs
   openssh
+  pm2
   postgresql_lwrp
   redis
     git: git://github.com/phlipper/chef-redis.git
@@ -81,9 +82,14 @@ GRAPH
   ohai (5.2.0)
   openssh (2.6.1)
     iptables (>= 1.0)
+  pm2 (0.7.4)
+    poise-javascript (~> 1.1.0)
   poise (2.8.1)
   poise-archive (1.5.0)
     poise (~> 2.6)
+  poise-javascript (1.1.0)
+    poise (~> 2.0)
+    poise-languages (~> 2.0)
   poise-languages (2.1.1)
     poise (~> 2.5)
     poise-archive (~> 1.0)

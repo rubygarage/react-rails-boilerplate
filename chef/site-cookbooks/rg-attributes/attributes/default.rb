@@ -21,8 +21,10 @@ override['nginx']['source']['checksum'] = 'beb732bc7da80948c43fd0bf94940a21a21b1
 # To obtain the checksum you can download the file and check it locally.
 # $ shasum -a 256 node-vX.X.X.tar.gz
 
-override['nodejs']['version'] = '9.3.0'
-override['nodejs']['binary']['checksum'] = 'b7338f2b1588264c9591fef08246d72ceed664eb18f2556692b4679302bbe2a5'
+# override['nodejs']['version'] = '9.3.0'
+# override['nodejs']['binary']['checksum'] = 'b7338f2b1588264c9591fef08246d72ceed664eb18f2556692b4679302bbe2a5'
+override['nodejs']['version'] = '7.4.0'
+override['nodejs']['binary']['checksum'] = '8f663492bd288c8f8d978fad61ac412ea648476e2223346a7326180d937171fa'
 
 # Postgresql ----------------------------------------------------------------------------------------------------------
 

@@ -158,6 +158,10 @@ timestamped_deploy node['domain'] do
   migration_command "/bin/bash -lc 'source $HOME/.rvm/scripts/rvm && bundle exec rails db:migrate --trace'"
   migrate true
 
+  before_restart do
+    execute "cd #{release_path}/webpack && yarn global add webpack@2.2.0 && yarn install && yarn build"
+  end
+
   if File.exist? puma_state_file
     restart_command "/bin/bash -lc 'source $HOME/.rvm/scripts/rvm && bundle exec pumactl -S #{puma_state_file} restart'"
   end
