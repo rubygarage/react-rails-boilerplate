@@ -2,7 +2,7 @@ import { SIGN_IN, REQUEST, SUCCESS, ERROR } from 'constants/actions'
 
 const initialState = {
   currentUser: {},
-  loading: true
+  loading: false
 }
 
 export default function signin(state = initialState, action) {
