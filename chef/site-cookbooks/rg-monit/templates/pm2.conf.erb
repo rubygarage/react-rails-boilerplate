@@ -1,3 +1,5 @@
-check process pm2 with pidfile /home/deployer/.pm2/pm2.pid
-  start program = "/usr/bin/pm2 start <%= @project_root %>/current/webpack/pm2-app.config.js'"
-  stop program  = "/usr/bin/pm2 delete all"
+check process rg-labs with pidfile <%= @project_root %>/shared/tmp/pids/rg-labs-0.pid
+  start program = "/bin/su - deployer -lc 'cd <%= @project_root %>/current/webpack && $(yarn global bin)/pm2 start pm2-app.config.js --env <%= node.environment %>'"
+    with timeout 15 seconds
+  stop program  = "/bin/su - deployer -lc 'cd <%= @project_root %>/current/webpack && $(yarn global bin)/pm2 delete all'"
+    with timeout 15 seconds
