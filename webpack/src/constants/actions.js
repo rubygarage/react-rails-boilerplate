@@ -6,6 +6,7 @@ export const VALIDATE_TOKEN = 'VALIDATE_TOKEN'
 export const SIGN_UP = 'SIGN_UP'
 export const SIGN_IN = 'SIGN_IN'
 export const SIGN_OUT = 'SIGN_OUT'
+export const OAUTH = 'OAUTH'
 
 export const SEND_RESTORE_PASSWORD_EMAIL = 'SEND_RESTORE_PASSWORD_EMAIL'
 export const UPDATE_PASSWORD = 'UPDATE_PASSWORD'
