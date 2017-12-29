@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import configureStore from 'redux-mock-store'
-import ConfirmationContainer, { Confirmation } from 'containers/auth/Confirmation'
+import ConfirmationContainer, { Confirmation } from 'containers/Confirmation'
 
 describe('<Confirmation />', () => {
   const defaultProps = {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import configureStore from 'redux-mock-store'
-import OauthContainer, { Oauth } from 'containers/auth/Oauth'
+import OauthContainer, { Oauth } from 'containers/Oauth'
 
 describe('<Oauth />', () => {
   const defaultProps = {
