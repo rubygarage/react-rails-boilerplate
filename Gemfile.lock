@@ -142,6 +142,7 @@ GEM
     concurrent-ruby (1.0.5)
     connection_pool (2.2.1)
     crass (1.0.2)
+    database_cleaner (1.6.2)
     debug_inspector (0.0.3)
     declarative (0.0.10)
     declarative-builder (0.1.0)
@@ -189,11 +190,17 @@ GEM
     erubi (1.7.0)
     erubis (2.7.0)
     execjs (2.7.0)
+    factory_bot (4.8.2)
+      activesupport (>= 3.0.0)
+    factory_bot_rails (4.8.2)
+      factory_bot (~> 4.8.2)
+      railties (>= 3.0.0)
     faraday (0.12.2)
       multipart-post (>= 1.2, < 3)
     fasterer (0.3.2)
       colorize (~> 0.7)
       ruby_parser (~> 3.7)
+    ffaker (2.7.0)
     ffi (1.9.18)
     figaro (1.1.1)
       thor (~> 0.14)
@@ -509,7 +516,10 @@ DEPENDENCIES
   aws-sdk-s3 (~> 1.2)
   bcrypt
   byebug
+  database_cleaner (~> 1.6)
   dry-validation
+  factory_bot_rails (~> 4.8)
+  ffaker (~> 2.7)
   figaro
   haml-rails
   image_processing

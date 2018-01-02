@@ -1,6 +1,5 @@
 class Auth::Registration::Contract::Create < Reform::Form
   include Dry
-
   property :email
   property :username
   property :password
