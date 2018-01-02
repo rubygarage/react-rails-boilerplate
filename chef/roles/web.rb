@@ -4,7 +4,6 @@ description 'Web server'
 run_list 'recipe[rg-redis]',
          'recipe[rg-nodejs]',
          'recipe[rg-nginx]',
-         'recipe[rg-pm2]',
          'recipe[rg-imagemagick]',
          'recipe[rg-monit::nginx]',
          'recipe[rg-monit::puma]',

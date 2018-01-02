@@ -5,7 +5,7 @@ module.exports = {
     {
       name: 'rg-labs',
       script: __dirname + '/bin/server.js',
-      pid_file: path.resolve(__dirname, '../pids/rg-labs.pid'),
+      pid_file: path.resolve(__dirname, '../tmp/pids/rg-labs.pid'),
       out_file: path.resolve(__dirname, '../log/rg-labs-out.log'),
       error_file: path.resolve(__dirname, '../log/rg-labs-err.log'),
       merge_logs: true,

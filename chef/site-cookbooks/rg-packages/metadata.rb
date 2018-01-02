@@ -1,4 +1,4 @@
-name             'rg-pachages'
+name             'rg-packages'
 maintainer       'Dmitriy Grechukha'
 maintainer_email 'dmitriy.grechukha@gmail.com'
 license          'All rights reserved'

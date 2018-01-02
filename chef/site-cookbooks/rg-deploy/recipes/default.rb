@@ -159,7 +159,13 @@ timestamped_deploy node['domain'] do
   migrate true
 
   before_restart do
-    execute "/bin/bash -lc 'cd #{release_path}/webpack && yarn global add webpack@2.2.0 && yarn install && yarn build'"
+    execute 'start node client' do
+      cwd release_path
+      user deployer
+      group deployer
+      command 'yarn global add pm2 && export PATH="$(yarn global bin):$PATH"'
+    end
+    execute "/bin/su - deployer -lc 'cd #{release_path}/webpack && yarn global add webpack@2.2.0 && yarn install && yarn build'"
   end
 
   if File.exist? puma_state_file
