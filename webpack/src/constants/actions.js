@@ -15,3 +15,4 @@ export const GET_USER = 'GET_USER'
 export const UPDATE_USER = 'UPDATE_USER'
 
 export const SET_LOCALE = 'SET_LOCALE'
+export const GET_EMAIL_CONFIRMATION = 'GET_EMAIL_CONFIRMATION'

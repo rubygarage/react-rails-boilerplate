@@ -17,7 +17,8 @@ describe('signIn()', () => {
       password: 'password'
     },
     resolve: jest.fn(),
-    reject: jest.fn()
+    reject: jest.fn(),
+    redirect: jest.fn()
   }
 
   beforeAll(() => {
@@ -29,7 +30,7 @@ describe('signIn()', () => {
     const saga = signIn(params)
 
     expect(saga.next().value).toEqual(
-      call(apiClient.post, '/api/v1/auth/sign_in', params.values)
+      call(apiClient.post, '/api/v1/auth/users/session', params.values)
     )
 
     expect(saga.next({ data: response }).value).toEqual(
@@ -43,10 +44,6 @@ describe('signIn()', () => {
     )
 
     expect(saga.next().value).toEqual(
-      put({ type: 'CLEAR_ALL_CARD_LISTS' })
-    )
-
-    expect(saga.next().value).toEqual(
       put({
         type: 'SIGN_IN_SUCCESS',
         entities: normalizedResponse.entities,
@@ -55,11 +52,11 @@ describe('signIn()', () => {
     )
 
     expect(saga.next().value).toEqual(
-      call(browserHistory.push, '/market')
+      call(params.resolve)
     )
 
     expect(saga.next().value).toEqual(
-      call(params.resolve)
+      call(params.redirect, '/')
     )
 
     expect(saga.next().done).toBe(true)
@@ -70,7 +67,7 @@ describe('signIn()', () => {
     const error = { response: { data: 'Error' } }
 
     expect(saga.next().value).toEqual(
-      call(apiClient.post, '/api/v1/auth/sign_in', params.values)
+      call(apiClient.post, '/api/v1/auth/users/session', params.values)
     )
 
     expect(saga.throw(error).value).toEqual(

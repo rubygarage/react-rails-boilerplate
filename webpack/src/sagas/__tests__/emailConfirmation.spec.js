@@ -17,7 +17,7 @@ describe('emailConfirmation()', () => {
     const saga = emailConfirmation(action)
 
     expect(saga.next().value).toEqual(
-      call(apiClient.get, '/api/v1/auth/confirmation', { params: { confirmation_token: action.confirmation_token } })
+      call(apiClient.get, '/api/v1/auth/users/confirmation', { confirmation_token: action.confirmation_token })
     )
 
     expect(saga.next().value).toEqual(
@@ -32,7 +32,7 @@ describe('emailConfirmation()', () => {
     const error = new Error('Unexpected Network Error')
 
     expect(saga.next().value).toEqual(
-      call(apiClient.get, '/api/v1/auth/confirmation', { params: { confirmation_token: action.confirmation_token } })
+      call(apiClient.get, '/api/v1/auth/users/confirmation', { confirmation_token: action.confirmation_token })
     )
 
     expect(saga.throw(error).value).toEqual(
