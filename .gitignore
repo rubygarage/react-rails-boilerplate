@@ -30,4 +30,4 @@
 /chef/cookbooks/**/*
 /chef/encrypted_data_bag_secret
 
-dump.rdb
+/public/uploads/cache/*
