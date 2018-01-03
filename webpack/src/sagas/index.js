@@ -1,5 +1,5 @@
 import { all, join, fork } from 'redux-saga/effects'
-import watchGetUser from 'sagas/user'
+import { watchGetUser, watchUpdateUser } from 'sagas/user'
 import watchSignIn from 'sagas/signin'
 import watchSignOut from 'sagas/signout'
 import watchSignUp from 'sagas/signup'
@@ -18,6 +18,7 @@ export default function* rootSaga() {
     watchSignOut(),
     watchSignUp(),
     watchSendRestorePassword(),
-    watchUpdatePassword()
+    watchUpdatePassword(),
+    watchUpdateUser()
   ])
 }

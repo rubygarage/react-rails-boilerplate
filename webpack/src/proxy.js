@@ -26,7 +26,7 @@ const devProxy = (app) => {
         reqBodyEncoding,
         parseBodyReq,
         limit: '100mb',
-        forwardPath: (req) => `/api/${url.parse(req.url).path}`
+        forwardPath: (req) => `/api${url.parse(req.url).path}`
       })(req, res, next)
     }
   }

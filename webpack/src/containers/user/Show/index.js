@@ -10,7 +10,8 @@ class User extends Component {
   static propTypes = {
     user: PropTypes.object,
     id: PropTypes.string.isRequired,
-    getUserAction: PropTypes.func.isRequired
+    getUserAction: PropTypes.func.isRequired,
+    userEditUrl: PropTypes.string
   }
 
   componentDidMount() {
@@ -19,15 +20,23 @@ class User extends Component {
   }
 
   render() {
-    return <UserComponent user={this.props.user} />
+    const { user, userEditUrl } = this.props
+    const userShowProps = {
+      userEditUrl,
+      user
+    }
+
+    return <UserComponent {...userShowProps} />
   }
 }
 
 const mapStateToProps = (state, ownProps) => {
   const { id } = ownProps.match.params
+  const user = getUser(state, id)
 
   return {
-    user: getUser(state, id),
+    userEditUrl: `/user/${user.id}/edit`,
+    user,
     id
   }
 }

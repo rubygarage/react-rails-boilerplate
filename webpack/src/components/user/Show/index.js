@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 import Header from 'containers/Header'
 
 // TODO: Better/prettier presentation for User once avatar will be implemented
-function User({ user }) {
+function UserShow({ user, userEditUrl }) {
   return (
     <main>
       <Header />
@@ -17,12 +18,16 @@ function User({ user }) {
           Email: {user.email}
         </p>
       </div>
+      <Link className="btn btn-primary mr-2" to={userEditUrl}>
+        Edit
+      </Link>
     </main>
   )
 }
 
-User.propTypes = {
-  user: PropTypes.object
+UserShow.propTypes = {
+  user: PropTypes.object,
+  userEditUrl: PropTypes.string
 }
 
-export default User
+export default UserShow
