@@ -5,7 +5,7 @@ override['nginx']['version'] = node['nginx']['source']['version']
 override['nginx']['source']['prefix'] = "/opt/nginx-#{node['nginx']['source']['version']}"
 override['nginx']['source']['sbin_path'] = "#{node['nginx']['source']['prefix']}/sbin/nginx"
 override['nginx']['binary'] = node['nginx']['source']['sbin_path']
-override['nginx']['init_style'] = 'init'
+# override['nginx']['init_style'] = 'init'
 
 override['nginx']['source']['default_configure_flags'] = %W(
   --prefix=#{node['nginx']['source']['prefix']}

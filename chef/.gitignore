@@ -1,7 +1,0 @@
-/cookbooks
-/tmp
-/vagrant/*
-
-!/vagrant/Vagrantfile
-
-encrypted_data_bag_secret
