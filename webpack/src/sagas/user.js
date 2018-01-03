@@ -12,8 +12,8 @@ export function* getUser({ id }, req = undefined, res = undefined) {
     const { entities, results } = yield call(normalize, response.data)
     yield put({ type: GET_USER + SUCCESS, entities, results })
   } catch (error) {
-    redirect('/404', res)
     yield put({ type: GET_USER + ERROR, error })
+    yield call(redirect, '/404', res)
   }
 }
 

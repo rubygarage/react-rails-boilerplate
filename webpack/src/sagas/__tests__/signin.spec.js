@@ -6,8 +6,8 @@ import { normalize } from 'normalize-json-api'
 import { takeEvery, call, put } from 'redux-saga/effects'
 import watchSignIn, { signIn } from 'sagas/signin'
 import { response } from 'responses/signin'
+import { redirect } from 'helpers/redirect'
 import { setTokenToStorage } from 'utils/tokens'
-import { browserHistory } from 'react-router'
 
 describe('signIn()', () => {
   let apiClient
@@ -17,8 +17,7 @@ describe('signIn()', () => {
       password: 'password'
     },
     resolve: jest.fn(),
-    reject: jest.fn(),
-    redirect: jest.fn()
+    reject: jest.fn()
   }
 
   beforeAll(() => {
@@ -56,7 +55,7 @@ describe('signIn()', () => {
     )
 
     expect(saga.next().value).toEqual(
-      call(params.redirect, '/')
+      call(redirect, '/')
     )
 
     expect(saga.next().done).toBe(true)
