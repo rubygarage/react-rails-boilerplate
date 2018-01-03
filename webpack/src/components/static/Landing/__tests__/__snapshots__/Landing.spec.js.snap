@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Landing /> renders Landing component 1`] = `
+<main>
+  <Connect(Header) />
+  <div
+    className="jumbotron"
+  >
+    <h1
+      className="display-3"
+    >
+       
+      <FormattedMessage
+        id="landing.header"
+        values={Object {}}
+      />
+       
+    </h1>
+    <p
+      className="lead"
+    >
+       
+      <FormattedMessage
+        id="landing.lead_message"
+        values={Object {}}
+      />
+       
+    </p>
+    <p>
+       
+      <FormattedMessage
+        id="landing.note"
+        values={Object {}}
+      />
+       
+    </p>
+  </div>
+</main>
+`;

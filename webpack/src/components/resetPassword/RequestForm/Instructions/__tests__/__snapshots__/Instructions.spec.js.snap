@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Instruction /> renders Instruction component 1`] = `
+<main
+  className="container"
+>
+  <div
+    className="jumbotron"
+  >
+    <h3>
+       
+      <FormattedMessage
+        id="restore_password.header"
+        values={Object {}}
+      />
+       
+    </h3>
+    <p
+      className="lead"
+    >
+       
+      <FormattedMessage
+        id="restore_password.instructions"
+        values={Object {}}
+      />
+       
+    </p>
+  </div>
+</main>
+`;

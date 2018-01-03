@@ -1,0 +1,358 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SigniIn /> renders sign up form and pristine is true 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="col-md-6 offset-md-3"
+    >
+      <div
+        className="register-wrap"
+      >
+        <div
+          className="card"
+        >
+          <div
+            className="card-header text-center"
+          >
+            <h2>
+               
+              <FormattedMessage
+                id="sign_up.register"
+                values={Object {}}
+              />
+               
+            </h2>
+          </div>
+          <div
+            className="card-block"
+          >
+            <form>
+              <ErrorMessage
+                name="username"
+              />
+              <div
+                className="input-group mb-3"
+              >
+                <Field
+                  className="form-control"
+                  component="input"
+                  name="username"
+                  type="text"
+                />
+              </div>
+              <ErrorMessage
+                name="email"
+              />
+              <div
+                className="input-group mb-3"
+              >
+                <Field
+                  className="form-control"
+                  component="input"
+                  name="email"
+                  type="text"
+                />
+              </div>
+              <ErrorMessage
+                name="password"
+              />
+              <div
+                className="input-group mb-3"
+              >
+                <Field
+                  className="form-control"
+                  component="input"
+                  name="password"
+                  type="password"
+                />
+              </div>
+              <ErrorMessage
+                name="password_confirmation"
+              />
+              <div
+                className="input-group mb-3"
+              >
+                <Field
+                  className="form-control"
+                  component="input"
+                  name="password_confirmation"
+                  type="password"
+                />
+              </div>
+              <button
+                className="btn btn-primary mb-3"
+                disabled={true}
+                type="submit"
+              >
+                <FormattedMessage
+                  id="sign_up.register"
+                  values={Object {}}
+                />
+              </button>
+            </form>
+            <p>
+              <FormattedMessage
+                id="sign_up.already_member"
+                values={Object {}}
+              />
+               
+              <Link
+                replace={false}
+                to="/sign_in"
+              >
+                <FormattedMessage
+                  id="sign_up.login"
+                  values={Object {}}
+                />
+              </Link>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<SigniIn /> renders sign up form and submitting is false 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="col-md-6 offset-md-3"
+    >
+      <div
+        className="register-wrap"
+      >
+        <div
+          className="card"
+        >
+          <div
+            className="card-header text-center"
+          >
+            <h2>
+               
+              <FormattedMessage
+                id="sign_up.register"
+                values={Object {}}
+              />
+               
+            </h2>
+          </div>
+          <div
+            className="card-block"
+          >
+            <form>
+              <ErrorMessage
+                name="username"
+              />
+              <div
+                className="input-group mb-3"
+              >
+                <Field
+                  className="form-control"
+                  component="input"
+                  name="username"
+                  type="text"
+                />
+              </div>
+              <ErrorMessage
+                name="email"
+              />
+              <div
+                className="input-group mb-3"
+              >
+                <Field
+                  className="form-control"
+                  component="input"
+                  name="email"
+                  type="text"
+                />
+              </div>
+              <ErrorMessage
+                name="password"
+              />
+              <div
+                className="input-group mb-3"
+              >
+                <Field
+                  className="form-control"
+                  component="input"
+                  name="password"
+                  type="password"
+                />
+              </div>
+              <ErrorMessage
+                name="password_confirmation"
+              />
+              <div
+                className="input-group mb-3"
+              >
+                <Field
+                  className="form-control"
+                  component="input"
+                  name="password_confirmation"
+                  type="password"
+                />
+              </div>
+              <button
+                className="btn btn-primary mb-3"
+                disabled={false}
+                type="submit"
+              >
+                <FormattedMessage
+                  id="sign_up.register"
+                  values={Object {}}
+                />
+              </button>
+            </form>
+            <p>
+              <FormattedMessage
+                id="sign_up.already_member"
+                values={Object {}}
+              />
+               
+              <Link
+                replace={false}
+                to="/sign_in"
+              >
+                <FormattedMessage
+                  id="sign_up.login"
+                  values={Object {}}
+                />
+              </Link>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<SigniIn /> renders sign up form submitting is true 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="col-md-6 offset-md-3"
+    >
+      <div
+        className="register-wrap"
+      >
+        <div
+          className="card"
+        >
+          <div
+            className="card-header text-center"
+          >
+            <h2>
+               
+              <FormattedMessage
+                id="sign_up.register"
+                values={Object {}}
+              />
+               
+            </h2>
+          </div>
+          <div
+            className="card-block"
+          >
+            <form>
+              <ErrorMessage
+                name="username"
+              />
+              <div
+                className="input-group mb-3"
+              >
+                <Field
+                  className="form-control"
+                  component="input"
+                  name="username"
+                  type="text"
+                />
+              </div>
+              <ErrorMessage
+                name="email"
+              />
+              <div
+                className="input-group mb-3"
+              >
+                <Field
+                  className="form-control"
+                  component="input"
+                  name="email"
+                  type="text"
+                />
+              </div>
+              <ErrorMessage
+                name="password"
+              />
+              <div
+                className="input-group mb-3"
+              >
+                <Field
+                  className="form-control"
+                  component="input"
+                  name="password"
+                  type="password"
+                />
+              </div>
+              <ErrorMessage
+                name="password_confirmation"
+              />
+              <div
+                className="input-group mb-3"
+              >
+                <Field
+                  className="form-control"
+                  component="input"
+                  name="password_confirmation"
+                  type="password"
+                />
+              </div>
+              <button
+                className="btn btn-primary mb-3"
+                disabled={true}
+                type="submit"
+              >
+                <FormattedMessage
+                  id="sign_up.register"
+                  values={Object {}}
+                />
+              </button>
+            </form>
+            <p>
+              <FormattedMessage
+                id="sign_up.already_member"
+                values={Object {}}
+              />
+               
+              <Link
+                replace={false}
+                to="/sign_in"
+              >
+                <FormattedMessage
+                  id="sign_up.login"
+                  values={Object {}}
+                />
+              </Link>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

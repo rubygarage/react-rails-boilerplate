@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> render header with Sign Out and Show Profile 1`] = `
+<nav
+  className="navbar primary-color"
+>
+  <form
+    className="form-inline justify-content-end"
+  >
+    <div>
+      <Link
+        className="btn btn-primary mr-2"
+        replace={false}
+        to="/user/profile"
+      >
+        <FormattedMessage
+          id="header.my_profile"
+          values={Object {}}
+        />
+      </Link>
+      <button
+        className="btn btn-primary"
+        onClick={[Function]}
+      >
+        <FormattedMessage
+          id="header.logout"
+          values={Object {}}
+        />
+      </button>
+    </div>
+  </form>
+</nav>
+`;
+
+exports[`<Header /> render header with sign in button 1`] = `
+<nav
+  className="navbar primary-color"
+>
+  <form
+    className="form-inline justify-content-end"
+  >
+    <Link
+      className="btn btn-primary"
+      replace={false}
+      to="/sign_in"
+    >
+      <FormattedMessage
+        id="header.signin"
+        values={Object {}}
+      />
+    </Link>
+  </form>
+</nav>
+`;

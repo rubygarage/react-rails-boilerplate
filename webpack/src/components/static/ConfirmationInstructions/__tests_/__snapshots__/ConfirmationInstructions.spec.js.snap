@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ConfirmationInstructions /> renders ConfirmationInstructions component 1`] = `
+<main
+  className="container"
+>
+  <div
+    className="jumbotron"
+  >
+    <h1
+      className="display-3"
+    >
+       
+      <FormattedMessage
+        id="confirmation_instructions.thanks"
+        values={Object {}}
+      />
+       
+    </h1>
+    <p
+      className="lead"
+    >
+       
+      <FormattedMessage
+        id="confirmation_instructions.check_email"
+        values={Object {}}
+      />
+       
+    </p>
+    <ul
+      className="list-unstyled"
+    >
+      <li>
+         
+        <FormattedMessage
+          id="confirmation_instructions.help_header"
+          values={Object {}}
+        />
+         
+      </li>
+      <ul>
+        <li>
+           
+          <FormattedMessage
+            id="confirmation_instructions.help_spam"
+            values={Object {}}
+          />
+           
+        </li>
+        <li>
+           
+          <FormattedMessage
+            id="confirmation_instructions.help_email"
+            values={Object {}}
+          />
+           
+        </li>
+        <li>
+           
+          <FormattedMessage
+            id="confirmation_instructions.help_support"
+            values={Object {}}
+          />
+           
+        </li>
+      </ul>
+    </ul>
+  </div>
+</main>
+`;

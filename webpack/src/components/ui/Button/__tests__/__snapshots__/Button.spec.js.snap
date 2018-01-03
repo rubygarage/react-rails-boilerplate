@@ -9,17 +9,47 @@ exports[`<Button /> renders A 1`] = `
 />
 `;
 
+exports[`<Button /> renders A with props 1`] = `
+<a
+  className="btn blue md grey"
+  disabled={true}
+  href="/"
+  onClick={[Function]}
+  rel="noopener noreferrer"
+  target="_blank"
+/>
+`;
+
 exports[`<Button /> renders Button 1`] = `
 <button
   className="btn blue md"
 />
 `;
 
+exports[`<Button /> renders Button with props 1`] = `
+<button
+  className="btn blue md grey"
+  disabled={true}
+  onClick={[Function]}
+  type="button"
+/>
+`;
+
 exports[`<Button /> renders Link 1`] = `
 <Link
   className="btn blue md"
-  onlyActiveOnIndex={false}
-  style={Object {}}
+  replace={false}
   to="/"
+/>
+`;
+
+exports[`<Button /> renders Link with props 1`] = `
+<a
+  className="btn blue md grey"
+  disabled={true}
+  href="/"
+  onClick={[Function]}
+  rel="noopener noreferrer"
+  target="_blank"
 />
 `;

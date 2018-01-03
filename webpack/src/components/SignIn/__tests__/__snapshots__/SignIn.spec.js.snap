@@ -1,0 +1,355 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SigniIn /> renders sign in form and pristine is true 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="col-md-6 offset-md-3"
+    >
+      <div
+        className="register-wrap"
+      >
+        <div
+          className="card"
+        >
+          <div
+            className="card-header text-center"
+          >
+            <h2>
+               
+              <FormattedMessage
+                id="sign_in.login"
+                values={Object {}}
+              />
+               
+            </h2>
+          </div>
+          <div
+            className="card-block"
+          >
+            <form>
+              <ErrorMessage
+                name="username"
+              />
+              <div
+                className="input-group mb-3"
+              >
+                <Field
+                  className="form-control"
+                  component="input"
+                  name="username"
+                  type="text"
+                />
+              </div>
+              <div
+                className="input-group mb-3"
+              >
+                <Field
+                  className="form-control"
+                  component="input"
+                  name="password"
+                  type="password"
+                />
+              </div>
+              <div>
+                <Field
+                  className="mr-2"
+                  component="input"
+                  id="remember"
+                  name="remember"
+                  type="checkbox"
+                />
+                <label
+                  htmlFor="remember"
+                >
+                  <FormattedMessage
+                    id="sign_in.remember_me"
+                    values={Object {}}
+                  />
+                </label>
+              </div>
+              <button
+                className="btn btn-primary mb-3"
+                disabled={true}
+                type="submit"
+              >
+                <FormattedMessage
+                  id="sign_in.login"
+                  values={Object {}}
+                />
+              </button>
+            </form>
+            <p>
+              <FormattedMessage
+                id="sign_in.not_a_member_yet"
+                values={Object {}}
+              />
+               
+              <Link
+                replace={false}
+                to="/sign_up"
+              >
+                <FormattedMessage
+                  id="sign_in.register"
+                  values={Object {}}
+                />
+              </Link>
+            </p>
+            <p>
+              <Link
+                replace={false}
+                to="/reset_password"
+              >
+                <FormattedMessage
+                  id="sign_in.forgot_password"
+                  values={Object {}}
+                />
+              </Link>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<SigniIn /> renders sign in form and submitting button is false 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="col-md-6 offset-md-3"
+    >
+      <div
+        className="register-wrap"
+      >
+        <div
+          className="card"
+        >
+          <div
+            className="card-header text-center"
+          >
+            <h2>
+               
+              <FormattedMessage
+                id="sign_in.login"
+                values={Object {}}
+              />
+               
+            </h2>
+          </div>
+          <div
+            className="card-block"
+          >
+            <form>
+              <ErrorMessage
+                name="username"
+              />
+              <div
+                className="input-group mb-3"
+              >
+                <Field
+                  className="form-control"
+                  component="input"
+                  name="username"
+                  type="text"
+                />
+              </div>
+              <div
+                className="input-group mb-3"
+              >
+                <Field
+                  className="form-control"
+                  component="input"
+                  name="password"
+                  type="password"
+                />
+              </div>
+              <div>
+                <Field
+                  className="mr-2"
+                  component="input"
+                  id="remember"
+                  name="remember"
+                  type="checkbox"
+                />
+                <label
+                  htmlFor="remember"
+                >
+                  <FormattedMessage
+                    id="sign_in.remember_me"
+                    values={Object {}}
+                  />
+                </label>
+              </div>
+              <button
+                className="btn btn-primary mb-3"
+                disabled={false}
+                type="submit"
+              >
+                <FormattedMessage
+                  id="sign_in.login"
+                  values={Object {}}
+                />
+              </button>
+            </form>
+            <p>
+              <FormattedMessage
+                id="sign_in.not_a_member_yet"
+                values={Object {}}
+              />
+               
+              <Link
+                replace={false}
+                to="/sign_up"
+              >
+                <FormattedMessage
+                  id="sign_in.register"
+                  values={Object {}}
+                />
+              </Link>
+            </p>
+            <p>
+              <Link
+                replace={false}
+                to="/reset_password"
+              >
+                <FormattedMessage
+                  id="sign_in.forgot_password"
+                  values={Object {}}
+                />
+              </Link>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<SigniIn /> renders sign in form and submitting is true 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="col-md-6 offset-md-3"
+    >
+      <div
+        className="register-wrap"
+      >
+        <div
+          className="card"
+        >
+          <div
+            className="card-header text-center"
+          >
+            <h2>
+               
+              <FormattedMessage
+                id="sign_in.login"
+                values={Object {}}
+              />
+               
+            </h2>
+          </div>
+          <div
+            className="card-block"
+          >
+            <form>
+              <ErrorMessage
+                name="username"
+              />
+              <div
+                className="input-group mb-3"
+              >
+                <Field
+                  className="form-control"
+                  component="input"
+                  name="username"
+                  type="text"
+                />
+              </div>
+              <div
+                className="input-group mb-3"
+              >
+                <Field
+                  className="form-control"
+                  component="input"
+                  name="password"
+                  type="password"
+                />
+              </div>
+              <div>
+                <Field
+                  className="mr-2"
+                  component="input"
+                  id="remember"
+                  name="remember"
+                  type="checkbox"
+                />
+                <label
+                  htmlFor="remember"
+                >
+                  <FormattedMessage
+                    id="sign_in.remember_me"
+                    values={Object {}}
+                  />
+                </label>
+              </div>
+              <button
+                className="btn btn-primary mb-3"
+                disabled={true}
+                type="submit"
+              >
+                <FormattedMessage
+                  id="sign_in.login"
+                  values={Object {}}
+                />
+              </button>
+            </form>
+            <p>
+              <FormattedMessage
+                id="sign_in.not_a_member_yet"
+                values={Object {}}
+              />
+               
+              <Link
+                replace={false}
+                to="/sign_up"
+              >
+                <FormattedMessage
+                  id="sign_in.register"
+                  values={Object {}}
+                />
+              </Link>
+            </p>
+            <p>
+              <Link
+                replace={false}
+                to="/reset_password"
+              >
+                <FormattedMessage
+                  id="sign_in.forgot_password"
+                  values={Object {}}
+                />
+              </Link>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
