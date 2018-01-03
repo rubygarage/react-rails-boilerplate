@@ -1,11 +1,13 @@
+const path = require('path');
+
 module.exports = {
   apps: [
     {
-      name: 'pindify-node-client',
-      script: 'bin/server.js',
-      pid_file: '../tmp/pids/pindify-node.pid',
-      out_file: '../log/pindify-node-out.log',
-      error_file: '../log/pindify-node-err.log',
+      name: 'rg-labs',
+      script: __dirname + '/bin/server.js',
+      pid_file: path.resolve(__dirname, '../tmp/pids/rg-labs.pid'),
+      out_file: path.resolve(__dirname, '../log/rg-labs-out.log'),
+      error_file: path.resolve(__dirname, '../log/rg-labs-err.log'),
       merge_logs: true,
       combine_logs: true,
       env_development: {
