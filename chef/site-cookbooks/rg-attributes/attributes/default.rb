@@ -1,3 +1,5 @@
+encrypted_data = Chef::EncryptedDataBagItem.load('configs', node.environment)
+
 # Deploy --------------------------------------------------------------------------------------------------------------
 
 override['project']['name'] = 'rg-isomorphic'
@@ -5,8 +7,8 @@ override['project']['repository'] = 'git@github.com:rubygarage/react-rails-boile
 
 # Monit ---------------------------------------------------------------------------------------------------------------
 
-override['monit']['username'] = 'admin'
-override['monit']['password'] = '1q2w3e4r5t6y'
+override['monit']['username'] = encrypted_data['monit']['username']
+override['monit']['password'] = encrypted_data['monit']['password']
 
 # Nginx ---------------------------------------------------------------------------------------------------------------
 
