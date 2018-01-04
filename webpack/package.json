@@ -4,7 +4,7 @@
   "description": "",
   "keywords": [],
   "author": "Denis Kostyrko",
-  "license": "GPL v2",
+  "license": "GPL-2.0",
   "repository": {
     "private": false
   },
@@ -194,7 +194,7 @@
     "react-transform-hmr": "^1.0.4",
     "redux-mock-store": "^1.3.0",
     "remote-redux-devtools": "^0.5.7",
-    "resolve-url-loader": "^2.1.0",
+    "resolve-url-loader": "^2.2.0",
     "sass-loader": "^6.0.6",
     "strip-loader": "^0.1.2",
     "style-loader": "^0.19.0",
