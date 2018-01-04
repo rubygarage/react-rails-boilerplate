@@ -5,38 +5,38 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'active_model_serializers'
-gem 'activeadmin'
+gem 'active_model_serializers', '~> 0.10'
+gem 'activeadmin', '~> 1.1'
 gem 'aws-sdk-s3', '~> 1.2' # for Amazon S3 storage
-gem 'bcrypt'
-gem 'bootsnap', require: false
-gem 'dry-validation'
-gem 'figaro'
-gem 'uglifier'
-gem 'haml-rails'
-gem 'image_processing'
-gem 'jwt'
-gem 'mini_magick'
-gem 'omniauth'
-gem 'omniauth-facebook'
-gem 'pg'
-gem 'puma', '~> 3.0'
-gem 'pundit'
+gem 'bcrypt', '~> 3.1'
+gem 'bootsnap', '~> 1.1', require: false
+gem 'dry-validation', '~> 0.11'
+gem 'figaro', '~> 1.1'
+gem 'uglifier', '~> 4.0'
+gem 'haml-rails', '~> 1.0'
+gem 'image_processing', '~> 0.4'
+gem 'jwt', '~> 1.5'
+gem 'mini_magick', '~> 4.8'
+gem 'omniauth', '~> 1.7'
+gem 'omniauth-facebook', '~> 4.0'
+gem 'pg', '~> 0.21'
+gem 'puma', '~> 3.10'
+gem 'pundit', '~> 1.1'
 gem 'rails', '~> 5.1.4'
-gem 'rolify'
-gem 'shrine'
-gem 'sidekiq'
-gem 'trailblazer-rails'
+gem 'rolify', '~> 5.1'
+gem 'shrine', '~> 2.8'
+gem 'sidekiq', '~> 5.0'
+gem 'trailblazer-rails', '~> 1.0'
 
 group :development, :test do
-  gem 'byebug', platform: :mri
-  gem 'factory_bot_rails'
-  gem 'ffaker'
+  gem 'byebug', '~> 9.1', platform: :mri
+  gem 'factory_bot_rails', '~> 4.8'
+  gem 'ffaker', '~> 2.7'
   gem 'inquisition', github: 'rubygarage/inquisition'
-  gem 'rspec-rails'
-  gem 'rspec_junit_formatter'
-  gem 'rswag'
-  gem 'json_spec'
+  gem 'rspec-rails', '~> 3.7'
+  gem 'rspec_junit_formatter', '~> 0.3'
+  gem 'rswag', '~> 1.5'
+  gem 'json_spec', '~> 1.1'
 end
 
 group :development do
@@ -45,9 +45,9 @@ end
 
 group :test do
   gem 'database_cleaner', '~> 1.6'
-  gem 'fuubar'
-  gem 'jsonapi-resources-matchers'
-  gem 'shoulda-matchers'
+  gem 'fuubar', '~> 2.3'
+  gem 'jsonapi-resources-matchers', '~> 1.0'
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
