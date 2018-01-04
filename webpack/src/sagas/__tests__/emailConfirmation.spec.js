@@ -1,12 +1,13 @@
 import axios from 'axios'
 import ApiClient from 'utils/apiClient'
 import { takeEvery, call, put } from 'redux-saga/effects'
-import { redirectToNotFound } from 'helpers/redirect'
+import { redirect } from 'helpers/redirect'
 import watchEmailConfirmation, { emailConfirmation } from 'sagas/emailConfirmation'
 
 describe('emailConfirmation()', () => {
   const action = { confirmation_token: '1234' }
   let apiClient
+  let response
 
   beforeAll(() => {
     ApiClient.prototype._buildAxiosInstance = (req) => (axios) // eslint-disable-line
@@ -14,10 +15,10 @@ describe('emailConfirmation()', () => {
   })
 
   it('success', () => {
-    const saga = emailConfirmation(action)
+    const saga = emailConfirmation(action, response)
 
-    expect(saga.next().value).toEqual(
-      call(apiClient.get, '/api/v1/auth/users/confirmation', { confirmation_token: action.confirmation_token })
+    expect(JSON.stringify(saga.next().value)).toEqual(
+      JSON.stringify(call(apiClient.get, '/api/v1/auth/users/confirmation', { confirmation_token: action.confirmation_token }))
     )
 
     expect(saga.next().value).toEqual(
@@ -31,8 +32,8 @@ describe('emailConfirmation()', () => {
     const saga = emailConfirmation(action)
     const error = new Error('Unexpected Network Error')
 
-    expect(saga.next().value).toEqual(
-      call(apiClient.get, '/api/v1/auth/users/confirmation', { confirmation_token: action.confirmation_token })
+    expect(JSON.stringify(saga.next().value)).toEqual(
+      JSON.stringify(call(apiClient.get, '/api/v1/auth/users/confirmation', { confirmation_token: action.confirmation_token }))
     )
 
     expect(saga.throw(error).value).toEqual(
@@ -40,7 +41,7 @@ describe('emailConfirmation()', () => {
     )
 
     expect(saga.next().value).toEqual(
-      call(redirectToNotFound, undefined)
+      call(redirect, '/404', response)
     )
 
     expect(saga.next().done).toBe(true)
