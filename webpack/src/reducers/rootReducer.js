@@ -1,15 +1,15 @@
-import { SIGN_OUT, SUCCESS } from 'constants/actions'
+import { SIGN_OUT, SUCCESS } from 'constants/actions';
 
-const rootReducer = (reducers) => (state, action) => {
+const rootReducer = reducers => (state, action) => {
   switch (action.type) {
     case SIGN_OUT + SUCCESS: {
-      state = undefined
+      state = undefined; // eslint-disable-line
 
-      return reducers(state, action)
+      return reducers(state, action);
     }
 
-    default: return reducers(state, action)
+    default: return reducers(state, action);
   }
-}
+};
 
-export default rootReducer
+export default rootReducer;

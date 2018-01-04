@@ -8,17 +8,25 @@
   },
   "extends": "airbnb",
   "rules": {
+    "no-underscore-dangle": ["error", { "allowAfterThis": true }],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/require-default-props": [0],
     "jsx-a11y/anchor-is-valid": [ "error", {
       "components": [ "Link" ],
       "specialLink": [ "to" ]
-    }]
+    }],
+    "import/no-named-as-default": 0,
+    "no-unused-expressions": ["error", { "allowTernary": true }]
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module",
+    "allowImportExportEverywhere": false,
+    "codeFrame": false
   },
   "settings": {
     "import/resolver": {
       "babel-module": {}
     }
-  },
-  "rules": {
-    "no-underscore-dangle": ["error", { "allowAfterThis": true }]
   }
 }

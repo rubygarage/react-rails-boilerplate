@@ -1,6 +1,6 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Header from 'containers/Header'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Header from 'containers/Header';
 
 // TODO: Better/prettier presentation for User once avatar will be implemented
 function User({ user }) {
@@ -18,11 +18,11 @@ function User({ user }) {
         </p>
       </div>
     </main>
-  )
+  );
 }
 
 User.propTypes = {
-  user: PropTypes.object
-}
+  user: PropTypes.shape,
+};
 
-export default User
+export default User;

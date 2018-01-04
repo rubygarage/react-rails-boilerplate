@@ -1,9 +1,11 @@
-export const parseJsonApiErrors = (errors = [], fields = []) => {
+const parseJsonApiErrors = (errors = [], fields = []) => {
+  let parsedErrors = errors;
   if (fields.length) {
-    errors = errors.filter((e) => fields.includes(e.source.pointer.split('/').pop(-1)))
+    parsedErrors = parsedErrors.filter(e => fields.includes(e.source.pointer.split('/').pop(-1)));
   }
 
-  return errors.reverse().reduce((previous, current) => (
-    { ...previous, [current.source.pointer.split('/').pop(-1)]: current.detail }), {}
-  )
-}
+  return parsedErrors.reverse().reduce((previous, current) => (
+    { ...previous, [current.source.pointer.split('/').pop(-1)]: current.detail }), {});
+};
+
+export default parseJsonApiErrors;

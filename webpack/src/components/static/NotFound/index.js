@@ -1,8 +1,8 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { FormattedMessage } from 'react-intl'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
 
-import styles from './styles.css'
+import styles from './styles.css';
 
 function NotFound() {
   return (
@@ -33,7 +33,7 @@ function NotFound() {
         </ul>
       </div>
     </div>
-  )
+  );
 }
 
-export default NotFound
+export default NotFound;

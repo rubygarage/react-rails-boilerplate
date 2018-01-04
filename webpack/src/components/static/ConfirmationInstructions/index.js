@@ -1,5 +1,5 @@
-import React from 'react'
-import { FormattedMessage } from 'react-intl'
+import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
 function ConfirmationInstructions() {
   return (
@@ -19,7 +19,7 @@ function ConfirmationInstructions() {
         </ul>
       </div>
     </main>
-  )
+  );
 }
 
-export default ConfirmationInstructions
+export default ConfirmationInstructions;

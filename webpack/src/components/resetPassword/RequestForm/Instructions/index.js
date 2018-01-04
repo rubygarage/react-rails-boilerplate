@@ -1,5 +1,5 @@
-import React from 'react'
-import { FormattedMessage } from 'react-intl'
+import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
 function Instruction() {
   return (
@@ -9,7 +9,7 @@ function Instruction() {
         <p className="lead"> <FormattedMessage id="restore_password.instructions" /> </p>
       </div>
     </main>
-  )
+  );
 }
 
-export default Instruction
+export default Instruction;

@@ -1,3 +1,3 @@
-import file from 'config.json'
+import file from 'config.json';
 
-export default file[process.env.ENV]
+export default file[process.env.ENV];

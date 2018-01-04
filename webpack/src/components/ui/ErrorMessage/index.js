@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
-import { Field } from 'redux-form'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import { Field } from 'redux-form';
 
 class ErrorMessage extends Component {
   static propTypes = {
-    name: PropTypes.string.isRequired
+    name: PropTypes.string.isRequired,
   }
 
   field = ({ meta: { touched, error } }) => (
@@ -15,12 +15,12 @@ class ErrorMessage extends Component {
   )
 
   render() {
-    const { name } = this.props
+    const { name } = this.props;
 
     return (
       <Field name={name} component={this.field} />
-    )
+    );
   }
 }
 
-export default ErrorMessage
+export default ErrorMessage;

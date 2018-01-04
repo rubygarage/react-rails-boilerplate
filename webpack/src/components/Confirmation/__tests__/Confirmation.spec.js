@@ -1,17 +1,15 @@
-import React from 'react'
-import { shallow } from 'enzyme'
-import Confirmation from 'components/Confirmation'
+import React from 'react';
+import { shallow } from 'enzyme';
+import Confirmation from 'components/Confirmation';
 
 describe('<Confirmation />', () => {
   const defaultProps = {
-    loading: false
-  }
+    loading: false,
+  };
 
   it('renders success message', () => {
-    const component = shallow(
-      <Confirmation {...defaultProps} />
-    )
+    const component = shallow(<Confirmation {...defaultProps} />);
 
-    expect(component).toMatchSnapshot()
-  })
-})
+    expect(component).toMatchSnapshot();
+  });
+});

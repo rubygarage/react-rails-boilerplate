@@ -1,13 +1,15 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { FormattedMessage, intlShape } from 'react-intl'
-import { Link } from 'react-router-dom'
-import { Field } from 'redux-form'
-import ErrorMessage from 'components/ui/ErrorMessage'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { FormattedMessage, intlShape } from 'react-intl';
+import { Link } from 'react-router-dom';
+import { Field } from 'redux-form';
+import ErrorMessage from 'components/ui/ErrorMessage';
 
-import styles from './styles.css'
+import styles from './styles.css';
 
-function SignUp({ handleSubmit, submitHandler, pristine, submitting, intl: { formatMessage } }) {
+function SignUp({
+  handleSubmit, submitHandler, pristine, submitting, intl: { formatMessage },
+}) {
   return (
     <div className="container">
       <div className="row">
@@ -88,7 +90,7 @@ function SignUp({ handleSubmit, submitHandler, pristine, submitting, intl: { for
 
       </div>
     </div>
-  )
+  );
 }
 
 SignUp.propTypes = {
@@ -96,7 +98,7 @@ SignUp.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   submitHandler: PropTypes.func.isRequired,
   pristine: PropTypes.bool,
-  submitting: PropTypes.bool
-}
+  submitting: PropTypes.bool,
+};
 
-export default SignUp
+export default SignUp;

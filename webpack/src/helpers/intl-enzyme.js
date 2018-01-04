@@ -5,25 +5,22 @@
  * English-locale intl context around them.
  */
 
-import React from 'react'
-import { IntlProvider } from 'react-intl'
-import { shallow } from 'enzyme'
+import React from 'react';
+import { IntlProvider } from 'react-intl';
+import { shallow } from 'enzyme';
 
-const messages = require('translations/en.json')
-const intlProvider = new IntlProvider({ locale: 'en', messages }, {})
-const { intl } = intlProvider.getChildContext()
+const messages = require('translations/en.json');
+
+const intlProvider = new IntlProvider({ locale: 'en', messages }, {});
+const { intl } = intlProvider.getChildContext();
 
 /**
  * When using React-Intl `injectIntl` on components, props.intl is required.
  */
 function nodeWithIntlProp(node) {
-  return React.cloneElement(node, { intl })
+  return React.cloneElement(node, { intl });
 }
 
-export function shallowWithIntl(node, { context } = {}) {
-  return shallow(
-    nodeWithIntlProp(node), {
-      context: Object.assign({}, context, { intl })
-    }
-  )
+export default function shallowWithIntl(node, { context } = {}) {
+  return shallow(nodeWithIntlProp(node), { context: Object.assign({}, context, { intl }) });
 }

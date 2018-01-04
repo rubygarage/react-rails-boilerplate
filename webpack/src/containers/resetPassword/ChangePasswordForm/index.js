@@ -1,43 +1,44 @@
-import React, { Component } from 'react'
-import { reduxForm } from 'redux-form'
-import { connect } from 'react-redux'
-import submit from './submit'
-import { validateToken } from 'sagas/resetPassword'
+import React from 'react';
+import { reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
 
-import ChangePasswordFormComponent from 'components/resetPassword/ChangePasswordForm'
+import ChangePasswordFormComponent from 'components/resetPassword/ChangePasswordForm';
 
-export class ChangePasswordForm extends Component {
+import { validateToken } from 'sagas/resetPassword';
+import submit from './submit';
+
+export class ChangePasswordForm extends React.PureComponent {
   render() {
     const props = {
       ...this.props,
-      submitHandler: submit
-    }
+      submitHandler: submit,
+    };
 
     return (
       <ChangePasswordFormComponent {...props} />
-    )
+    );
   }
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const { reset_password_token } = ownProps.match.params
+  const resetPasswordToken = ownProps.match.params.reset_password_token;
 
   return ({
-    initialValues: { reset_token: reset_password_token }
-  })
-}
+    initialValues: { reset_token: resetPasswordToken },
+  });
+};
 
 function preload(params, req, res) {
-  const sagasToComplete = []
-  const { reset_password_token } = params
+  const sagasToComplete = [];
+  const resetPasswordToken = params.reset_password_token;
 
-  sagasToComplete.push([validateToken, reset_password_token, res]) // eslint-disable-line
+  sagasToComplete.push([validateToken, resetPasswordToken, res]) // eslint-disable-line
 
-  return sagasToComplete
+  return sagasToComplete;
 }
-ChangePasswordForm.preload = preload
+ChangePasswordForm.preload = preload;
 
 export default connect(mapStateToProps)(reduxForm({
   form: 'changePassword',
-  fieldsForValidation: ['password']
-})(ChangePasswordForm))
+  fieldsForValidation: ['password'],
+})(ChangePasswordForm));

@@ -1,18 +1,18 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { injectIntl, FormattedMessage, intlShape } from 'react-intl'
-import { Field } from 'redux-form'
-import { Link } from 'react-router-dom'
-import ErrorMessage from 'components/ui/ErrorMessage'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { injectIntl, FormattedMessage, intlShape } from 'react-intl';
+import { Field } from 'redux-form';
+import { Link } from 'react-router-dom';
+import ErrorMessage from 'components/ui/ErrorMessage';
 
-import styles from './styles.css'
+import styles from './styles.css';
 
 export function ChangePasswordForm({
   handleSubmit,
   pristine,
   submitHandler,
   submitting,
-  intl: { formatMessage }
+  intl: { formatMessage },
 }) {
   return (
     <div className="container">
@@ -68,7 +68,7 @@ export function ChangePasswordForm({
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 ChangePasswordForm.propTypes = {
@@ -76,7 +76,7 @@ ChangePasswordForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   pristine: PropTypes.bool,
   submitHandler: PropTypes.func.isRequired,
-  submitting: PropTypes.bool
-}
+  submitting: PropTypes.bool,
+};
 
-export default injectIntl(ChangePasswordForm)
+export default injectIntl(ChangePasswordForm);
