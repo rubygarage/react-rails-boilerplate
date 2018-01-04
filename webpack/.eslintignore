@@ -1,2 +1,3 @@
 webpack-config/*
 vendor/*
+src/static/*
