@@ -551,42 +551,42 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_model_serializers (~> 0.10)
-  activeadmin (~> 1.1)
+  active_model_serializers
+  activeadmin
   aws-sdk-s3 (~> 1.2)
-  bcrypt (~> 3.1)
-  bootsnap (~> 1.1)
-  byebug (~> 9.1)
-  database_cleaner (~> 1.6)
-  dry-validation (~> 0.11)
+  bcrypt
+  bootsnap
+  byebug
+  database_cleaner
+  dry-validation
   factory_bot_rails (~> 4.8)
-  ffaker (~> 2.7)
-  figaro (~> 1.1)
-  fuubar (~> 2.3)
-  haml-rails (~> 1.0)
-  image_processing (~> 0.4)
+  ffaker
+  figaro
+  fuubar
+  haml-rails
+  image_processing
   inquisition!
-  json_spec (~> 1.1)
-  jsonapi-resources-matchers (~> 1.0)
-  jwt (~> 1.5)
+  json_spec
+  jsonapi-resources-matchers
+  jwt
   listen (~> 3.0.5)
-  mini_magick (~> 4.8)
-  omniauth (~> 1.7)
-  omniauth-facebook (~> 4.0)
-  pg (~> 0.21)
+  mini_magick
+  omniauth
+  omniauth-facebook
+  pg
   puma (~> 3.10)
-  pundit (~> 1.1)
+  pundit
   rails (~> 5.1.4)
-  rolify (~> 5.1)
-  rspec-rails (~> 3.7)
-  rspec_junit_formatter (~> 0.3)
-  rswag (~> 1.5)
-  shoulda-matchers (~> 3.1)
-  shrine (~> 2.8)
-  sidekiq (~> 5.0)
-  trailblazer-rails (~> 1.0)
+  rolify
+  rspec-rails
+  rspec_junit_formatter
+  rswag
+  shoulda-matchers
+  shrine
+  sidekiq
+  trailblazer-rails
   tzinfo-data
-  uglifier (~> 4.0)
+  uglifier
 
 BUNDLED WITH
    1.16.0
