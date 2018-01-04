@@ -7,12 +7,8 @@ class Auth::Password::Contract::Create < Reform::Form
     configure do
       config.messages = :i18n
       config.namespace = :user
-
-      def email_exist?(attr_name, value)
-        User.where(attr_name => value).any?
-      end
     end
 
-    required(:email).filled(:str?, format?: URI::MailTo::EMAIL_REGEXP, email_exist?: :email)
+    required(:email).filled(:str?, format?: URI::MailTo::EMAIL_REGEXP)
   end
 end

@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe Auth::Confirmation::Create do
   let!(:params) { {} }
   let(:subject) { described_class.call(params) }

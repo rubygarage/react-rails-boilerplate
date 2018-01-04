@@ -4,7 +4,7 @@ require 'simplecov'
 SimpleCov.start 'rails' do
   coverage_dir File.join('doc', 'coverage')
 
-  groups = %w[channels commands controllers decorators features forms
+  groups = %w[channels commands concepts controllers decorators features forms
               helpers jobs libs mailers middlewares models policies resources
               queries serializers services tasks uploaders values]
 

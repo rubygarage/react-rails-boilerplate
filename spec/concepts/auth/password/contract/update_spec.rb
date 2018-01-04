@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe Auth::Password::Contract::Update do
   let(:params) { double('params') }
   let(:subject) { described_class.new(params) }

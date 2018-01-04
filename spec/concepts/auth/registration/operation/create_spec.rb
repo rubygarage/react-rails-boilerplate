@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe Auth::Registration::Create do
   let(:subject) { described_class.call(params) }
   let(:user) { build(:user) }

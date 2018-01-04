@@ -44,14 +44,18 @@ RSpec.describe 'Password', type: :request do
         it "informs that provided email is found in database" do |example|
           post api_v1_auth_password_path, params: { email: user.email }
         end
+
+        it "returns ok even if email did not found in database, for security reason" do |example|
+          post api_v1_auth_password_path, params: { email: 'random_email_123@test.com' }
+        end
       end
 
       response '422', 'Unprocessable Entity' do
         it 'returns an error' do |example|
-          post api_v1_auth_password_path, params: { email: 'temp_user@test.com' }
+          post api_v1_auth_password_path, params: { email: 'invalid.email.com' }
 
           expect(body).to have_json_path('errors/0/detail')
-          expect(body).to match(/User with this email did not found. Please put correct email./)
+          expect(body).to match(/is in invalid format/)
         end
       end
     end
