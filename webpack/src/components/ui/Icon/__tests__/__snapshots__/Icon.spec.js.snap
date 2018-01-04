@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Icon /> renders with empty props 1`] = `
+<i
+  className="icon"
+/>
+`;
+
+exports[`<Icon /> renders with props 1`] = `
+<i
+  className="icon arrows TestClass"
+  onClick={[Function]}
+/>
+`;

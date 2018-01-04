@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NotFound /> renders NotFound component 1`] = `
+<div
+  className="nb-error"
+>
+  <div
+    className="error-code"
+  >
+     
+    <FormattedMessage
+      id="not_found.404"
+      values={Object {}}
+    />
+     
+  </div>
+  <h3
+    className="font-bold"
+  >
+     
+    <FormattedMessage
+      id="not_found.title"
+      values={Object {}}
+    />
+     
+  </h3>
+  <div
+    className="error-desc"
+  >
+    <p>
+       
+      <FormattedMessage
+        id="not_found.sorry"
+        values={Object {}}
+      />
+       
+    </p>
+    <p>
+       
+      <FormattedMessage
+        id="not_found.try"
+        values={Object {}}
+      />
+       
+    </p>
+    <ul
+      className="list-inline text-center text-sm"
+    >
+      <li
+        className="list-inline-item"
+      >
+        <Link
+          replace={false}
+          to="/"
+        >
+          <FormattedMessage
+            id="not_found.to_home"
+            values={Object {}}
+          />
+        </Link>
+      </li>
+      <li
+        className="list-inline-item"
+      >
+        <Link
+          replace={false}
+          to="/sign_up"
+        >
+          <FormattedMessage
+            id="not_found.sign_up"
+            values={Object {}}
+          />
+        </Link>
+      </li>
+      <li
+        className="list-inline-item"
+      >
+        <Link
+          replace={false}
+          to="/sign_up"
+        >
+          <FormattedMessage
+            id="not_found.sign_in"
+            values={Object {}}
+          />
+        </Link>
+      </li>
+    </ul>
+  </div>
+</div>
+`;

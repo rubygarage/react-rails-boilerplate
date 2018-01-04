@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ErrorMessage /> renders with empty props 1`] = `
+<Field
+  component={[Function]}
+/>
+`;
+
+exports[`<ErrorMessage /> renders with props 1`] = `
+<Field
+  component={[Function]}
+  name="TestFieldName"
+/>
+`;

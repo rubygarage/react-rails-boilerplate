@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Show user empty info at the page 1`] = `
+<main>
+  <Connect(Header) />
+  <div
+    className="jumbotron"
+  >
+    <p
+      className="lead"
+    >
+       This is User page 
+    </p>
+    <p>
+      Username: 
+    </p>
+    <p>
+      Email: 
+    </p>
+  </div>
+</main>
+`;
+
+exports[`Show user get info at the page 1`] = `
+<main>
+  <Connect(Header) />
+  <div
+    className="jumbotron"
+  >
+    <p
+      className="lead"
+    >
+       This is User page 
+    </p>
+    <p>
+      Username: 
+      Boiler
+    </p>
+    <p>
+      Email: 
+      example@boiler.com
+    </p>
+  </div>
+</main>
+`;

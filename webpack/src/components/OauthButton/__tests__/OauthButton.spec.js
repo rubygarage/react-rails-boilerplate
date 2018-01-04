@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import OathButton from 'components/auth/OauthButton'
+import OathButton from 'components/OauthButton'
 
 describe('<OathButton />', () => {
   const defaultProps = {

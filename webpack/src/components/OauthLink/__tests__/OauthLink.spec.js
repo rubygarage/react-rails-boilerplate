@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import OauthLink from 'components/auth/OauthLink'
+import OauthLink from 'components/OauthLink'
 
 describe('<OauthLink />', () => {
   const defaultProps = {
