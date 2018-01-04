@@ -1,5 +1,4 @@
 ENV['RAILS_ENV'] ||= 'test'
-
 require 'simplecov'
 
 SimpleCov.start 'rails' do
@@ -27,10 +26,12 @@ require 'rspec/rails'
 require 'spec_helper'
 require 'swagger_helper'
 require 'rspec/rails'
+require 'sidekiq/testing'
 
 Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 
 ActiveRecord::Migration.maintain_test_schema!
+Sidekiq::Testing.fake!
 
 RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
