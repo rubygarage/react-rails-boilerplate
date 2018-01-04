@@ -12,8 +12,8 @@ ActiveAdmin.register Admin::User, as: "User" do
     column :updated_at
 
     actions do |resource|
-      item I18n.t('active_admin.user.confirm_email'), confirm_email_admin_user_path(resource), method: :post unless resource.confirmed_at
-      item I18n.t('active_admin.user.unconfirm_email'), unconfirm_email_admin_user_path(resource), method: :post if resource.confirmed_at
+      item t('active_admin.user.confirm_email'), confirm_email_admin_user_path(resource), method: :post unless resource.confirmed_at
+      item t('active_admin.user.unconfirm_email'), unconfirm_email_admin_user_path(resource), method: :post if resource.confirmed_at
     end
   end
 
@@ -26,7 +26,7 @@ ActiveAdmin.register Admin::User, as: "User" do
     f.has_many :avatar, class: 'has_one', allow_destroy: true do |avatar|
       avatar.input :image, as: :file, :hint => f.object.avatar.present? \
         ? image_tag(f.object.avatar.image_url(:thumb))
-        : content_tag(:span, I18n.t('active_admin.user.without_avatar'))
+        : content_tag(:span, t('active_admin.user.without_avatar'))
     end
 
     actions do
@@ -36,19 +36,19 @@ ActiveAdmin.register Admin::User, as: "User" do
 
   member_action :confirm_email, method: :post do
     Admin::User::ConfirmEmail.(permitted_params, user: resource)
-    redirect_to resource_path(resource), notice: I18n.t('active_admin.user.notices.email_confirmed')
+    redirect_to resource_path(resource), notice: t('active_admin.user.notices.email_confirmed')
   end
 
   member_action :unconfirm_email, method: :post do
     Admin::User::UnconfirmEmail.(permitted_params, user: resource)
-    redirect_to resource_path(resource), notice: I18n.t('active_admin.user.notices.email_unconfirmed')
+    redirect_to resource_path(resource), notice: t('active_admin.user.notices.email_unconfirmed')
   end
 
   action_item :confirm_email, only: %i[show edit], if: proc { !resource.confirmed_at? } do
-    link_to I18n.t('active_admin.user.confirm_email'), confirm_email_admin_user_path(resource), method: :post
+    link_to t('active_admin.user.confirm_email'), confirm_email_admin_user_path(resource), method: :post
   end
 
   action_item :unconfirm_email, only: %i[show edit], if: proc { resource.confirmed_at? } do
-    link_to I18n.t('active_admin.user.unconfirm_email'), unconfirm_email_admin_user_path(resource), method: :post
+    link_to t('active_admin.user.unconfirm_email'), unconfirm_email_admin_user_path(resource), method: :post
   end
 end
