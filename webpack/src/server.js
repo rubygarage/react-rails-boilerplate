@@ -31,9 +31,11 @@ proxiedApp.use((req, res) => {
     const store = configureStore({ signin: { currentUser: result.currentUser }, entities: result.entities })
     const assets = webpackIsomorphicTools.assets() // eslint-disable-line
 
-    const prefetchingRequests = matchRoutes(routes, req.path).map(({ route, match }) => (
-      route.component.preload ? route.component.preload(match.params, req, res) : []
-    ))
+    const prefetchingRequests = matchRoutes(routes, req.path).map(({ route, match }) => {
+      const component = route.component.WrappedComponent || route.component
+
+      return (component.preload ? component.preload(match.params, req, res) : [])
+    })
     const sagasToRun = [].concat([], ...prefetchingRequests)
 
     store.runSaga(waitAll(sagasToRun)).done.then(() => {
