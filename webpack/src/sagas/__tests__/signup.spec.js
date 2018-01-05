@@ -67,6 +67,10 @@ describe('signUp()', () => {
     )
 
     expect(saga.throw(error).value).toEqual(
+      put({ type: 'SIGN_UP_ERROR', error })
+    )
+
+    expect(saga.next().value).toEqual(
       call(params.reject, error.response.data)
     )
 
