@@ -25,7 +25,11 @@ describe('signOut()', () => {
 
   it('failure', () => {
     const saga = signOut()
-    const error = { data: 'SignOut Error' }
+    const error = { response: { data: 'SignOut Error' } }
+
+    expect(saga.next().value).toEqual(
+      call(deleteTokenFromStorage)
+    )
 
     expect(saga.throw(error).value).toEqual(
       put({ type: 'SIGN_OUT_ERROR', error })
