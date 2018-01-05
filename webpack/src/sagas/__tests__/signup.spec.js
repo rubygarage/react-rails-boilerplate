@@ -1,20 +1,21 @@
-jest.mock('responses/signin')
+jest.mock('responses/signup')
 
 import axios from 'axios'
 import ApiClient from 'utils/apiClient'
 import { normalize } from 'normalize-json-api'
 import { takeEvery, call, put } from 'redux-saga/effects'
-import watchSignIn, { signIn } from 'sagas/signin'
-import { response } from 'responses/signin'
+import watchSignUp, { signUp } from 'sagas/signup'
+import { response } from 'responses/signup'
 import { redirect } from 'helpers/redirect'
-import { setTokenToStorage } from 'utils/tokens'
 
-describe('signIn()', () => {
+describe('signUp()', () => {
   let apiClient
   const params = {
     values: {
+      email: 'email',
       username: 'username',
-      password: 'password'
+      password: 'password',
+      password_confirmation: 'password_confirmation'
     },
     resolve: jest.fn(),
     reject: jest.fn()
@@ -26,10 +27,10 @@ describe('signIn()', () => {
   })
 
   it('success', () => {
-    const saga = signIn(params)
+    const saga = signUp(params)
 
     expect(saga.next().value).toEqual(
-      call(apiClient.post, '/api/v1/auth/users/session', params.values)
+      call(apiClient.post, '/api/v1/auth/users/registration', params.values)
     )
 
     expect(saga.next({ data: response }).value).toEqual(
@@ -39,38 +40,34 @@ describe('signIn()', () => {
     const normalizedResponse = normalize(response)
 
     expect(saga.next(normalizedResponse).value).toEqual(
-      call(setTokenToStorage, response.data.headers)
-    )
-
-    expect(saga.next().value).toEqual(
       put({
-        type: 'SIGN_IN_SUCCESS',
+        type: 'SIGN_UP_SUCCESS',
         entities: normalizedResponse.entities,
-        currentUser: normalizedResponse.results
+        results: normalizedResponse.results
       })
     )
 
     expect(saga.next().value).toEqual(
-      call(params.resolve)
+      call(params.resolve, normalizedResponse.results)
     )
 
     expect(saga.next().value).toEqual(
-      call(redirect, '/')
+      call(redirect, '/sign_up/success')
     )
 
     expect(saga.next().done).toBe(true)
   })
 
   it('failure', () => {
-    const saga = signIn(params)
+    const saga = signUp(params)
     const error = { response: { data: 'Error' } }
 
     expect(saga.next().value).toEqual(
-      call(apiClient.post, '/api/v1/auth/users/session', params.values)
+      call(apiClient.post, '/api/v1/auth/users/registration', params.values)
     )
 
     expect(saga.throw(error).value).toEqual(
-      put({ type: 'SIGN_IN_ERROR', error })
+      put({ type: 'SIGN_UP_ERROR', error })
     )
 
     expect(saga.next().value).toEqual(
@@ -81,10 +78,10 @@ describe('signIn()', () => {
   })
 
   it('watcher', () => {
-    const watcher = watchSignIn()
+    const watcher = watchSignUp()
 
     expect(watcher.next().value).toEqual(
-      takeEvery('SIGN_IN_REQUEST', signIn)
+      takeEvery('SIGN_UP_REQUEST', signUp)
     )
 
     expect(watcher.next().done).toBe(true)

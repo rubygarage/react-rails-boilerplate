@@ -1,25 +1,28 @@
-jest.mock('responses/pageTypes')
+jest.mock('responses/user')
 
 import axios from 'axios'
 import ApiClient from 'utils/apiClient'
 import { normalize } from 'normalize-json-api'
 import { takeEvery, call, put } from 'redux-saga/effects'
-import watchLoadPageTypes, { loadPageTypes } from 'sagas/pageTypes'
-import { response } from 'responses/pageTypes'
+import watchGetUser, { getUser } from 'sagas/user'
+import { response } from 'responses/user'
+import { redirect } from 'helpers/redirect'
 
-describe('loadPageTypes()', () => {
+describe('getUser()', () => {
+  const params = { params: { id: 1 } }
+  const resolve = jest.fn()
+  const reject = jest.fn()
   let apiClient
-
   beforeAll(() => {
     ApiClient.prototype._buildAxiosInstance = (req) => (axios) // eslint-disable-line
     apiClient = new ApiClient().buildClient()
   })
 
   it('success', () => {
-    const saga = loadPageTypes()
+    const saga = getUser({ params, resolve, reject })
 
     expect(saga.next().value).toEqual(
-      call(apiClient.get, '/api/v1/page_types')
+      call(apiClient.get, `/api/v1/users/${params.id}`)
     )
 
     expect(saga.next({ data: response }).value).toEqual(
@@ -30,7 +33,7 @@ describe('loadPageTypes()', () => {
 
     expect(saga.next(normalizedResponse).value).toEqual(
       put({
-        type: 'LOAD_PAGE_TYPES_SUCCESS',
+        type: 'GET_USER_SUCCESS',
         entities: normalizedResponse.entities,
         results: normalizedResponse.results
       })
@@ -40,25 +43,29 @@ describe('loadPageTypes()', () => {
   })
 
   it('failure', () => {
-    const saga = loadPageTypes()
+    const saga = getUser({ params, resolve, reject })
     const error = new Error('Unexpected Network Error')
 
     expect(saga.next().value).toEqual(
-      call(apiClient.get, '/api/v1/page_types')
+      call(apiClient.get, `/api/v1/users/${params.id}`)
     )
 
     expect(saga.throw(error).value).toEqual(
-      put({ type: 'LOAD_PAGE_TYPES_ERROR' })
+      put({ type: 'GET_USER_ERROR', error })
     )
 
-    expect(saga.next().done).toBe(true)
+    expect(saga.next().value).toEqual(
+      call(redirect, '/404', undefined)
+    )
   })
+})
 
-  it('watcher', () => {
-    const watcher = watchLoadPageTypes()
+describe('watcher()', () => {
+  it('gets user', () => {
+    const watcher = watchGetUser()
 
     expect(watcher.next().value).toEqual(
-      takeEvery('LOAD_PAGE_TYPES_REQUEST', loadPageTypes)
+      takeEvery('GET_USER_REQUEST', getUser)
     )
 
     expect(watcher.next().done).toBe(true)

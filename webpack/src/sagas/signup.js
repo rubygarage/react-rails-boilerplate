@@ -1,7 +1,7 @@
 import ApiClient from 'utils/apiClient'
 import { normalize } from 'normalize-json-api'
 import { takeEvery, call, put } from 'redux-saga/effects'
-import { SIGN_UP, REQUEST, SUCCESS } from 'constants/actions'
+import { SIGN_UP, REQUEST, SUCCESS, ERROR } from 'constants/actions'
 import { redirect } from 'helpers/redirect'
 
 export function* signUp({ values, resolve, reject }) {
@@ -15,6 +15,7 @@ export function* signUp({ values, resolve, reject }) {
     yield call(resolve, results)
     yield call(redirect, '/sign_up/success')
   } catch (error) {
+    yield put({ type: SIGN_UP + ERROR, error })
     yield call(reject, error.response.data)
   }
 }

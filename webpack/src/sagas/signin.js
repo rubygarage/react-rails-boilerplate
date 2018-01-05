@@ -13,7 +13,6 @@ export function* signIn({ values, resolve, reject }) {
     const { entities, results } = yield call(normalize, response.data)
 
     yield call(setTokenToStorage, response.headers)
-
     yield put({ type: SIGN_IN + SUCCESS, entities, currentUser: results })
     yield call(resolve)
     yield call(redirect, '/')
