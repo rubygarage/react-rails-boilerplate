@@ -10,7 +10,7 @@ describe('<Icon />', () => {
   };
 
   it('renders with empty props', () => {
-    const component = shallow(<Icon />);
+    const component = shallow(<Icon type="arrows" />);
 
     expect(component).toMatchSnapshot();
   });

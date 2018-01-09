@@ -27,7 +27,9 @@ function Header({ currentUser, currentUserProfileLink, handleSignOut }) {
 }
 
 Header.propTypes = {
-  currentUser: PropTypes.shape,
+  currentUser: PropTypes.shape({
+    id: PropTypes.number,
+  }),
   currentUserProfileLink: PropTypes.string,
   handleSignOut: PropTypes.func.isRequired,
 };

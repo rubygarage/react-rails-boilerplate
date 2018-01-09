@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ApiClient } from 'utils/apiClient';
+import ApiClient from 'utils/apiClient';
 import {
   watchSendRestorePassword,
   watchUpdatePassword,

@@ -5,7 +5,7 @@ import redirect from 'helpers/redirect';
 import watchEmailConfirmation, { emailConfirmation } from 'sagas/emailConfirmation';
 
 describe('emailConfirmation()', () => {
-  const action = { confirmation_token: '1234' };
+  const action = { confirmationToken: '1234' };
   let apiClient;
   let response;
 
@@ -17,7 +17,7 @@ describe('emailConfirmation()', () => {
   it('success', () => {
     const saga = emailConfirmation(action, response);
 
-    expect(JSON.stringify(saga.next().value)).toEqual(JSON.stringify(call(apiClient.get, '/api/v1/auth/users/confirmation', { confirmation_token: action.confirmation_token })));
+    expect(JSON.stringify(saga.next().value)).toEqual(JSON.stringify(call(apiClient.get, '/api/v1/auth/users/confirmation', { confirmation_token: action.confirmationToken })));
 
     expect(saga.next().value).toEqual(put({ type: 'GET_EMAIL_CONFIRMATION_SUCCESS' }));
 
@@ -28,7 +28,7 @@ describe('emailConfirmation()', () => {
     const saga = emailConfirmation(action);
     const error = new Error('Unexpected Network Error');
 
-    expect(JSON.stringify(saga.next().value)).toEqual(JSON.stringify(call(apiClient.get, '/api/v1/auth/users/confirmation', { confirmation_token: action.confirmation_token })));
+    expect(JSON.stringify(saga.next().value)).toEqual(JSON.stringify(call(apiClient.get, '/api/v1/auth/users/confirmation', { confirmation_token: action.confirmationToken })));
 
     expect(saga.throw(error).value).toEqual(put({ type: 'GET_EMAIL_CONFIRMATION_ERROR' }));
 

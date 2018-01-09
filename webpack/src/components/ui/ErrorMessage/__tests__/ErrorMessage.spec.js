@@ -9,7 +9,7 @@ describe('<ErrorMessage />', () => {
   };
 
   it('renders with empty props', () => {
-    const component = shallow(<ErrorMessage />);
+    const component = shallow(<ErrorMessage name="" />);
 
     expect(component).toMatchSnapshot();
   });

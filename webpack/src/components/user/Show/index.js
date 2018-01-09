@@ -22,7 +22,10 @@ function User({ user }) {
 }
 
 User.propTypes = {
-  user: PropTypes.shape,
+  user: PropTypes.shape({
+    username: PropTypes.string,
+    email: PropTypes.string,
+  }),
 };
 
 export default User;

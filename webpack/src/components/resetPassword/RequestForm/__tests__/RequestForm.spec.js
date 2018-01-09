@@ -4,7 +4,16 @@ import { ResetPasswordRequestForm } from 'components/resetPassword/RequestForm';
 
 describe('<ResetPasswordRequestForm />', () => {
   let props = {
-    intl: { formatMessage: jest.fn() },
+    intl: {
+      formatDate: jest.fn(),
+      formatTime: jest.fn(),
+      formatRelative: jest.fn(),
+      formatNumber: jest.fn(),
+      formatPlural: jest.fn(),
+      formatMessage: jest.fn(),
+      formatHTMLMessage: jest.fn(),
+      now: jest.fn(),
+    },
     handleSubmit: jest.fn(),
     submitHandler: jest.fn(),
   };

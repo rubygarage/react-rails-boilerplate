@@ -16,7 +16,7 @@ export class Oauth extends Component {
   }
 
   handleOauthRequest = (event) => {
-    event.preventDefaut();
+    event.preventDefault();
     this.props.oauthRequest(this.props.provider);
   }
 

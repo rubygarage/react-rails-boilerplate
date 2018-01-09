@@ -6,7 +6,16 @@ describe('<SigniIn />', () => {
   let props = {
     handleSubmit: jest.fn(),
     submitHandler: jest.fn(),
-    intl: { formatMessage: jest.fn() },
+    intl: {
+      formatDate: jest.fn(),
+      formatTime: jest.fn(),
+      formatRelative: jest.fn(),
+      formatNumber: jest.fn(),
+      formatPlural: jest.fn(),
+      formatMessage: jest.fn(),
+      formatHTMLMessage: jest.fn(),
+      now: jest.fn(),
+    },
   };
 
   it('renders sign up form and submitting is false', () => {

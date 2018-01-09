@@ -19,6 +19,8 @@ describe('User selector', () => {
       ...users[1],
     };
 
-    expect(getCurrentUser(state)).toEqual(expectedData);
+    it('get user state', () => {
+      expect(getCurrentUser(state)).toEqual(expectedData);
+    });
   });
 });

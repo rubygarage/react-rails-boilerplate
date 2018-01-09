@@ -3,6 +3,7 @@
 exports[`<ErrorMessage /> renders with empty props 1`] = `
 <Field
   component={[Function]}
+  name=""
 />
 `;
 
