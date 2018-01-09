@@ -1,13 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<OauthLink /> renders oauth link 1`] = `
-<a
+<Button
   className="social-round-icon"
   href=""
   onClick={[Function]}
+  size="md"
+  to=""
 >
   <Icon
     type="icon-fb"
   />
-</a>
+</Button>
 `;
