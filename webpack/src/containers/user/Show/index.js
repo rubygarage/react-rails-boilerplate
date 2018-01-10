@@ -18,8 +18,17 @@ class User extends Component {
     this.props.getUserAction(this.props.id)
   }
 
+  get currentUserEditProfileLink() {
+    return `/user/${this.props.user.id}/edit`
+  }
+
   render() {
-    return <UserComponent user={this.props.user} />
+    const props = {
+      user: this.props.user,
+      currentUserEditProfileLink: this.currentUserEditProfileLink
+    }
+
+    return <UserComponent {...props} />
   }
 }
 

@@ -85,5 +85,14 @@
   "validation.max_length": "{field} is too long (maximum is {count} characters)",
 
   "header.sign_in": "Sign In",
-  "header.sign_up": "Sign Up"
+  "header.sign_up": "Sign Up",
+
+  "user.edit_profile": "Edit profile",
+  "edit_user.edit_title": "Edit Profile",
+  "edit_user.username": "Username",
+  "edit_user.your_email": "Your email",
+  "edit_user.current_password": "Current Password (at least 8 symbols)",
+  "edit_user.new_password": "New Password (at least 8 symbols)",
+  "edit_user.confirm_password": "Confirm New Password",
+  "edit_user.edit_btn": "Save"
 }
