@@ -1,7 +1,7 @@
 module Auth
   module Token
     class Session
-      SESSION_AUD_CLAIM = 'reset_password'.freeze
+      SESSION_AUD_CLAIM = 'session'.freeze
       REMEMBER_ME_EXPIRATION_TIME = 2.weeks
       DEFAULT_EXPIRATION_TIME = 1.day
 
