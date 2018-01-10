@@ -25,3 +25,4 @@ machine:
 test:
   override:
     - bundle exec rspec spec/ --format doc
+    - cd webpack/ && nvm use 8.2.0 && yarn && yarn test
