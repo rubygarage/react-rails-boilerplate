@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe Admin::Auth::Session::Create do
   subject { described_class.call(params, cookies) }
   let!(:admin) { create(:user, :admin) }

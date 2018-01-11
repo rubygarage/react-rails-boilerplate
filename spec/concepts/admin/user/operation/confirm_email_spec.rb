@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe Admin::User::ConfirmEmail do
   let(:params) { {} }
   let(:subject) { described_class.call(params, user: user) }

@@ -9,8 +9,8 @@ gem 'active_model_serializers'
 gem 'activeadmin'
 gem 'aws-sdk-s3', '~> 1.2' # for Amazon S3 storage
 gem 'bcrypt'
+gem 'bootsnap', require: false
 gem 'dry-validation'
-gem 'ffaker', '~> 2.7'
 gem 'figaro'
 gem 'uglifier'
 gem 'haml-rails'
@@ -20,7 +20,7 @@ gem 'mini_magick'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'pg'
-gem 'puma', '~> 3.0'
+gem 'puma', '~> 3.10'
 gem 'pundit'
 gem 'rails', '~> 5.1.4'
 gem 'rolify'
@@ -31,8 +31,12 @@ gem 'trailblazer-rails'
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'factory_bot_rails', '~> 4.8'
+  gem 'ffaker'
   gem 'inquisition', github: 'rubygarage/inquisition'
   gem 'rspec-rails'
+  gem 'rspec_junit_formatter'
+  gem 'rswag'
+  gem 'json_spec'
 end
 
 group :development do
@@ -40,7 +44,10 @@ group :development do
 end
 
 group :test do
-  gem 'database_cleaner', '~> 1.6'
+  gem 'database_cleaner'
+  gem 'fuubar'
+  gem 'jsonapi-resources-matchers'
+  gem 'shoulda-matchers'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

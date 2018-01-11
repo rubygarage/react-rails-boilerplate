@@ -1,0 +1,406 @@
+{
+  "swagger": "2.0",
+  "basePath": "/api/v1",
+  "info": {
+    "title": "React Isomorphic Template",
+    "version": "v1"
+  },
+  "produces": [
+    "application/vnd.api+json"
+  ],
+  "consumes": [
+    "application/vnd.api+json"
+  ],
+  "securityDefinitions": {
+    "access_token": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "access-token"
+    },
+    "token_type": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "token-type"
+    },
+    "client": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "client"
+    },
+    "uid": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "uid"
+    }
+  },
+  "security": [
+    {
+      "access_token": [
+
+      ],
+      "token_type": [
+
+      ],
+      "client": [
+
+      ],
+      "uid": [
+
+      ]
+    }
+  ],
+  "paths": {
+    "/auth/users/confirmation": {
+      "post": {
+        "summary": "Confirm user",
+        "tags": [
+          "Confirmation"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "confirmation_token",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User confirmed"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/auth/users/password": {
+      "get": {
+        "summary": "Show Password",
+        "tags": [
+          "Password"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "reset_token",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Validate reset token"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create Password",
+        "tags": [
+          "Password"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "email": {
+                  "type": "string"
+                }
+              },
+              "required": "email"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Email found"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update Password",
+        "tags": [
+          "Password"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "reset_token": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                },
+                "password_confirmation": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "reset_token",
+                "password",
+                "password_confirmation"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update user's password",
+            "examples": {
+              "application/vnd.api+json": {
+                "data": {
+                  "id": 1,
+                  "type": "users",
+                  "attributes": {
+                    "email": "test@example.com",
+                    "username": "new_test_user"
+                  },
+                  "relationships": {
+                    "avatar": {
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          }
+        }
+      }
+    },
+    "/auth/users/registration": {
+      "post": {
+        "summary": "Create User Profile (Sign Up)",
+        "tags": [
+          "Registration"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "username": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                },
+                "password_confirmation": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "username",
+                "email",
+                "password"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User information",
+            "examples": {
+              "application/vnd.api+json": {
+                "data": {
+                  "id": 1,
+                  "type": "users",
+                  "attributes": {
+                    "email": "test@example.com",
+                    "username": "new_test_user"
+                  },
+                  "relationships": {
+                    "avatar": {
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid request",
+            "examples": {
+              "application/vnd.api+json": {
+                "errors": [
+                  {
+                    "source": {
+                      "pointer": "/data/attributes/email"
+                    },
+                    "detail": "must be filled"
+                  },
+                  {
+                    "source": {
+                      "pointer": "/data/attributes/email"
+                    },
+                    "detail": "is not unique"
+                  },
+                  {
+                    "source": {
+                      "pointer": "/data/attributes/username"
+                    },
+                    "detail": "must be filled"
+                  },
+                  {
+                    "source": {
+                      "pointer": "/data/attributes/username"
+                    },
+                    "detail": "is not unique"
+                  },
+                  {
+                    "source": {
+                      "pointer": "/data/attributes/password"
+                    },
+                    "detail": "must be filled"
+                  },
+                  {
+                    "source": {
+                      "pointer": "/data/attributes/password"
+                    },
+                    "detail": "size cannot be less than 8"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/users/session": {
+      "get": {
+        "summary": "Show User's Info (Session Show)",
+        "tags": [
+          "Session"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User information",
+            "examples": {
+              "application/vnd.api+json": {
+                "data": {
+                  "id": 1,
+                  "type": "users",
+                  "attributes": {
+                    "email": "test@example.com",
+                    "username": "new_test_user"
+                  },
+                  "relationships": {
+                    "avatar": {
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create New User's Session (Log In)",
+        "tags": [
+          "Session"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "username": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "username",
+                "password"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Authorization token"
+          },
+          "422": {
+            "description": "Invalid request"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+  }
+}

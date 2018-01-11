@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe Admin::Auth::Session::Contract::Create do
   let(:subject) { described_class.new(admin) }
   let!(:admin) { create(:user, :admin) }

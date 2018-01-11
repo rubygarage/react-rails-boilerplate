@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe Auth::Session::Create do
   subject { described_class.call(params, response) }
 

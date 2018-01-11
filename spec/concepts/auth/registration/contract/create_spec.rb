@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe Auth::Registration::Contract::Create do
   let(:missed_params) { { username: user.username, password: user.password } }
   let(:subject) { described_class.new(User.new) }

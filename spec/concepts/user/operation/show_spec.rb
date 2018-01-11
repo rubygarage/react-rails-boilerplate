@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe User::Show do
   let(:subject) { described_class.call(params) }
   let!(:user) { create(:user) }

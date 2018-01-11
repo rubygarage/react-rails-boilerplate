@@ -16,6 +16,8 @@ module Auth
           token = JWT.decode(token, Figaro.env.jwt_signature, true, aud: RESET_PASSWORD_AUD_CLAIM, verify_aud: true)
           password_digest = decrypt(token[0]['sub'])
           User.find_by(password_digest: password_digest)
+        rescue JWT::VerificationError
+          nil
         end
 
         private

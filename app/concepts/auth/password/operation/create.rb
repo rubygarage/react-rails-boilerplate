@@ -1,5 +1,7 @@
 class Auth::Password::Create < Trailblazer::Operation
-  step :set_user!
+  success :set_user!
+  step Contract::Build(constant: Auth::Password::Contract::Create)
+  step Contract::Validate()
   success :send_reset_password_email!
 
   def set_user!(options, params:, **)
