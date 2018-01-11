@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { injectIntl, FormattedMessage, intlShape } from 'react-intl'
 import { Field } from 'redux-form'
-import { Link } from 'react-router-dom'
 import ErrorMessage from 'components/ui/ErrorMessage'
 import Header from 'containers/Header'
+import FileUpload from 'components/ui/FileUpload'
 
 import styles from './styles.css'
 
@@ -23,6 +23,9 @@ export function EditUser({ intl: { formatMessage }, pristine, submitting, initia
                 </div>
                 <div className="card-block">
                   <form>
+                    <div className="input-group mb-3">
+                      <FileUpload />
+                    </div>
                     <ErrorMessage name="username" />
                     <div className="input-group mb-3">
                       <Field
@@ -90,12 +93,6 @@ export function EditUser({ intl: { formatMessage }, pristine, submitting, initia
                     </button>
 
                   </form>
-
-                  <p>
-                    <Link to="/reset_password">
-                      <FormattedMessage id="sign_in.forgot_password" />
-                    </Link>
-                  </p>
                 </div>
               </div>
             </div>

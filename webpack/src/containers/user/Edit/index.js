@@ -6,6 +6,7 @@ import { getCurrentUser } from 'selectors/user'
 
 import EditUserComponent from 'components/user/Edit'
 
+
 class UserEdit extends Component {
   static propTypes = {
     initialValues: PropTypes.object

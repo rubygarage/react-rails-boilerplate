@@ -141,5 +141,11 @@
     "template-tag-spacing": ["error", "never"],
     "unicode-bom": "error",
     "yield-star-spacing": ["error", "after"]
+  },
+  "globals": {
+    "Dropzone": true
+  },
+  "rules": {
+    "react/jsx-no-bind": "off"
   }
 }
