@@ -1,7 +1,7 @@
-import merge from 'lodash/merge'
+import merge from 'lodash/merge';
 
-const initialState = {}
+const initialState = {};
 
 export default function entities(state = initialState, action) {
-  return (action.entities) ? merge({}, state, action.entities) : state
+  return (action.entities) ? merge({}, state, action.entities) : state;
 }

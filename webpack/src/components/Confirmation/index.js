@@ -1,6 +1,6 @@
-import React from 'react'
-import { FormattedMessage } from 'react-intl'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { FormattedMessage } from 'react-intl';
+import { Link } from 'react-router-dom';
 
 function Confirmation() {
   return (
@@ -15,7 +15,7 @@ function Confirmation() {
         </Link>
       </div>
     </main>
-  )
+  );
 }
 
-export default Confirmation
+export default Confirmation;

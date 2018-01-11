@@ -1,20 +1,23 @@
-import { SET_LOCALE } from 'constants/actions'
+import { SET_LOCALE } from 'constants/actions';
+
+import enLocale from 'translations/en.json';
 
 const initialState = {
   locale: 'en',
-  messages: require('translations/en.json')
-}
+  messages: enLocale,
+};
 
 export default function locale(state = initialState, action) {
-  const { type, payload } = action
+  const { type, payload } = action;
 
   switch (type) {
     case SET_LOCALE: {
-      const messages = require(`translations/${(payload || state.locale)}.json`)
+      // add switch statement when you add another locale
+      const messages = enLocale;
 
-      return { ...state, locale: payload, messages }
+      return { ...state, locale: payload, messages };
     }
 
-    default: return state
+    default: return state;
   }
 }

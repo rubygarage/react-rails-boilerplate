@@ -1,26 +1,22 @@
-import React from 'react'
-import { shallow } from 'enzyme'
-import ErrorMessage from 'components/ui/ErrorMessage'
+import React from 'react';
+import { shallow } from 'enzyme';
+import ErrorMessage from 'components/ui/ErrorMessage';
 
 describe('<ErrorMessage />', () => {
   const props = {
     name: 'TestFieldName',
-    component: jest.fn()
-  }
+    component: jest.fn(),
+  };
 
   it('renders with empty props', () => {
-    const component = shallow(
-      <ErrorMessage />
-    )
+    const component = shallow(<ErrorMessage name="" />);
 
-    expect(component).toMatchSnapshot()
-  })
+    expect(component).toMatchSnapshot();
+  });
 
   it('renders with props', () => {
-    const component = shallow(
-      <ErrorMessage {...props} />
-    )
+    const component = shallow(<ErrorMessage {...props} />);
 
-    expect(component).toMatchSnapshot()
-  })
-})
+    expect(component).toMatchSnapshot();
+  });
+});

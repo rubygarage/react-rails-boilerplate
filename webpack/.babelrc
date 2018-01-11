@@ -18,6 +18,9 @@
                 "imports": ["react", "redbox-react"]
               }
             ]
+        }],
+        ["module-resolver", {
+          "root": ["./src"]
         }]
       ]
     }

@@ -1,9 +1,9 @@
-import { oauthRequest } from 'actions/oauth'
+import oauthRequest from 'actions/oauth';
 
 describe('oauth', () => {
-  it('creates an action to oauth', () =>{
-    const expectedAction = { type: 'OAUTH_REQUEST' }
+  it('creates an action to oauth', () => {
+    const expectedAction = { type: 'OAUTH_REQUEST' };
 
-    expect(oauthRequest()).toEqual(expectedAction)
-  })
-})
+    expect(oauthRequest()).toEqual(expectedAction);
+  });
+});

@@ -1,12 +1,14 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
-import classNames from 'classnames'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import classNames from 'classnames';
 
-import styles from './button.css'
+import styles from './button.css';
 
-function Button({ children, href, to, color, size, className, disabled, onClick, type }) {
-  const classes = classNames(styles.btn, styles[color || 'blue'], styles[size], className)
+function Button({
+  children, href, to, color, size, className, disabled, onClick, type,
+}) {
+  const classes = classNames(styles.btn, styles[color || 'blue'], styles[size], className);
 
   if (href) {
     return (
@@ -20,14 +22,20 @@ function Button({ children, href, to, color, size, className, disabled, onClick,
       >
         {children}
       </a>
-    )
+    );
   }
 
   if (to) {
-    return <Link to={to} className={classes} disabled={disabled} onClick={onClick}>{children}</Link>
+    return (
+      // eslint-disable-next-line
+      <Link to={to} className={classes} disabled={disabled} onClick={onClick}>{children}</Link>
+    );
   }
 
-  return <button type={type} className={classes} disabled={disabled} onClick={onClick}>{children}</button>
+  return (
+    <button type={type} className={classes} disabled={disabled} onClick={onClick}>{children}
+    </button>
+  );
 }
 
 Button.propTypes = {
@@ -39,13 +47,13 @@ Button.propTypes = {
   href: PropTypes.string,
   onClick: PropTypes.func,
   to: PropTypes.string,
-  type: PropTypes.string
-}
+  type: PropTypes.string,
+};
 
 Button.defaultProps = {
   href: '',
   to: '',
-  size: 'md'
-}
+  size: 'md',
+};
 
-export default Button
+export default Button;

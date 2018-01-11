@@ -1,13 +1,13 @@
-import createHistory from 'history/createBrowserHistory'
+import createHistory from 'history/createBrowserHistory';
 
-let instance = null
+let instance = null;
 
 export default class memoizedBrowserHistory {
   constructor() {
     if (!instance) {
-      instance = createHistory()
+      instance = createHistory();
     }
 
-    return instance
+    return instance;
   }
 }

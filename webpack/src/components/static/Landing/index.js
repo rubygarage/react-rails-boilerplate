@@ -1,6 +1,6 @@
-import React from 'react'
-import { FormattedMessage } from 'react-intl'
-import Header from 'containers/Header'
+import React from 'react';
+import { FormattedMessage } from 'react-intl';
+import Header from 'containers/Header';
 
 function Landing() {
   return (
@@ -13,7 +13,7 @@ function Landing() {
         <p> <FormattedMessage id="landing.note" /> </p>
       </div>
     </main>
-  )
+  );
 }
 
-export default Landing
+export default Landing;

@@ -1,7 +1,4 @@
-import {
-  getCurrentUser,
-  getUser
-} from 'selectors/user'
+import { getCurrentUser } from 'selectors/user';
 
 describe('User selector', () => {
   const state = {
@@ -9,19 +6,21 @@ describe('User selector', () => {
       users: {
         1: {
           id: '1',
-          type: 'users'
-        }
-      }
+          type: 'users',
+        },
+      },
     },
-    signin: { currentUser: { users: [1] } }
-  }
+    signin: { currentUser: { users: [1] } },
+  };
 
   describe('getCurrentUser', () => {
-    const { users, roles } = state.entities
+    const { users } = state.entities;
     const expectedData = {
-      ...users[1]
-    }
+      ...users[1],
+    };
 
-    expect(getCurrentUser(state)).toEqual(expectedData)
-  })
-})
+    it('get user state', () => {
+      expect(getCurrentUser(state)).toEqual(expectedData);
+    });
+  });
+});

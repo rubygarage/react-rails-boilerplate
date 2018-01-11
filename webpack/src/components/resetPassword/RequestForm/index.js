@@ -1,17 +1,17 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { injectIntl, FormattedMessage, intlShape } from 'react-intl'
-import { Field } from 'redux-form'
-import ErrorMessage from 'components/ui/ErrorMessage'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { injectIntl, FormattedMessage, intlShape } from 'react-intl';
+import { Field } from 'redux-form';
+import ErrorMessage from 'components/ui/ErrorMessage';
 
-import styles from './styles.css'
+import styles from './styles.css';
 
 export function ResetPasswordRequestForm({
   handleSubmit,
   pristine,
   submitHandler,
   submitting,
-  intl: { formatMessage }
+  intl: { formatMessage },
 }) {
   return (
     <div className="container">
@@ -50,7 +50,7 @@ export function ResetPasswordRequestForm({
 
       </div>
     </div>
-  )
+  );
 }
 
 ResetPasswordRequestForm.propTypes = {
@@ -58,7 +58,7 @@ ResetPasswordRequestForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   pristine: PropTypes.bool,
   submitHandler: PropTypes.func.isRequired,
-  submitting: PropTypes.bool
-}
+  submitting: PropTypes.bool,
+};
 
-export default injectIntl(ResetPasswordRequestForm)
+export default injectIntl(ResetPasswordRequestForm);

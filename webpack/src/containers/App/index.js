@@ -1,13 +1,13 @@
-import PropTypes from 'prop-types'
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import Helmet from 'react-helmet'
+import PropTypes from 'prop-types';
+import React from 'react';
+import { connect } from 'react-redux';
+import Helmet from 'react-helmet';
 
 // import styles from 'assets/styles/style.css' // eslint-disable-line
 
-class App extends Component {
+class App extends React.PureComponent {
   render() {
-    const { children } = this.props
+    const { children } = this.props;
 
     return (
       <div>
@@ -17,12 +17,12 @@ class App extends Component {
         </Helmet>
         { children }
       </div>
-    )
+    );
   }
 }
 
 App.propTypes = {
-  children: PropTypes.node
-}
+  children: PropTypes.node,
+};
 
-export default connect()(App)
+export default connect()(App);

@@ -1,46 +1,48 @@
-import React from 'react'
-import { shallow } from 'enzyme'
-import { ChangePasswordForm } from 'components/resetPassword/ChangePasswordForm'
+import React from 'react';
+import { shallow } from 'enzyme';
+import { ChangePasswordForm } from 'components/resetPassword/ChangePasswordForm';
 
 describe('<ChangePasswordForm />', () => {
   let props = {
-    intl: { formatMessage: jest.fn() },
+    intl: {
+      formatDate: jest.fn(),
+      formatTime: jest.fn(),
+      formatRelative: jest.fn(),
+      formatNumber: jest.fn(),
+      formatPlural: jest.fn(),
+      formatMessage: jest.fn(),
+      formatHTMLMessage: jest.fn(),
+      now: jest.fn(),
+    },
     handleSubmit: jest.fn(),
-    submitHandler: jest.fn()
-  }
+    submitHandler: jest.fn(),
+  };
 
   it('renders ChangePasswordForm component', () => {
-    
-    const component = shallow(
-      <ChangePasswordForm {...props} />
-    )
+    const component = shallow(<ChangePasswordForm {...props} />);
 
-    expect(component).toMatchSnapshot()
-  })
+    expect(component).toMatchSnapshot();
+  });
 
   it('renders with pristine = true', () => {
     props = {
       ...props,
-      pristine: true
-    }
+      pristine: true,
+    };
 
-    const component = shallow(
-      <ChangePasswordForm {...props} />
-    )
+    const component = shallow(<ChangePasswordForm {...props} />);
 
-    expect(component).toMatchSnapshot()
-  })
+    expect(component).toMatchSnapshot();
+  });
 
   it('renders with submitting = true', () => {
     props = {
       ...props,
-      submitting: true
-    }
+      submitting: true,
+    };
 
-    const component = shallow(
-      <ChangePasswordForm {...props} />
-    )
+    const component = shallow(<ChangePasswordForm {...props} />);
 
-    expect(component).toMatchSnapshot()
-  })
-})
+    expect(component).toMatchSnapshot();
+  });
+});

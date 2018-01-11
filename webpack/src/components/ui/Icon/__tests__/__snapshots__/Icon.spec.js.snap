@@ -2,7 +2,7 @@
 
 exports[`<Icon /> renders with empty props 1`] = `
 <i
-  className="icon"
+  className="icon arrows"
 />
 `;
 

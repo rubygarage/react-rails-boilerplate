@@ -1,9 +1,9 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
-import { FormattedMessage } from 'react-intl'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
 
-export function Header({ currentUser, currentUserProfileLink, handleSignOut }) {
+function Header({ currentUser, currentUserProfileLink, handleSignOut }) {
   return (
     <nav className="navbar primary-color">
       <form className="form-inline justify-content-end">
@@ -23,13 +23,15 @@ export function Header({ currentUser, currentUserProfileLink, handleSignOut }) {
         )}
       </form>
     </nav>
-  )
+  );
 }
 
 Header.propTypes = {
-  currentUser: PropTypes.object,
+  currentUser: PropTypes.shape({
+    id: PropTypes.number,
+  }),
   currentUserProfileLink: PropTypes.string,
-  handleSignOut: PropTypes.func.isRequired
-}
+  handleSignOut: PropTypes.func.isRequired,
+};
 
-export default Header
+export default Header;

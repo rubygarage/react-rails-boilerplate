@@ -1,5 +1,5 @@
-import { SIGN_OUT, REQUEST } from 'constants/actions'
+import { SIGN_OUT, REQUEST } from 'constants/actions';
 
-export function signOut() {
-  return { type: SIGN_OUT + REQUEST }
+export default function signOut() {
+  return { type: SIGN_OUT + REQUEST };
 }

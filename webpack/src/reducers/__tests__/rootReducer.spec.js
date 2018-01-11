@@ -1,16 +1,15 @@
-import { createStore } from 'redux'
-import reducer from 'reducers'
+import { createStore } from 'redux';
 
-import rootReducer from 'reducers/index'
+import rootReducer from 'reducers/index';
 
 describe('rootReducer', () => {
-  const state = createStore(reducer).getState()
+  const state = createStore(rootReducer).getState();
 
   describe('can handle SIGN_OUT_SUCCESS', () => {
-    const stateWithEntities = { ...state }
+    const stateWithEntities = { ...state };
 
     it('resets state', () => {
-      expect(rootReducer(stateWithEntities, { type: 'SIGN_OUT_SUCCESS' })).toEqual({ ...state })
-    })
-  })
-})
+      expect(rootReducer(stateWithEntities, { type: 'SIGN_OUT_SUCCESS' })).toEqual({ ...state });
+    });
+  });
+});
