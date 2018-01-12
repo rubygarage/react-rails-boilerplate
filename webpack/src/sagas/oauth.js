@@ -2,33 +2,26 @@ import { normalize } from 'normalize-json-api'
 import { takeEvery, call, put } from 'redux-saga/effects'
 import { SIGN_IN, OAUTH, REQUEST, SUCCESS, ERROR } from 'constants/actions'
 import { setTokenToStorage } from 'utils/tokens'
-import { openPopup, removePopupData } from 'utils/popup'
+import { openPopup } from 'utils/popup'
+import { redirect } from 'helpers/redirect'
 
-export function* auth() {
-  // console.console.log('!!!!!!!! userData: ', localStorage.getItem('userData'))
-  debugger
-  if (localStorage.getItem('newUser') === 'true') {
-    // go to '/sign_up/omniauth'
+export function* auth(response) {
+  if (response.newUser === 'true') {
+    yield call(redirect, '/sign_up')
   } else {
-    const response = yield call(JSON.parse, localStorage.getItem('userData'))
-    const headers = yield call(JSON.parse, localStorage.getItem('tokenInfo'))
-
-    yield call(setTokenToStorage, headers)
-    yield call(removePopupData)
-
-    const { entities, results } = yield call(normalize, response)
+    yield call(setTokenToStorage, response.headers)
+    const { entities, results } = yield call(normalize, response.userData)
     yield put({ type: SIGN_IN + SUCCESS, entities, currentUser: results })
+    yield call(redirect, '/')
   }
 }
 
 export function* signIn({ provider }) {
   try {
-    yield call(openPopup, `/omniauth/${provider}`, provider)
-    yield call(auth)
+    const response = yield call(openPopup, `/omniauth/${provider}`, provider)
+    yield call(auth, response)
   } catch (error) {
-    yield call(removePopupData)
     yield put({ type: SIGN_IN + ERROR, error })
-    // handle errors
   }
 }
 

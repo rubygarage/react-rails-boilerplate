@@ -7,9 +7,10 @@ class Users::OmniauthCallbacksController < ApplicationController
     result = run ::Auth::Omniauth::Create if @new_user
 
     if result.success?
-      user = result['model']
-      serialize(user)
-      @token_info = result['auth_token']
+      @user = serialize(result['model'])
+      @token_info = result['authorization'].as_json.to_json.html_safe
+    else
+      # set only @user (don't save!), pass data for continue ordinary registration
     end
 
     render partial: 'partials/omniauth/close_popup', layout: false
@@ -26,8 +27,8 @@ class Users::OmniauthCallbacksController < ApplicationController
   end
 
   def serialize(user)
-    @user = ActiveModelSerializers::SerializableResource.new(
+    ActiveModelSerializers::SerializableResource.new(
       user, key_transform: :camel_lower, include: '**', serializer: Api::V1::UserSerializer
-    ).as_json.to_json
+    ).as_json.to_json.html_safe
   end
 end
