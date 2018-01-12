@@ -4,6 +4,7 @@ class Auth::Omniauth::Create < Trailblazer::Operation
   step Contract::Validate()
   step Contract::Persist()
   step :set_token!
+  step :set_auth_headers!
 
   def initialize_new_user!(options, params:, **)
     options['model'] =
@@ -18,5 +19,9 @@ class Auth::Omniauth::Create < Trailblazer::Operation
 
   def set_token!(options, params:, model:, **)
     options['auth_token'] = Auth::Token::Session.generate(model)
+  end
+
+  def set_auth_headers!(options, auth_token:, **)
+    options['authorization'] = { authorization: "Bearer #{auth_token}" }
   end
 end

@@ -32,27 +32,20 @@ const getPopupDimensions = (provider) => {
 export const openPopup = (url, provider) => {
   const popup = window.open(url, 'Authentication', `${settings},${getPopupDimensions(provider)}`)
 
-  return listenForPopup(popup)
+  return listenForPopup(popup, url)
 }
 
-const listenForPopup = (popup) => new Promise((resolve, reject) => {
-  const listen = () => {
-    if (popup.closed && localStorage.userData) {
-      return resolve()
+const listenForPopup = (popup, url) => new Promise((resolve, reject) => {
+  const eventMethod = window.addEventListener ? 'addEventListener' : 'attachEvent'
+  const eventer = window[eventMethod]
+  const messageEvent = eventMethod === 'attachEvent' ? 'onmessage' : 'message'
+
+  eventer(messageEvent, (event) => {
+    if (popup.closed && event.data.userData) {
+      return resolve(event.data)
     }
-    if (popup.closed && !localStorage.userData) {
+    if (popup.closed && !event.data.userData && event.origin.match(url)) {
       return reject(new Error('popup closed'))
     }
-
-    window.setTimeout(listen, 0)
-
-    return null
-  }
-  listen()
+  }, false)
 })
-
-export const removePopupData = () => {
-  localStorage.removeItem('userData')
-  localStorage.removeItem('tokenInfo')
-  localStorage.removeItem('newUser')
-}
