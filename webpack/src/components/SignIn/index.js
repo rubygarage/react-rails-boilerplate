@@ -4,6 +4,7 @@ import { injectIntl, FormattedMessage, intlShape } from 'react-intl';
 import { Field } from 'redux-form';
 import { Link } from 'react-router-dom';
 import ErrorMessage from 'components/ui/ErrorMessage';
+import Oauth from 'containers/Oauth';
 
 import styles from './styles.css';
 
@@ -23,6 +24,9 @@ export function SignIn({
             <div className="card">
               <div className="card-header text-center">
                 <h2> <FormattedMessage id="sign_in.login" /> </h2>
+              </div>
+              <div className="text-center">
+                <Oauth type="icon-fb" provider="facebook" button />
               </div>
               <div className="card-block">
                 <form onSubmit={handleSubmit(submitHandler)}>
