@@ -8,7 +8,11 @@ import HeaderComponent from 'components/Header';
 
 class Header extends Component {
   static propTypes = {
-    currentUser: PropTypes.shape,
+    currentUser: PropTypes.shape({
+      id: PropTypes.string,
+      username: PropTypes.string,
+      email: PropTypes.string,
+    }),
     signOut: PropTypes.func.isRequired,
   }
 
