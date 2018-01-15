@@ -2,13 +2,17 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getUser as getUserSaga } from 'sagas/user';
-import { getUser as getUserAction } from 'actions/user';
 import { getUser } from 'selectors/user';
+import getUserAction from 'actions/user';
 import UserComponent from 'components/user/Show';
 
 class User extends Component {
   static propTypes = {
-    user: PropTypes.shape.isRequired,
+    user: PropTypes.shape({
+      id: PropTypes.string,
+      username: PropTypes.string,
+      email: PropTypes.string,
+    }),
     id: PropTypes.string.isRequired,
     getUserAction: PropTypes.func.isRequired,
   }

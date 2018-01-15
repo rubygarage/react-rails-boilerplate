@@ -30,10 +30,7 @@ export default class Root extends React.PureComponent {
 }
 
 Root.propTypes = {
-  store: PropTypes.shape.isRequired,
-  // history: PropTypes.object.isRequired,
-  // routes: PropTypes.node.isRequired,
+  store: PropTypes.shape({}),
   type: PropTypes.string,
-  // renderProps: PropTypes.object,
-  req: PropTypes.shape.isRequired,
+  req: PropTypes.shape({}),
 };

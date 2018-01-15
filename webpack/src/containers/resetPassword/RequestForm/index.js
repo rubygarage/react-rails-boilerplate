@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { reduxForm, SubmissionError } from 'redux-form';
 import { injectIntl } from 'react-intl';
-import { sendRestorePasswordEmail } from 'actions/resetPassword';
+import sendRestorePasswordEmail from 'actions/resetPassword';
 
 import Instructions from 'components/resetPassword/RequestForm/Instructions';
 import ResetPasswordRequestFormComponent from 'components/resetPassword/RequestForm';
