@@ -1,4 +1,4 @@
-describe User::Update do
+RSpec.describe User::Update do
   # it "prohibits empty params" do
   #   result = Song::Create.({})
   #
