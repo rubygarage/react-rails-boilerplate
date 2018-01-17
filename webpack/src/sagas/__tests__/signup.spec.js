@@ -3,9 +3,9 @@ import ApiClient from 'utils/apiClient';
 import { normalize } from 'normalize-json-api';
 import { takeEvery, call, put, select } from 'redux-saga/effects';
 import watchSignUp, { signUp } from 'sagas/signup';
+import { getOmniauthData } from 'selectors/user';
 import redirect from 'helpers/redirect';
 import response from '../__mocks__/responses/signup';
-import { getOmniauthData } from 'selectors/user';
 
 jest.mock('responses/signup');
 
