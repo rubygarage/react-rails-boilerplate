@@ -2,6 +2,7 @@ class Auth::Omniauth::Show < Trailblazer::Operation
   step :set_user!
   step :set_token!
   step :set_auth_headers!
+  step :set_action_type!
 
   def set_user!(options, params:, **)
     options['model'] =
@@ -17,5 +18,9 @@ class Auth::Omniauth::Show < Trailblazer::Operation
 
   def set_auth_headers!(options, auth_token:, **)
     options['authorization'] = { authorization: "Bearer #{auth_token}" }
+  end
+
+  def set_action_type!(options, **)
+    options['action'] = 'signin'
   end
 end

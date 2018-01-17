@@ -2,18 +2,17 @@ class Users::OmniauthCallbacksController < ApplicationController
   before_action :auth_hash_to_params
 
   def facebook
-    result = run ::Auth::Omniauth::Show
-    @new_user = result.failure?
-    result = run ::Auth::Omniauth::Create if @new_user
+    @result = run ::Auth::Omniauth::Show
 
-    if result.success?
-      @user = serialize(result['model'])
-      @token_info = result['authorization'].as_json.to_json.html_safe
+    if @result.success?
+      @new_user = false
+      @user = serialize(@result['model'])
+      @token_info = @result['authorization'].to_json.html_safe
     else
-      # set only @user (don't save!), pass data for continue ordinary registration
+      @result = run ::Auth::Omniauth::Prepare
     end
 
-    render partial: 'partials/omniauth/close_popup', layout: false
+    render partial: "partials/omniauth/close_popup_#{@result['action']}", layout: false
   end
 
   protected
@@ -23,6 +22,7 @@ class Users::OmniauthCallbacksController < ApplicationController
   end
 
   def auth_hash_to_params
+    params[:auth_hash] = auth_hash
     params[:token_info] = auth_hash[:extra][:raw_info]
   end
 
