@@ -20,7 +20,7 @@ class Auth::Registration::Contract::Create < Reform::Form
     required(:email).filled(:str?, format?: URI::MailTo::EMAIL_REGEXP, unique?: :email)
     required(:username).filled(:str?, unique?: :username)
     required(:password).filled(:str?, min_size?: 8).confirmation
+    required(:provider).filled(:str?)
     optional(:uid)
-    optional(:provider)
   end
 end
