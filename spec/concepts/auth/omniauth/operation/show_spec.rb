@@ -7,8 +7,8 @@ RSpec.describe Auth::Omniauth::Show do
       let(:params) do
         {
           provider: user.provider,
-          token_info: {
-            id: user.uid
+          auth_hash: {
+            uid: user.uid
           }
         }
       end
@@ -28,18 +28,14 @@ RSpec.describe Auth::Omniauth::Show do
         expect(subject['authorization']).to be
         expect(subject['authorization'][:authorization]).to start_with 'Bearer '
       end
-
-      it 'sets action type' do
-        expect(subject['action']).to eq 'signin'
-      end
     end
 
     context 'invalid params' do
       let(:params) do
         {
           provider: 'unexisted',
-          token_info: {
-            id: '0000'
+          auth_hash: {
+            uid: '0000'
           }
         }
       end
@@ -54,10 +50,6 @@ RSpec.describe Auth::Omniauth::Show do
 
       it 'does not set auth headers' do
         expect(subject['authorization']).to be_nil
-      end
-
-      it 'does not set action type' do
-        expect(subject['action']).to be_nil
       end
     end
   end

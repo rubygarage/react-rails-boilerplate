@@ -1,5 +1,4 @@
 import { getCurrentUser } from 'selectors/user';
-import { getOmniauthData } from 'selectors/user';
 
 describe('User selector', () => {
   const state = {
@@ -23,16 +22,6 @@ describe('User selector', () => {
 
     it('get user state', () => {
       expect(getCurrentUser(state)).toEqual(expectedData);
-    });
-  });
-
-  describe('getOmniauthData', () => {
-    const expectedData = {
-      ...state.oauth,
-    };
-
-    it('get oauth data', () => {
-      expect(getOmniauthData(state)).toEqual(expectedData);
     });
   });
 });

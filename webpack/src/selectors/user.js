@@ -5,7 +5,6 @@ export const getCurrentUserId = state => (
 );
 const getUsers = state => state.entities.users || {};
 const getUserId = (_, id) => id;
-const getDataFromOauth = state => state.oauth || {};
 
 export const getCurrentUser = createSelector(
   [getCurrentUserId, getUsers],
@@ -20,9 +19,4 @@ export const getUser = createSelector(
   getUserId,
   getUsers,
   (id, users) => (users[id] || {}),
-);
-
-export const getOmniauthData = createSelector(
-  getDataFromOauth,
-  oauthData => (oauthData),
 );

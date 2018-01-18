@@ -1,7 +1,0 @@
-:javascript
-  window.opener.postMessage({
-    userData: #{@result['user'].to_json.html_safe},
-    newUser: "#{@result['new_user?']}",
-    avatar: "#{@result['avatar']}"
-  }, "*");
-  window.close();

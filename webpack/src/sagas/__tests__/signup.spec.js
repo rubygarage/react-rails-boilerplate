@@ -3,7 +3,6 @@ import ApiClient from 'utils/apiClient';
 import { normalize } from 'normalize-json-api';
 import { takeEvery, call, put, select } from 'redux-saga/effects';
 import watchSignUp, { signUp } from 'sagas/signup';
-import { getOmniauthData } from 'selectors/user';
 import redirect from 'helpers/redirect';
 import response from '../__mocks__/responses/signup';
 
@@ -30,8 +29,6 @@ describe('signUp()', () => {
   it('success', () => {
     const saga = signUp(params);
 
-    expect(saga.next().value).toEqual(select(getOmniauthData));
-
     expect(saga.next().value).toEqual(call(apiClient.post, '/api/v1/auth/users/registration', params.values));
 
     expect(saga.next({ data: response }).value).toEqual(call(normalize, response));
@@ -54,8 +51,6 @@ describe('signUp()', () => {
   it('failure', () => {
     const saga = signUp(params);
     const error = { response: { data: 'Error' } };
-
-    expect(saga.next().value).toEqual(select(getOmniauthData));
 
     expect(saga.next().value).toEqual(call(apiClient.post, '/api/v1/auth/users/registration', params.values));
 

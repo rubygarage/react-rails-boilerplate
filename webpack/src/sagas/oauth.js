@@ -1,19 +1,18 @@
 import { normalize } from 'normalize-json-api';
 import { takeEvery, call, put } from 'redux-saga/effects';
-import { SIGN_IN, OAUTH, REQUEST, SUCCESS, ERROR, STORE_OAUTH_DATA } from 'constants/actions';
+import { SIGN_IN, OAUTH, REQUEST, SUCCESS, ERROR } from 'constants/actions';
 import { setTokenToStorage } from 'utils/tokens';
 import openPopup from 'utils/popup';
 import redirect from 'helpers/redirect';
 
 export function* auth(response) {
-  if (response.newUser === 'true') {
-    yield put({ type: STORE_OAUTH_DATA, response: { ...response.userData } });
-    yield call(redirect, '/sign_up');
-  } else {
+  if (response.userData) {
     yield call(setTokenToStorage, response.headers);
     const { entities, results } = yield call(normalize, response.userData);
     yield put({ type: SIGN_IN + SUCCESS, entities, currentUser: results });
     yield call(redirect, '/');
+  } else {
+    throw new Error('No user data');
   }
 }
 

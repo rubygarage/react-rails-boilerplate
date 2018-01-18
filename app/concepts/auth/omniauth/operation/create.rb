@@ -1,12 +1,19 @@
-class Auth::Omniauth::Show < Trailblazer::Operation
-  step :set_user!
+
+class Auth::Omniauth::Create < Trailblazer::Operation
+  step :initialize_new_user!
+  step Contract::Build(constant: Auth::Omniauth::Contract::Create)
+  step Contract::Validate()
+  step Contract::Persist()
   step :set_token!
   step :set_auth_headers!
 
-  def set_user!(options, params:, **)
+  def initialize_new_user!(options, params:, **)
     options['model'] =
-      User.find_by(
+      User.new(
         uid: params[:auth_hash][:uid],
+        username: params[:auth_hash][:info][:name],
+        email: params[:auth_hash][:info][:email],
+        password_digest: false,
         provider: params[:provider]
       )
   end

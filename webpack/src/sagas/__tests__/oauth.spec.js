@@ -43,30 +43,8 @@ describe('signIn()', () => {
 });
 
 describe('auth()', () => {
-  it('stores response and redirects to registration', () => {
-    const user = {
-      username: 'Evhenii Halenko',
-      email: 'email@example.com',
-      uid: '489413541398431',
-    };
+  it('sign in', () => {
     const response = {
-      newUser: 'true',
-      userData: user,
-      avatar: 'https://avatar_url',
-    };
-    const saga = auth(response);
-    const expectedResult = put({ type: 'STORE_OAUTH_DATA', response: { ...response.userData } });
-
-    expect(saga.next().value).toEqual(expectedResult);
-
-    expect(saga.next().value).toEqual(call(redirect, '/sign_up'));
-
-    expect(saga.next().done).toBe(true);
-  });
-
-  it('sign in as user', () => {
-    const response = {
-      newUser: 'false',
       userData: oauthResponse,
       headers: { authorization: 'Bearer eyJ0eXA.iOiJKV1.QiLCJh' },
     };
