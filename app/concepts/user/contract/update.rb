@@ -3,7 +3,9 @@ class User::Contract::Update < Reform::Form
 
   # property :email
   # property :username
-  property :avatar
+  property :avatar, populator: ->(fragment:, **) do
+    self.avatar = fragment['id'] ? Avatar.find(fragment['id']) : Avatar.new(image: fragment['image'])
+  end
   # property :password
   # property :password_confirmation
 

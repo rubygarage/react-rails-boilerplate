@@ -4,10 +4,12 @@ import { connect } from 'react-redux';
 import { getUser as getUserSaga } from 'sagas/user';
 import { getUser } from 'selectors/user';
 import getUserAction from 'actions/user';
-import UserComponent from 'components/user/Show';
+import UserEditComponent from 'components/user/Edit';
+import { reduxForm, formValueSelector } from 'redux-form';
 import { injectIntl } from 'react-intl';
+import submit from './submit';
 
-class User extends Component {
+class UserEdit extends Component {
   static propTypes = {
     user: PropTypes.shape({
       id: PropTypes.string,
@@ -26,8 +28,18 @@ class User extends Component {
     this.props.getUserAction(this.props.id);
   }
 
+  avatarRemovalHandler() { // eslint-disable-line class-methods-use-this
+    console.log('AVATAR REMOVAL HANDLER()');
+    // TODO: delete avatar makes request to its own dedicated endpoint
+  }
+
   render() {
-    return <UserComponent user={this.props.user} />;
+    const props = {
+      ...this.props,
+      submitHandler: submit,
+      avatarRemovalHandler: this.avatarRemovalHandler,
+    };
+    return <UserEditComponent {...props} />;
   }
 }
 
@@ -37,6 +49,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     user: getUser(state, id),
     id,
+    avatarFieldValue: formValueSelector('userEdit')(state, 'avatar'),
   };
 };
 
@@ -48,6 +61,8 @@ function preload(params, req, res) {
 
   return sagasToComplete;
 }
-User.preload = preload;
+UserEdit.preload = preload;
 
-export default injectIntl(connect(mapStateToProps, mapDispatchToProps)(User));
+export default connect(mapStateToProps, mapDispatchToProps)(injectIntl(reduxForm({
+  form: 'userEdit',
+})(UserEdit)));

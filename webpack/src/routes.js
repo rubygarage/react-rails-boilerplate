@@ -7,8 +7,8 @@ import ChangePasswordForm from 'containers/resetPassword/ChangePasswordForm';
 import ConfirmationInstructions from 'components/static/ConfirmationInstructions';
 import Confirmation from 'containers/Confirmation';
 import User from 'containers/user/Show';
+import UserEdit from 'containers/user/Edit';
 // import UserShow from 'containers/User/Show'
-// import UserEdit from 'containers/User/Edit'
 
 export default [
   {
@@ -46,12 +46,13 @@ export default [
   },
   {
     path: '/user/:id',
+    exact: true,
     component: User,
   },
-  // {
-  //   path: '/user/:id/edit',
-  //   component: ProfileEdit
-  // },
+  {
+    path: '/user/:id/edit',
+    component: UserEdit,
+  },
   {
     path: '/*',
     component: NotFound,
