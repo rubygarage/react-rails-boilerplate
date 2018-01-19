@@ -16,7 +16,6 @@ Shrine.storages = {
 
 Shrine.plugin :activerecord
 Shrine.plugin :logging, logger: Rails.logger
-Shrine.plugin :presign_endpoint
 Shrine.plugin :backgrounding
 Shrine.plugin :determine_mime_type
 

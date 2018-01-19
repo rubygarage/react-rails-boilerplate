@@ -4,6 +4,7 @@ import watchSignIn from 'sagas/signin';
 import watchSignOut from 'sagas/signout';
 import watchSignUp from 'sagas/signup';
 import { watchSendRestorePassword, watchUpdatePassword } from 'sagas/resetPassword';
+import watchUpdateUser from 'sagas/update_user';
 
 export const waitAll = sagas => function* genTasks() {
   const tasks = yield sagas.map(([saga, ...params]) => fork(saga, ...params));
@@ -19,5 +20,6 @@ export default function* rootSaga() {
     watchSignUp(),
     watchSendRestorePassword(),
     watchUpdatePassword(),
+    watchUpdateUser(),
   ]);
 }

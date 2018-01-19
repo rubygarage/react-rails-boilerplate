@@ -85,5 +85,9 @@
   "validation.max_length": "{field} is too long (maximum is {count} characters)",
 
   "header.sign_in": "Sign In",
-  "header.sign_up": "Sign Up"
+  "header.sign_up": "Sign Up",
+
+  "user.edit_user_data": "Edit User data",
+  "user_edit.save_changes": "Save Changes",
+  "user_edit.avatar": "Avatar"
 }
