@@ -14,19 +14,19 @@ const errors = [
 const fields = ['password'];
 
 describe('parseJsonApiErrors()', () => {
-  it('return empty object if given no errors', () => {
+  it('returns empty object if given no errors', () => {
     expect(parseJsonApiErrors([], [])).toEqual({});
   });
 
-  it('return empty object if have no errors for given fields', () => {
+  it('returns empty object if have no errors for given fields', () => {
     expect(parseJsonApiErrors(errors, ['no-error'])).toEqual({});
   });
 
-  it('return only errors for given fields', () => {
+  it('returns only errors for given fields', () => {
     expect(parseJsonApiErrors(errors, fields)).toEqual({ password: 'can not be blank' });
   });
 
-  it('return errors for several fields', () => {
+  it('returns errors for several fields', () => {
     expect(parseJsonApiErrors(errors, ['password', 'username']))
       .toEqual({
         password: 'can not be blank',
