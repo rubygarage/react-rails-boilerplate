@@ -16,8 +16,9 @@ module Api
       def update
         result = run ::User::Update
 
+        #debugger
         if result.success?
-          render json: @model, serializer: Api::V1::UserSerializer
+          render json: @model, serializer: Api::V1::UserSerializer, include: [:avatar]
         else
           render json: @form, serializer: ::ErrorSerializer, status: :unprocessable_entity
         end

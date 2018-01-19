@@ -6,7 +6,9 @@ module Api
       attributes :id, :thumb_image, :original_image
 
       def thumb_image
-        object&.image_url(:thumb)
+         test = object&.image_url(:thumb)
+         #debugger
+         test
       end
 
       def original_image
