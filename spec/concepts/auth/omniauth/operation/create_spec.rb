@@ -24,7 +24,11 @@ RSpec.describe Auth::Omniauth::Create do
     end
 
     it 'sets auth token' do
+      auth_token = double('Authentication Token')
+      allow(Auth::Token::Session).to receive(:generate) { auth_token }
+
       expect(subject['auth_token']).to be
+      expect(subject['auth_token']).to eq auth_token
     end
 
     it 'sets auth headers' do
@@ -51,7 +55,7 @@ RSpec.describe Auth::Omniauth::Create do
       end
 
       it 'does not set user as persisted model' do
-        expect(subject['model']).to be_nil
+        expect(subject['model']).not_to be_persisted
       end
 
       it 'does not set auth token' do

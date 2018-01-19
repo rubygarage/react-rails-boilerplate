@@ -4,7 +4,7 @@ const oauthResponse = {
     type: 'users',
     attributes: {
       email: 're4port@ukr.net',
-      username: 'Евгений Галенко',
+      username: 'Evhenii Halenko',
       provider: 'facebook',
       uid: '1720825541301392',
     },

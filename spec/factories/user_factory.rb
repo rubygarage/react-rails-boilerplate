@@ -1,3 +1,5 @@
+FACEBOOK = 'facebook'.freeze
+
 FactoryBot.define do
   factory :user do
     sequence(:username) { FFaker::Name.name }
@@ -14,7 +16,7 @@ FactoryBot.define do
 
   trait :facebook_provider do
     after(:build) do |user|
-      user.provider= 'facebook'
+      user.provider= FACEBOOK
       user.uid= Random.new_seed
     end
   end

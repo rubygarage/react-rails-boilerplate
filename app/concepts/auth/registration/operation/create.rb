@@ -1,4 +1,5 @@
 class Auth::Registration::Create < Trailblazer::Operation
+  DEFAULT_PROVIDER = 'email'
   step :set_default_provider!
   step Model(User, :new)
   step Contract::Build(constant: Auth::Registration::Contract::Create)
@@ -7,7 +8,7 @@ class Auth::Registration::Create < Trailblazer::Operation
   step :send_confirmation_email!
 
   def set_default_provider!(options, **)
-    options['params'][:provider]= options['params'][:provider] || 'email'
+    options['params'][:provider] ||= DEFAULT_PROVIDER
   end
 
   def send_confirmation_email!(_options, model:, **)

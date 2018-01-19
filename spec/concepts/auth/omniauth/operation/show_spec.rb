@@ -21,7 +21,11 @@ RSpec.describe Auth::Omniauth::Show do
       end
 
       it 'sets auth token' do
+        auth_token = double('Authentication Token')
+        allow(Auth::Token::Session).to receive(:generate) { auth_token }
+
         expect(subject['auth_token']).to be
+        expect(subject['auth_token']).to eq auth_token
       end
 
       it 'sets auth headers' do

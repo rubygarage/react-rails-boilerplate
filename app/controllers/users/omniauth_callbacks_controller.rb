@@ -22,6 +22,6 @@ class Users::OmniauthCallbacksController < ApplicationController
   def serialize(user)
     ActiveModelSerializers::SerializableResource.new(
       user, key_transform: :camel_lower, include: '**', serializer: Api::V1::UserSerializer
-    ).as_json.to_json.html_safe
+    ).to_json.html_safe
   end
 end

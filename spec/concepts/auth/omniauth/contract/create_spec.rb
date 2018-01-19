@@ -1,17 +1,20 @@
 RSpec.describe Auth::Omniauth::Contract::Create do
   describe 'user registration' do
     let(:user) { build(:user, :facebook_provider) }
-    let(:valid_params) { user.attributes }
     let(:missed_params) { user.attributes.slice 'uid', 'provider' }
 
     context 'new user' do
-      let(:subject) { described_class.new(User.new) }
+      let(:subject) { described_class.new(user) }
 
       it 'validates user params' do
-        expect(subject.validate(valid_params)).to eq true
+        subject = described_class.new(user)
+
+        expect(subject.valid?).to eq true
       end
 
       it 'fails on missed params' do
+        subject = described_class.new(User.new)
+
         expect(subject.validate(missed_params)).to eq false
         expect(subject.errors[:username]).to include 'must be filled'
         expect(subject.errors[:email]).to include 'must be filled'

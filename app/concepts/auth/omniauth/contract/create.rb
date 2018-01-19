@@ -1,4 +1,5 @@
 class Auth::Omniauth::Contract::Create < Reform::Form
+  PERMITTED_OAUTH_PROVIDERS = %w[email facebook]
   include Dry
 
   property :username
@@ -21,10 +22,14 @@ class Auth::Omniauth::Contract::Create < Reform::Form
       def unique?(attr_name, value)
         User.where(attr_name => value).empty?
       end
+
+      def permitted?
+        PERMITTED_OAUTH_PROVIDERS.include? options[:form].model.provider
+      end
     end
 
     required(:username).filled(:str?, unique?: :username)
-    required(:provider).filled(:str?)
+    required(:provider).filled(:str?, :permitted?)
     required(:email).filled(:str?)
     required(:uid).filled(:str?, uniq_in_provider_scope?: :uid)
   end

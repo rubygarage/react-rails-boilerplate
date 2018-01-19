@@ -1,4 +1,4 @@
-import { FACEBOOK } from 'constants/actions';
+const FACEBOOK = 'facebook';
 
 const settings = 'location=no,scrollbars=no,toolbar=no,status=no,titlebar=no,directories=no,menubar=no';
 
@@ -14,7 +14,7 @@ const getPopupOffset = ({ width, height }) => {
 
 const getPopupSize = (provider) => {
   switch (provider) {
-    case FACEBOOK.toLowerCase():
+    case FACEBOOK:
       return { width: 580, height: 400 };
 
     default:

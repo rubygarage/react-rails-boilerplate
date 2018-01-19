@@ -10,8 +10,23 @@ class Auth::Omniauth::Create < Trailblazer::Operation
   step :set_auth_headers!
 
   def set_unique_name!(options, params:, **)
-    options['username'] =
-      find_unique_username(params[:auth_hash][:info][:name])
+   options['username'] = params[:auth_hash][:info][:name]
+
+    taken_usernames = User
+      .where("username LIKE ?", "#{options['username']}%")
+      .pluck(:username)
+
+    return true if taken_usernames.exclude?(options['username'])
+
+    count = POSTFIX
+    loop do
+      new_username = "#{options['username']}_#{count}"
+      if taken_usernames.exclude?(new_username)
+        options['username'] = new_username
+        return true
+      end
+      count += 1
+    end
   end
 
   def initialize_new_user!(options, params:, username:, **)
@@ -31,22 +46,5 @@ class Auth::Omniauth::Create < Trailblazer::Operation
 
   def set_auth_headers!(options, auth_token:, **)
     options['authorization'] = { authorization: "Bearer #{auth_token}" }
-  end
-
-  private
-
-  def find_unique_username(username)
-    taken_usernames = User
-      .where("username LIKE ?", "#{username}%")
-      .pluck(:username)
-
-    return username if taken_usernames.exclude?(username)
-
-    count = POSTFIX
-    loop do
-      new_username = "#{username}_#{count}"
-      return new_username if taken_usernames.exclude?(new_username)
-      count += 1
-    end
   end
 end
