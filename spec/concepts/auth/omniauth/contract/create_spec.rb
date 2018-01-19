@@ -31,7 +31,7 @@ RSpec.describe Auth::Omniauth::Contract::Create do
 
       it 'sets errors' do
         subject.validate(persisted_user.attributes)
-        expect(subject.errors[:uid]).to include 'not uniq'
+        expect(subject.errors[:uid]).to include 'is not unique'
       end
     end
   end

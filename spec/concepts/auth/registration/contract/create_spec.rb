@@ -25,7 +25,12 @@ RSpec.describe Auth::Registration::Contract::Create do
 
     context 'persisted user' do
       let!(:persisted_user) { create(:user) }
-      before { subject.validate(username: persisted_user.username, email: persisted_user.email) }
+      before do
+        subject.validate(
+          username: persisted_user.username,
+          email: persisted_user.email
+        )
+      end
 
       it 'fails' do
         %i[email username].each do |key|

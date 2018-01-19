@@ -8,7 +8,7 @@ en:
         eql?: doesn't match
         confirmed?: email is not confirmed
         credentials_valid?: invalid credentials
-        uniq_in_provider_scope?: not uniq
+        uniq_in_provider_scope?: is not unique
   active_admin:
     user:
       confirm_email: 'Confirm Email'
