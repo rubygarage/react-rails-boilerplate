@@ -17,9 +17,13 @@ class Auth::Omniauth::Contract::Create < Reform::Form
           provider: options[:form].model.provider
         ).empty?
       end
+
+      def unique?(attr_name, value)
+        User.where(attr_name => value).empty?
+      end
     end
 
-    required(:username).filled(:str?)
+    required(:username).filled(:str?, unique?: :username)
     required(:provider).filled(:str?)
     required(:email).filled(:str?)
     required(:uid).filled(:str?, uniq_in_provider_scope?: :uid)

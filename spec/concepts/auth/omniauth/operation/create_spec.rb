@@ -32,6 +32,13 @@ RSpec.describe Auth::Omniauth::Create do
       expect(subject['authorization'][:authorization]).to start_with 'Bearer '
     end
 
+    context 'taken username' do
+      it 'sets username postfix' do
+        user.save
+        expect(subject['model'].username).to eq "#{user.username}_2"
+      end
+    end
+
     context 'invalid params' do
       let(:params) do
         {
@@ -44,7 +51,7 @@ RSpec.describe Auth::Omniauth::Create do
       end
 
       it 'does not set user as persisted model' do
-        expect(subject['model']).not_to be_persisted
+        expect(subject['model']).to be_nil
       end
 
       it 'does not set auth token' do
