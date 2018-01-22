@@ -29,6 +29,15 @@ exports[`<SigniIn /> renders sign in form and pristine is true 1`] = `
             </h2>
           </div>
           <div
+            className="text-center"
+          >
+            <Connect(Oauth)
+              button={true}
+              provider="facebook"
+              type="icon-fb"
+            />
+          </div>
+          <div
             className="card-block"
           >
             <form>
@@ -147,6 +156,15 @@ exports[`<SigniIn /> renders sign in form and submitting button is false 1`] = `
             </h2>
           </div>
           <div
+            className="text-center"
+          >
+            <Connect(Oauth)
+              button={true}
+              provider="facebook"
+              type="icon-fb"
+            />
+          </div>
+          <div
             className="card-block"
           >
             <form>
@@ -263,6 +281,15 @@ exports[`<SigniIn /> renders sign in form and submitting is true 1`] = `
               />
                
             </h2>
+          </div>
+          <div
+            className="text-center"
+          >
+            <Connect(Oauth)
+              button={true}
+              provider="facebook"
+              type="icon-fb"
+            />
           </div>
           <div
             className="card-block"

@@ -33,7 +33,7 @@ const devProxy = (app) => {
   app.use('/api', proxyMiddleware());
   app.use('/assets', proxy(config.apiBaseUrl, { forwardPath: req => `/assets/${url.parse(req.url).path}` }));
   app.use('/uploads', proxy(config.apiBaseUrl, { forwardPath: req => `/uploads/${url.parse(req.url).path}` }));
-  app.use('/omniauth', proxy(config.apiBaseUrl, { forwardPath: req => `/omniauth/${url.parse(req.url).path}` }));
+  app.use('/omniauth', proxy(config.apiBaseUrl, { forwardPath: req => `/auth${url.parse(req.url).path}` }));
 
   return app;
 };

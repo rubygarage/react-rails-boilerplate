@@ -7,6 +7,7 @@ import entities from 'reducers/entities';
 import signup from 'reducers/signup';
 import locale from 'reducers/locale';
 import user from 'reducers/user';
+import oauth from 'reducers/oauth';
 
 const reducers = combineReducers({
   form,
@@ -15,6 +16,7 @@ const reducers = combineReducers({
   signup,
   user,
   locale,
+  oauth,
 });
 
 export default rootReducer(reducers);

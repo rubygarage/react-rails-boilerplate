@@ -16,3 +16,6 @@ export const UPDATE_USER = 'UPDATE_USER';
 
 export const SET_LOCALE = 'SET_LOCALE';
 export const GET_EMAIL_CONFIRMATION = 'GET_EMAIL_CONFIRMATION';
+
+export const FACEBOOK = 'FACEBOOK';
+export const STORE_OAUTH_DATA = 'STORE_OAUTH_DATA';

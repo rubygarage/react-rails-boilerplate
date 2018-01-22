@@ -7,7 +7,8 @@ RSpec.describe Auth::Registration::Contract::Create do
       username: user.username,
       password: user.password,
       password_confirmation: user.password,
-      email: user.email
+      email: user.email,
+      provider: 'email'
     }
   end
 

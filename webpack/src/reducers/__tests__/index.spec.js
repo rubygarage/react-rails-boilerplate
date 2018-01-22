@@ -6,6 +6,7 @@ import locale from 'reducers/locale';
 import signin from 'reducers/signin';
 import signup from 'reducers/signup';
 import user from 'reducers/user';
+import oauth from 'reducers/oauth';
 
 describe('Combine Reducers', () => {
   const state = createStore(reducer).getState();
@@ -28,5 +29,9 @@ describe('Combine Reducers', () => {
 
   it('User', () => {
     expect(state.user).toEqual(user(undefined, {}));
+  });
+
+  it('Oauth', () => {
+    expect(state.oauth).toEqual(oauth(undefined, {}));
   });
 });
