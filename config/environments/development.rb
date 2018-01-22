@@ -31,7 +31,7 @@ Rails.application.configure do
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.asset_host = Figaro.env.host
-  config.action_mailer.default_url_options = { host: Figaro.env.host, port: 3000 }
+  config.action_mailer.default_url_options = { host: Figaro.env.host, port: 4000 }
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
