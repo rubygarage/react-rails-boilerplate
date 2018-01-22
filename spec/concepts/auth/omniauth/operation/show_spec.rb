@@ -12,6 +12,11 @@ RSpec.describe Auth::Omniauth::Show do
           }
         }
       end
+      let!(:auth_token) { double('Authentication Token') }
+
+      before do
+        allow(Auth::Token::Session).to receive(:generate) { auth_token }
+      end
 
       it 'sets user as persisted model' do
         expect(subject['model'].username).to eq user.username
@@ -21,9 +26,6 @@ RSpec.describe Auth::Omniauth::Show do
       end
 
       it 'sets auth token' do
-        auth_token = double('Authentication Token')
-        allow(Auth::Token::Session).to receive(:generate) { auth_token }
-
         expect(subject['auth_token']).to be
         expect(subject['auth_token']).to eq auth_token
       end
@@ -31,6 +33,7 @@ RSpec.describe Auth::Omniauth::Show do
       it 'sets auth headers' do
         expect(subject['authorization']).to be
         expect(subject['authorization'][:authorization]).to start_with 'Bearer '
+        expect(subject['authorization'][:authorization]).to eq "Bearer #{auth_token}"
       end
     end
 
