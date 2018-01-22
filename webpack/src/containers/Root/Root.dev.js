@@ -7,7 +7,8 @@ import IntlProviderRedux from 'containers/IntlProviderRedux';
 import MemoizedBrowserHistory from 'helpers/memoizedBrowserHistory';
 import createMemoryHistory from 'history/createMemoryHistory';
 import routes from 'routes';
-import styles from 'assets/styles/global.css' // eslint-disable-line
+import styles from 'assets/styles/global.css'; // eslint-disable-line
+import GoogleAnalytics from '../../utils/googleAnalytics';
 
 export default class Root extends React.PureComponent {
   render() {
@@ -16,6 +17,11 @@ export default class Root extends React.PureComponent {
     type === 'server' ? history = createMemoryHistory() : history = new MemoizedBrowserHistory();
 
     if (req) { history.push(req.url); }
+
+    const googleAnalytics = new GoogleAnalytics();
+    history.listen(() => {
+      googleAnalytics.triggerPageView();
+    });
 
     return (
       <Provider store={store}>
