@@ -1,5 +1,6 @@
-const FACEBOOK = 'facebook';
+import config from 'utils/config';
 
+const FACEBOOK = 'facebook';
 const settings = 'location=no,scrollbars=no,toolbar=no,status=no,titlebar=no,directories=no,menubar=no';
 
 const getPopupOffset = ({ width, height }) => {
@@ -29,15 +30,15 @@ const getPopupDimensions = (provider) => {
   return `width=${width},height=${height},top=${top},left=${left}`;
 };
 
-const listenForPopup = (popup, url) => new Promise((resolve, reject) => {
+const listenForPopup = popup => new Promise((resolve, reject) => {
   const eventMethod = window.addEventListener ? 'addEventListener' : 'attachEvent';
   const eventer = window[eventMethod];
   const messageEvent = eventMethod === 'attachEvent' ? 'onmessage' : 'message';
 
   eventer(messageEvent, (event) => {
-    if (popup.closed && event.data.userData) {
+    if (popup.closed && event.data.userData && (event.origin === config.apiBaseUrl)) {
       return resolve(event.data);
-    } else if (popup.closed && !event.data.userData && event.origin.match(url)) {
+    } else if (popup.closed && !event.data.userData) {
       return reject(new Error('popup closed'));
     }
     return false;
@@ -47,5 +48,5 @@ const listenForPopup = (popup, url) => new Promise((resolve, reject) => {
 export default (url, provider) => {
   const popup = window.open(url, 'Authentication', `${settings},${getPopupDimensions(provider)}`);
 
-  return listenForPopup(popup, url);
+  return listenForPopup(popup);
 };
