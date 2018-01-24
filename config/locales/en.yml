@@ -13,6 +13,7 @@ en:
       confirm_email: 'Confirm Email'
       unconfirm_email: 'Unconfirm Email'
       without_avatar: 'no avatar yet'
+      user_details: 'User Details'
     notices:
       email_confirmed: 'Email confirmed'
       email_unconfirmed: 'Email unconfirmed'
