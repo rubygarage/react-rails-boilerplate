@@ -1,5 +1,6 @@
 class Auth::Registration::Create < Trailblazer::Operation
-  DEFAULT_PROVIDER = 'email'
+  DEFAULT_PROVIDER = 'email'.freeze
+
   step :set_default_provider!
   step Model(User, :new)
   step Contract::Build(constant: Auth::Registration::Contract::Create)

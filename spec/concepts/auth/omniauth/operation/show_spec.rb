@@ -26,13 +26,10 @@ RSpec.describe Auth::Omniauth::Show do
       end
 
       it 'sets auth token' do
-        expect(subject['auth_token']).to be
         expect(subject['auth_token']).to eq auth_token
       end
 
       it 'sets auth headers' do
-        expect(subject['authorization']).to be
-        expect(subject['authorization'][:authorization]).to start_with 'Bearer '
         expect(subject['authorization'][:authorization]).to eq "Bearer #{auth_token}"
       end
     end

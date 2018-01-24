@@ -7,8 +7,6 @@ RSpec.describe Auth::Omniauth::Contract::Create do
       let(:subject) { described_class.new(user) }
 
       it 'validates user params' do
-        subject = described_class.new(user)
-
         expect(subject.valid?).to eq true
       end
 
@@ -18,6 +16,18 @@ RSpec.describe Auth::Omniauth::Contract::Create do
         expect(subject.validate(missed_params)).to eq false
         expect(subject.errors[:username]).to include 'must be filled'
         expect(subject.errors[:email]).to include 'must be filled'
+      end
+
+      it 'passes on allowed providers' do
+        expect(subject.errors[:provider]).to be_empty
+      end
+
+      it 'fails on unpermitted provider' do
+        user_with_unpermitted_provider = build(:user, provider: 'unpermited_provider')
+        subject = described_class.new(user_with_unpermitted_provider)
+        subject.validate(user_with_unpermitted_provider.attributes)
+
+        expect(subject.errors[:provider]).to include 'is not permitted'
       end
     end
 

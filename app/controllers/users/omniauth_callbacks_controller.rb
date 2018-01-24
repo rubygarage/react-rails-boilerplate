@@ -13,7 +13,7 @@ class Users::OmniauthCallbacksController < ApplicationController
     render partial: 'partials/omniauth/close_popup', layout: false
   end
 
-  protected
+  private
 
   def auth_hash_to_params
     params[:auth_hash] = request.env['omniauth.auth']
