@@ -19,7 +19,7 @@ Object.defineProperty(window.location, 'pathname', {
 jest.mock('react-ga', () => ({
   set: window => mockSetReactGA(window),
   pageview: window => mockPageviewReactGA(window),
-  initialize: config => mockInitializeReactGA(config),
+  initialize: configFile => mockInitializeReactGA(configFile),
 }));
 
 describe('GoogleAnalytics()', () => {
