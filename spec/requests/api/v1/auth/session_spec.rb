@@ -11,7 +11,7 @@ RSpec.describe 'Session', type: :request do
         let(:user) { create(:user, email: 'test@example.com', username: 'new_test_user') }
         let(:token) { Auth::Token::Session.generate(user) }
 
-        it 'returns User information' do |_example|
+        it 'returns User information' do
           get api_v1_auth_session_path, headers: { authorization: token }
 
           expect(body).to be_json_eql response_schema('auth', :user_info).to_json
@@ -21,7 +21,7 @@ RSpec.describe 'Session', type: :request do
       end
 
       response '401', 'Unauthorized' do
-        it 'returns an error' do |_example|
+        it 'returns an error' do
           get api_v1_auth_session_path, headers: { authorization: '' }
         end
       end
@@ -47,7 +47,7 @@ RSpec.describe 'Session', type: :request do
       response '200', 'Authorization token' do
         let(:user) { create(:user, password: 'password') }
 
-        it "returns user's authorization token" do |_example|
+        it "returns user's authorization token" do
           post api_v1_auth_session_path, params: { username: user.username, password: 'password' }
 
           expect(response.headers).to include('authorization')
@@ -56,7 +56,7 @@ RSpec.describe 'Session', type: :request do
       end
 
       response '422', 'Invalid request' do
-        it 'returns an error status' do |_example|
+        it 'returns an error status' do
           post api_v1_auth_registration_path, params: {}
         end
       end

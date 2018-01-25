@@ -12,13 +12,13 @@ RSpec.describe 'Password', type: :request do
       parameter name: 'reset_token', in: :path, type: :string
 
       response '200', 'Validate reset token' do
-        it 'returns OK' do |_example|
+        it 'returns OK' do
           get api_v1_auth_password_path, params: { reset_token: token }
         end
       end
 
       response '404', 'Not found' do
-        it 'returns an error' do |_example|
+        it 'returns an error' do
           get api_v1_auth_password_path, params: { reset_token: token.sub(/\w$/, 'Y') }
         end
       end
@@ -41,17 +41,17 @@ RSpec.describe 'Password', type: :request do
       }
 
       response '200', 'Email found' do
-        it 'informs that provided email is found in database' do |_example|
+        it 'informs that provided email is found in database' do
           post api_v1_auth_password_path, params: { email: user.email }
         end
 
-        it 'returns ok even if email did not found in database, for security reason' do |_example|
+        it 'returns ok even if email did not found in database, for security reason' do
           post api_v1_auth_password_path, params: { email: 'random_email_123@test.com' }
         end
       end
 
       response '422', 'Unprocessable Entity' do
-        it 'returns an error' do |_example|
+        it 'returns an error' do
           post api_v1_auth_password_path, params: { email: 'invalid.email.com' }
 
           expect(body).to have_json_path('errors/0/detail')
@@ -93,7 +93,7 @@ RSpec.describe 'Password', type: :request do
       end
 
       response '422', 'Unprocessable Entity' do
-        it 'returns an error' do |_example|
+        it 'returns an error' do
           patch api_v1_auth_password_path, params: { reset_token: token,
                                                      password: password,
                                                      password_confirmation: password + '123' }
