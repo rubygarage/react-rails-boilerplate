@@ -12,7 +12,6 @@ gem 'bcrypt'
 gem 'bootsnap', require: false
 gem 'dry-validation'
 gem 'figaro'
-gem 'uglifier'
 gem 'haml-rails'
 gem 'image_processing'
 gem 'jwt'
@@ -27,16 +26,17 @@ gem 'rolify'
 gem 'shrine'
 gem 'sidekiq'
 gem 'trailblazer-rails'
+gem 'uglifier'
 
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'factory_bot_rails', '~> 4.8'
   gem 'ffaker'
   gem 'inquisition', github: 'rubygarage/inquisition'
+  gem 'json_spec'
   gem 'rspec-rails'
   gem 'rspec_junit_formatter'
   gem 'rswag'
-  gem 'json_spec'
 end
 
 group :development do

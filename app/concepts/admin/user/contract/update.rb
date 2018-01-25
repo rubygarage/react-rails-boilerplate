@@ -4,7 +4,7 @@ class Admin::User::Contract::Update < Reform::Form
   property :email
   property :username
 
-  validation :default, { with_form: true } do
+  validation :default, with_form: true do
     configure do
       option :form
       config.messages = :i18n

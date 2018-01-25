@@ -13,6 +13,16 @@ Metrics/BlockLength:
     - 'Rakefile'
     - '**/*.rake'
     - 'spec/**/*.rb'
+    - 'app/admin/**/*.rb'
+    - 'config/**/*.rb'
+
+Naming/FileName:
+  Exclude:
+    - 'config/initializers/**/*.rb'
+
+Style/ClassAndModuleChildren:
+  Exclude:
+    - 'app/concepts/**/*.rb'
 
 Rails:
   Enabled: true

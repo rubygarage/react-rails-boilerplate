@@ -1,4 +1,4 @@
-require "image_processing/mini_magick"
+require 'image_processing/mini_magick'
 
 class ImageUploader < Shrine
   include ImageProcessing::MiniMagick
@@ -7,9 +7,9 @@ class ImageUploader < Shrine
   plugin :versions   # enable Shrine to handle a hash of files
   plugin :delete_raw # delete processed files after uploading
 
-  process(:store) do |io, context|
+  process(:store) do |io, _context|
     original = io.download
-    thumb = resize_to_limit!(original, 300, 300) { |cmd| cmd.auto_orient } # orient rotated images
+    thumb = resize_to_limit!(original, 300, 300, &:auto_orient) # orient rotated images
 
     { original: io, thumb: thumb }
   end
