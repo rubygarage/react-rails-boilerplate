@@ -1,4 +1,4 @@
-import { setTokenToStorage, deleteTokenFromStorage } from 'utils/tokens'
+import { setTokenToStorage, deleteTokenFromStorage } from 'utils/tokens';
 
 const headers = {
   authorization: 'auth-token',
@@ -7,12 +7,10 @@ const headers = {
 const mockCookieSet = jest.fn();
 const mockCookieRemove = jest.fn();
 jest.mock('universal-cookie', () => (
-  function () {
-    return {
-      set: mockCookieSet,
-      remove: mockCookieRemove,
-    };
-  }
+  () => ({
+    set: mockCookieSet,
+    remove: mockCookieRemove,
+  })
 ));
 
 const mockIsClient = jest.fn();

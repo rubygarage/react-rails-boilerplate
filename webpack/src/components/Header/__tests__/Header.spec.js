@@ -17,7 +17,7 @@ describe('<Header />', () => {
 
   it('render header with Sign Out and Show Profile', () => {
     const props = {
-      currentUser: { id: 1 },
+      currentUser: { id: '1' },
       currentUserProfileLink: '/user/profile',
       handleSignOut: jest.fn(),
     };
