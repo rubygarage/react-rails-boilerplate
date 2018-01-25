@@ -18,7 +18,8 @@ Metrics/BlockLength:
 
 Naming/FileName:
   Exclude:
-    - 'config/initializers/**/*.rb'
+    - 'config/initializers/rswag-api.rb'
+    - 'config/initializers/rswag-ui.rb'
 
 Style/ClassAndModuleChildren:
   Exclude:
