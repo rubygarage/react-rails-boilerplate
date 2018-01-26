@@ -8,7 +8,7 @@ export default class GoogleAnalytics {
     ReactGA.initialize(config.googleAnalyticsUID);
   }
 
-  static triggerPageView() {
+  triggerPageView = () => {
     ReactGA.set({ page: window.location.pathname + window.location.search });
     ReactGA.pageview(window.location.pathname + window.location.search);
   }
