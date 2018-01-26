@@ -5,10 +5,10 @@ module Api
 
       attributes :id, :thumb_image, :original_image
 
+      belongs_to :user, serializer: Api::V1::UserSerializer
+
       def thumb_image
-         test = object&.image_url(:thumb)
-         #debugger
-         test
+        object&.image_url(:thumb)
       end
 
       def original_image

@@ -1,0 +1,251 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Edit user render update form where submit available if form is dirty 1`] = `
+<main>
+  <Connect(Header) />
+  <div
+    className="jumbotron"
+  >
+    <p
+      className="lead"
+    >
+      User profile edit page for 
+      Boiler
+    </p>
+    <form>
+      <p />
+      <div
+        className="avatarEdit"
+      >
+        <img
+          alt="User avatar"
+          className="avatarThumb"
+          src="someaddressThumb.jpg"
+        />
+        <br />
+        <Button
+          className="btn btn-primary mb-3"
+          disabled={false}
+          href=""
+          onClick={[Function]}
+          size="md"
+          to=""
+          type="button"
+        >
+          Remove avatar
+        </Button>
+      </div>
+      <ErrorMessage
+        name="avatar"
+      />
+      <div
+        className="input-group mb-3"
+      >
+        <Field
+          className="form-control"
+          component={[Function]}
+          multiple={false}
+          name="avatar"
+        />
+      </div>
+      <button
+        className="btn btn-primary mb-3"
+        type="submit"
+      >
+        <FormattedMessage
+          id="user_edit.save_changes"
+          values={Object {}}
+        />
+      </button>
+    </form>
+  </div>
+</main>
+`;
+
+exports[`Edit user render update form where submit unavailable if form is pristine 1`] = `
+<main>
+  <Connect(Header) />
+  <div
+    className="jumbotron"
+  >
+    <p
+      className="lead"
+    >
+      User profile edit page for 
+      Boiler
+    </p>
+    <form>
+      <p />
+      <div
+        className="avatarEdit"
+      >
+        <img
+          alt="User avatar"
+          className="avatarThumb"
+          src="someaddressThumb.jpg"
+        />
+        <br />
+        <Button
+          className="btn btn-primary mb-3"
+          disabled={false}
+          href=""
+          onClick={[Function]}
+          size="md"
+          to=""
+          type="button"
+        >
+          Remove avatar
+        </Button>
+      </div>
+      <ErrorMessage
+        name="avatar"
+      />
+      <div
+        className="input-group mb-3"
+      >
+        <Field
+          className="form-control"
+          component={[Function]}
+          multiple={false}
+          name="avatar"
+        />
+      </div>
+      <button
+        className="btn btn-primary mb-3"
+        disabled={true}
+        type="submit"
+      >
+        <FormattedMessage
+          id="user_edit.save_changes"
+          values={Object {}}
+        />
+      </button>
+    </form>
+  </div>
+</main>
+`;
+
+exports[`Edit user render update form where submit unavailable if form is submiting 1`] = `
+<main>
+  <Connect(Header) />
+  <div
+    className="jumbotron"
+  >
+    <p
+      className="lead"
+    >
+      User profile edit page for 
+      Boiler
+    </p>
+    <form>
+      <p />
+      <div
+        className="avatarEdit"
+      >
+        <img
+          alt="User avatar"
+          className="avatarThumb"
+          src="someaddressThumb.jpg"
+        />
+        <br />
+        <Button
+          className="btn btn-primary mb-3"
+          disabled={false}
+          href=""
+          onClick={[Function]}
+          size="md"
+          to=""
+          type="button"
+        >
+          Remove avatar
+        </Button>
+      </div>
+      <ErrorMessage
+        name="avatar"
+      />
+      <div
+        className="input-group mb-3"
+      >
+        <Field
+          className="form-control"
+          component={[Function]}
+          multiple={false}
+          name="avatar"
+        />
+      </div>
+      <button
+        className="btn btn-primary mb-3"
+        disabled={true}
+        type="submit"
+      >
+        <FormattedMessage
+          id="user_edit.save_changes"
+          values={Object {}}
+        />
+      </button>
+    </form>
+  </div>
+</main>
+`;
+
+exports[`Edit user shows current info at the page 1`] = `
+<main>
+  <Connect(Header) />
+  <div
+    className="jumbotron"
+  >
+    <p
+      className="lead"
+    >
+      User profile edit page for 
+      Boiler
+    </p>
+    <form>
+      <p />
+      <div
+        className="avatarEdit"
+      >
+        <img
+          alt="User avatar"
+          className="avatarThumb"
+          src="someaddressThumb.jpg"
+        />
+        <br />
+        <Button
+          className="btn btn-primary mb-3"
+          disabled={false}
+          href=""
+          onClick={[Function]}
+          size="md"
+          to=""
+          type="button"
+        >
+          Remove avatar
+        </Button>
+      </div>
+      <ErrorMessage
+        name="avatar"
+      />
+      <div
+        className="input-group mb-3"
+      >
+        <Field
+          className="form-control"
+          component={[Function]}
+          multiple={false}
+          name="avatar"
+        />
+      </div>
+      <button
+        className="btn btn-primary mb-3"
+        type="submit"
+      >
+        <FormattedMessage
+          id="user_edit.save_changes"
+          values={Object {}}
+        />
+      </button>
+    </form>
+  </div>
+</main>
+`;

@@ -4,7 +4,7 @@ module Api
       before_action :check_authorization
 
       def show
-        result = run ::User::Show
+        result = run ::User::Show, params, 'current_user' => current_user
 
         if result.success?
           render json: @model, serializer: Api::V1::UserSerializer
@@ -14,9 +14,8 @@ module Api
       end
 
       def update
-        result = run ::User::Update
+        result = run ::User::Update, params, 'current_user' => current_user
 
-        #debugger
         if result.success?
           render json: @model, serializer: Api::V1::UserSerializer, include: [:avatar]
         else

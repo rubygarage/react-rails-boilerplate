@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { getUser as getUserSaga } from 'sagas/user';
 import { getUser } from 'selectors/user';
 import getUserAction from 'actions/user';
+import destroyAvatarAction from 'actions/destroyAvatar';
 import UserEditComponent from 'components/user/Edit';
 import { reduxForm, formValueSelector } from 'redux-form';
 import { injectIntl } from 'react-intl';
@@ -21,6 +22,11 @@ class UserEdit extends Component {
     }),
     id: PropTypes.string.isRequired,
     getUserAction: PropTypes.func.isRequired,
+    avatarRemovalHandler: PropTypes.func.isRequired,
+    avatarFieldValue: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.array,
+    ]),
   }
 
   componentDidMount() {
@@ -28,16 +34,11 @@ class UserEdit extends Component {
     this.props.getUserAction(this.props.id);
   }
 
-  avatarRemovalHandler() { // eslint-disable-line class-methods-use-this
-    console.log('AVATAR REMOVAL HANDLER()');
-    // TODO: delete avatar makes request to its own dedicated endpoint
-  }
-
   render() {
     const props = {
       ...this.props,
       submitHandler: submit,
-      avatarRemovalHandler: this.avatarRemovalHandler,
+      avatarRemovalHandler: this.props.avatarRemovalHandler,
     };
     return <UserEditComponent {...props} />;
   }
@@ -53,7 +54,7 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-const mapDispatchToProps = { getUserAction };
+const mapDispatchToProps = { getUserAction, avatarRemovalHandler: destroyAvatarAction };
 
 function preload(params, req, res) {
   const sagasToComplete = [];

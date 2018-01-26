@@ -17,6 +17,22 @@ exports[`Show user empty info at the page 1`] = `
     <p>
       Email: 
     </p>
+    <p>
+      Avatar:
+    </p>
+    <p>
+      none
+    </p>
+    <Link
+      className="btn btn-primary"
+      replace={false}
+      to="/user/undefined/edit"
+    >
+      <FormattedMessage
+        id="user.edit_user_data"
+        values={Object {}}
+      />
+    </Link>
   </div>
 </main>
 `;
@@ -40,6 +56,22 @@ exports[`Show user get info at the page 1`] = `
       Email: 
       example@boiler.com
     </p>
+    <p>
+      Avatar:
+    </p>
+    <p>
+      none
+    </p>
+    <Link
+      className="btn btn-primary"
+      replace={false}
+      to="/user/undefined/edit"
+    >
+      <FormattedMessage
+        id="user.edit_user_data"
+        values={Object {}}
+      />
+    </Link>
   </div>
 </main>
 `;

@@ -8,7 +8,7 @@ import AvatarUploader from 'containers/AvatarUploader';
 import Button from 'components/ui/Button';
 
 function UserEdit({
-  user, handleSubmit, submitHandler, // fileDropHandler,
+  user, handleSubmit, submitHandler,
   pristine, submitting, intl: { formatMessage },
   avatarFieldValue, avatarRemovalHandler,
 }) {
@@ -25,11 +25,12 @@ function UserEdit({
             (user.avatarThumb && !avatarFieldValue) &&
               <div className="avatarEdit">
                 <img src={user.avatarThumb} alt="User avatar" className="avatarThumb" />
+                <br />
                 <Button
                   className="btn btn-primary mb-3"
                   type="button"
                   disabled={!user.avatarThumb}
-                  onClick={avatarRemovalHandler}
+                  onClick={() => avatarRemovalHandler(user.id, user.avatar)}
                 >
                   Remove avatar
                 </Button>
@@ -40,7 +41,6 @@ function UserEdit({
             <Field
               multiple={false}
               component={AvatarUploader}
-              // onChange={fileDropHandler}
               className="form-control"
               name="avatar"
             />
@@ -73,7 +73,10 @@ UserEdit.propTypes = {
   submitHandler: PropTypes.func.isRequired,
   pristine: PropTypes.bool,
   submitting: PropTypes.bool,
-  avatarFieldValue: PropTypes.string,
+  avatarFieldValue: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array,
+  ]),
 };
 
 export default UserEdit;

@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Show user renders no preview when no file is selected 1`] = `
+<div>
+  <Dropzone
+    accept="image/jpeg, image/png"
+    disableClick={false}
+    disablePreview={false}
+    disabled={false}
+    maxSize={Infinity}
+    minSize={0}
+    multiple={false}
+    name="avatar"
+    onDrop={[Function]}
+    preventDropOnDocument={true}
+  >
+    <div>
+      Try dropping some files here, or click to select files to upload.
+    </div>
+  </Dropzone>
+</div>
+`;
+
+exports[`Show user renders preview when file is selected 1`] = `
+<div>
+  <Dropzone
+    accept="image/jpeg, image/png"
+    disableClick={false}
+    disablePreview={false}
+    disabled={false}
+    maxSize={Infinity}
+    minSize={0}
+    multiple={false}
+    name="avatar"
+    onDrop={[Function]}
+    preventDropOnDocument={true}
+  >
+    <div
+      className="avatar-preview-wrap"
+      key="filename"
+    >
+      <img
+        alt="Uploaded avatar"
+        className="avatar-uploader-thumb"
+        src="filepreview.jpg"
+      />
+      <button
+        className="remove-avatar-preview-button"
+        onClick={[Function]}
+        type="button"
+      >
+        x
+      </button>
+    </div>
+  </Dropzone>
+</div>
+`;

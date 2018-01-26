@@ -3,9 +3,10 @@ import isArray from 'lodash/isArray'
 import reduce from 'lodash/reduce'
 import groupBy from 'lodash/groupBy'
 import map from 'lodash/map'
+import camelCase from 'lodash/camelCase'
 
 const camelizeString = function (str) {
-  return str.replace(/-(.)/g, (match, group) => group.toUpperCase())
+  return camelCase(str)
 }
 
 const entityNormalizers = {}
