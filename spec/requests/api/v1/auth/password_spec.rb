@@ -4,21 +4,21 @@ RSpec.describe 'Password', type: :request do
   let(:password) { 'NewPassword' }
 
   path '/auth/users/password' do
-    get "Show Password" do
+    get 'Show Password' do
       tags 'Password'
       consumes 'application/json'
       produces 'application/json'
 
       parameter name: 'reset_token', in: :path, type: :string
 
-      response '200', "Validate reset token" do
-        it "returns OK" do |example|
+      response '200', 'Validate reset token' do
+        it 'returns OK' do
           get api_v1_auth_password_path, params: { reset_token: token }
         end
       end
 
       response '404', 'Not found' do
-        it 'returns an error' do |example|
+        it 'returns an error' do
           get api_v1_auth_password_path, params: { reset_token: token.sub(/\w$/, 'Y') }
         end
       end
@@ -28,7 +28,7 @@ RSpec.describe 'Password', type: :request do
   #  ------------------------------------------------------------------------------------------------------------------
 
   path '/auth/users/password' do
-    post "Create Password" do
+    post 'Create Password' do
       tags 'Password'
       consumes 'application/json'
       produces 'application/json'
@@ -40,18 +40,18 @@ RSpec.describe 'Password', type: :request do
         required: :email
       }
 
-      response '200', "Email found" do
-        it "informs that provided email is found in database" do |example|
+      response '200', 'Email found' do
+        it 'informs that provided email is found in database' do
           post api_v1_auth_password_path, params: { email: user.email }
         end
 
-        it "returns ok even if email did not found in database, for security reason" do |example|
+        it 'returns ok even if email did not found in database, for security reason' do
           post api_v1_auth_password_path, params: { email: 'random_email_123@test.com' }
         end
       end
 
       response '422', 'Unprocessable Entity' do
-        it 'returns an error' do |example|
+        it 'returns an error' do
           post api_v1_auth_password_path, params: { email: 'invalid.email.com' }
 
           expect(body).to have_json_path('errors/0/detail')
@@ -64,7 +64,7 @@ RSpec.describe 'Password', type: :request do
   #  ------------------------------------------------------------------------------------------------------------------
 
   path '/auth/users/password' do
-    patch "Update Password" do
+    patch 'Update Password' do
       tags 'Password'
       consumes 'application/json'
       produces 'application/json'
@@ -75,14 +75,14 @@ RSpec.describe 'Password', type: :request do
           password: { type: :string },
           password_confirmation: { type: :string }
         },
-        required: [:reset_token, :password, :password_confirmation]
+        required: %i[reset_token password password_confirmation]
       }
 
       response '200', "Update user's password" do
-        it "returns User" do |example|
+        it 'returns User' do |example|
           patch api_v1_auth_password_path, params: { reset_token: token,
-                                                      password: password,
-                                                      password_confirmation: password }
+                                                     password: password,
+                                                     password_confirmation: password }
 
           expect(body).to be_json_eql response_schema('auth', :user_info).to_json
 
@@ -93,10 +93,10 @@ RSpec.describe 'Password', type: :request do
       end
 
       response '422', 'Unprocessable Entity' do
-        it 'returns an error' do |example|
+        it 'returns an error' do
           patch api_v1_auth_password_path, params: { reset_token: token,
-                                                      password: password,
-                                                      password_confirmation: password + '123' }
+                                                     password: password,
+                                                     password_confirmation: password + '123' }
         end
       end
     end

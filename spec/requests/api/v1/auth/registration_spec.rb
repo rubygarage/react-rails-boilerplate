@@ -18,7 +18,7 @@ RSpec.describe 'Registration', type: :request do
       response '200', 'User information' do
         let(:params) { attributes_for(:user) }
 
-        it 'returns User information' do |example|
+        it 'returns User information' do
           post api_v1_auth_registration_path, params: params
         end
 
@@ -26,7 +26,7 @@ RSpec.describe 'Registration', type: :request do
       end
 
       response '422', 'Invalid request' do
-        it 'returns an error' do |example|
+        it 'returns an error' do
           post api_v1_auth_registration_path, params: {}
 
           expect(body).to be_json_eql response_schema('auth', :registration_error).to_json

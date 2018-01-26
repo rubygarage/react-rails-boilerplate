@@ -12,7 +12,7 @@ RSpec.configure do |config|
   # Fuubar ------------------------------------------------------------------------------------------------------------
 
   config.fuubar_progress_bar_options = {
-    format:         '[ %c/%C | %p%% ] [%b%i] [ %a | %e ]',
+    format:         '[ %c/%C | %p%% ] [%b%i] [ %a | %e ]', # rubocop:disable Style/FormatStringToken
     progress_mark:  '#',
     remainder_mark: '-',
     starting_at:    10

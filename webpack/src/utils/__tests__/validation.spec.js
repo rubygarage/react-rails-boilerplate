@@ -1,4 +1,4 @@
-import parseJsonApiErrors from 'utils/validation'
+import parseJsonApiErrors from 'utils/validation';
 
 const errors = [
   {

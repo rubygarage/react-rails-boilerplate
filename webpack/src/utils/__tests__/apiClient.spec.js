@@ -1,12 +1,10 @@
-import ApiClient from 'utils/apiClient'
+import ApiClient from 'utils/apiClient';
 import config from 'utils/config';
 
 jest.mock('universal-cookie', () => (
-  function (params = 'ClientAuthToken') {
-    return {
-      get: () => (params),
-    };
-  }
+  (params = 'ClientAuthToken') => ({
+    get: () => (params),
+  })
 ));
 
 const mockIsServer = jest.fn();
@@ -15,7 +13,7 @@ jest.mock('helpers/server', () => ({ isServer: () => mockIsServer() }));
 const req = {
   headers: {
     cookie: 'RequestAuthToken',
-  }
+  },
 };
 
 describe('ApiClient#buildClient()', () => {

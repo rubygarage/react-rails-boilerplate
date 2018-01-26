@@ -10,11 +10,11 @@ module Admin
       current_admin_user
     end
 
-    def authorized?(action, subject = nil)
-      return true if current_admin_user && current_admin_user.has_role?(:admin)
+    def authorized?(_action, _subject = nil)
+      return true if current_admin_user&.has_role?(:admin)
 
       request.cookies['authToken'] = nil
-      redirect_to "/admin/sign_in"
+      redirect_to '/admin/sign_in'
     end
 
     private
