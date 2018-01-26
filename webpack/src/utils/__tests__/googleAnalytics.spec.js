@@ -2,14 +2,14 @@ import GoogleAnalytics from 'utils/googleAnalytics';
 import config from 'utils/config';
 
 const TEST_PATHNAME = '/some/test/path';
-const TEST_SEARACH = '?param=arg';
+const TEST_SEARCH = '?param=arg';
 
 const mockSetReactGA = jest.fn();
 const mockPageviewReactGA = jest.fn();
 const mockInitializeReactGA = jest.fn();
 
 Object.defineProperty(window.location, 'search', {
-  value: TEST_SEARACH,
+  value: TEST_SEARCH,
 });
 
 Object.defineProperty(window.location, 'pathname', {
@@ -37,12 +37,12 @@ describe('GoogleAnalytics()', () => {
   it('sets page', () => {
     expect(mockSetReactGA).toBeCalled();
     expect(mockSetReactGA.mock.calls[0][0])
-      .toEqual({ page: TEST_PATHNAME + TEST_SEARACH });
+      .toEqual({ page: TEST_PATHNAME + TEST_SEARCH });
   });
 
   it('sets pageview', () => {
     expect(mockPageviewReactGA).toBeCalled();
     expect(mockPageviewReactGA.mock.calls[0][0])
-      .toEqual(TEST_PATHNAME + TEST_SEARACH);
+      .toEqual(TEST_PATHNAME + TEST_SEARCH);
   });
 });

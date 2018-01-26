@@ -8,7 +8,7 @@ import MemoizedBrowserHistory from 'helpers/memoizedBrowserHistory';
 import createMemoryHistory from 'history/createMemoryHistory';
 import routes from 'routes';
 import styles from 'assets/styles/global.css' // eslint-disable-line
-import GoogleAnalytics from '../../utils/googleAnalytics';
+import GoogleAnalytics from 'utils/googleAnalytics';
 
 export default class Root extends React.PureComponent {
   render() {
