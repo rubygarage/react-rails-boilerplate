@@ -1,6 +1,4 @@
 class Auth::Omniauth::Create < Trailblazer::Operation
-  POSTFIX = 2
-
   step :set_unique_name!
   step :initialize_new_user!
   step Contract::Build(constant: Auth::Omniauth::Contract::Create)
@@ -9,7 +7,7 @@ class Auth::Omniauth::Create < Trailblazer::Operation
   step :set_token!
   step :set_auth_headers!
 
-  def set_unique_name!(options, params:, **) # rubocop:disable Metrics/MethodLength
+  def set_unique_name!(options, params:, **)
     options['username'] = params[:auth_hash][:info][:name]
 
     taken_usernames = User
@@ -17,16 +15,7 @@ class Auth::Omniauth::Create < Trailblazer::Operation
                       .pluck(:username)
 
     return true if taken_usernames.exclude?(options['username'])
-
-    count = POSTFIX
-    loop do
-      new_username = "#{options['username']}_#{count}"
-      if taken_usernames.exclude?(new_username)
-        options['username'] = new_username
-        return true
-      end
-      count += 1
-    end
+    options['username'] = ::GenerateUniqueName.new(options['username'], taken_usernames).call
   end
 
   def initialize_new_user!(options, params:, username:, **)
