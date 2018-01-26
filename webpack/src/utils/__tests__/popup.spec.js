@@ -6,13 +6,9 @@ const facebookWindowDimensions = 'width=580,height=400,top=312,left=350';
 const otherWindowDimensions = 'width=1020,height=618,top=203,left=130';
 
 Object.defineProperty(window, 'open', { value: popup });
-
 Object.defineProperty(window, 'screenLeft', { value: 0 });
-
 Object.defineProperty(window, 'screenTop', { value: 0 });
-
 Object.defineProperty(window, 'innerWidth', { value: 1280 });
-
 Object.defineProperty(window, 'innerHeight', { value: 1024 });
 
 describe('openPopup()', () => {

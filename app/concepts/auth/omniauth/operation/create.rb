@@ -9,12 +9,12 @@ class Auth::Omniauth::Create < Trailblazer::Operation
   step :set_token!
   step :set_auth_headers!
 
-  def set_unique_name!(options, params:, **)
-   options['username'] = params[:auth_hash][:info][:name]
+  def set_unique_name!(options, params:, **) # rubocop:disable Metrics/MethodLength
+    options['username'] = params[:auth_hash][:info][:name]
 
     taken_usernames = User
-      .where("username LIKE ?", "#{options['username']}%")
-      .pluck(:username)
+                      .where('username LIKE ?', "#{options['username']}%")
+                      .pluck(:username)
 
     return true if taken_usernames.exclude?(options['username'])
 
@@ -40,7 +40,7 @@ class Auth::Omniauth::Create < Trailblazer::Operation
       )
   end
 
-  def set_token!(options, params:, model:, **)
+  def set_token!(options, model:, **)
     options['auth_token'] = Auth::Token::Session.generate(model)
   end
 

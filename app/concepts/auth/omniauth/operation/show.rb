@@ -11,7 +11,7 @@ class Auth::Omniauth::Show < Trailblazer::Operation
       )
   end
 
-  def set_token!(options, params:, model:, **)
+  def set_token!(options, model:, **)
     options['auth_token'] = Auth::Token::Session.generate(model)
   end
 

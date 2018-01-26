@@ -16,9 +16,7 @@ describe('signIn()', () => {
     const saga = signIn(action);
 
     expect(saga.next().value).toEqual(expectedResult);
-
     expect(saga.next().value).toEqual(call(auth, undefined));
-
     expect(saga.next().done).toBe(true);
   });
 
@@ -27,9 +25,7 @@ describe('signIn()', () => {
     const error = new Error('Unexpected Network Error');
 
     expect(saga.next().value).toEqual(expectedResult);
-
     expect(saga.throw(error).value).toEqual(put({ type: 'SIGN_IN_ERROR', error }));
-
     expect(saga.next().done).toBe(true);
   });
 
@@ -37,7 +33,6 @@ describe('signIn()', () => {
     const watcher = watchOauth();
 
     expect(watcher.next().value).toEqual(takeEvery('OAUTH_REQUEST', signIn));
-
     expect(watcher.next().done).toBe(true);
   });
 });
@@ -51,16 +46,13 @@ describe('auth()', () => {
     const saga = auth(response);
 
     expect(saga.next().value).toEqual(call(setTokenToStorage, response.headers));
-
     expect(saga.next().value).toEqual(call(normalize, response.userData));
 
     const { entities, results } = normalize(response.userData);
     const expectedResult = put({ type: 'SIGN_IN_SUCCESS', entities, currentUser: results });
 
     expect(saga.next({ entities, results }).value).toEqual(expectedResult);
-
     expect(saga.next().value).toEqual(call(redirect, '/'));
-
     expect(saga.next().done).toBe(true);
   });
 });

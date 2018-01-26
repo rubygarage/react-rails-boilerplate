@@ -1,6 +1,6 @@
 :javascript
   window.opener.postMessage({
-    userData: #{@user},
-    headers: #{@token_info}
+    userData: #{@user.html_safe},
+    headers: #{@token_info.html_safe}
   }, "*");
   window.close();

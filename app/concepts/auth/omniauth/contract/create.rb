@@ -1,5 +1,5 @@
 class Auth::Omniauth::Contract::Create < Reform::Form
-  PERMITTED_OAUTH_PROVIDERS = %w[email facebook]
+  PERMITTED_OAUTH_PROVIDERS = %w[facebook].freeze
   include Dry
 
   property :username

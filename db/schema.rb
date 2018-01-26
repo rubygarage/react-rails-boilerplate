@@ -10,12 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< bc595b6b48af2f496ee46bbbb3c35bef40605db7
 ActiveRecord::Schema.define(version: 20180122154532) do
-=======
-ActiveRecord::Schema.define(version: 20180109151126) do
->>>>>>> add oauth sags, fix proxy, add popup window, add migration (uid, provider), add create and show trailblaizer operation, add omniauth contract, add env variables for facebook, add route for oauth
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
