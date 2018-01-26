@@ -1,5 +1,5 @@
 RSpec.describe User::Show do
-  let(:subject) { described_class.call(params, { 'current_user' => user}) }
+  let(:subject) { described_class.call(params, 'current_user' => user) }
   let!(:user) { create(:user) }
   let!(:other_user) { create(:user) }
 

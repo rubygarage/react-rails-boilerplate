@@ -1,6 +1,5 @@
 import axios from 'axios';
 import ApiClient from 'utils/apiClient';
-import { normalize } from 'normalize-json-api';
 import { takeEvery, call, put } from 'redux-saga/effects';
 import watchDestroyAvatar, { destroyAvatar } from 'sagas/destroyAvatar';
 

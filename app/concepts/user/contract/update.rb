@@ -3,9 +3,9 @@ class User::Contract::Update < Reform::Form
 
   # property :email
   # property :username
-  property :avatar, populator: ->(fragment:, **) do
+  property :avatar, populator: lambda { |fragment:, **|
     self.avatar = fragment['id'] ? Avatar.find(fragment['id']) : Avatar.new(image: fragment['image']) if fragment
-  end
+  }
   # property :password
   # property :password_confirmation
 
@@ -19,8 +19,8 @@ class User::Contract::Update < Reform::Form
       # end
     end
 
-  #   required(:email).filled(:str?, format?: URI::MailTo::EMAIL_REGEXP, unique?: :email)
-  #   required(:username).filled(:str?, unique?: :username)
-  #   required(:password).filled(:str?, min_size?: 8).confirmation
+    #   required(:email).filled(:str?, format?: URI::MailTo::EMAIL_REGEXP, unique?: :email)
+    #   required(:username).filled(:str?, unique?: :username)
+    #   required(:password).filled(:str?, min_size?: 8).confirmation
   end
 end

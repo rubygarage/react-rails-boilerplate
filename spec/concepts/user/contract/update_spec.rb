@@ -4,7 +4,7 @@ RSpec.describe User::Contract::Update do
 
   describe 'validations' do
     context 'valid params' do
-      let(:valid_params) { { id: user.id, avatar: { image: 'image' }  } }
+      let(:valid_params) { { id: user.id, avatar: { image: 'image' } } }
 
       before do
         subject.validate(valid_params)
