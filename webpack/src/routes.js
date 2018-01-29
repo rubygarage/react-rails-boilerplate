@@ -8,7 +8,6 @@ import ConfirmationInstructions from 'components/static/ConfirmationInstructions
 import Confirmation from 'containers/Confirmation';
 import User from 'containers/user/Show';
 import UserEdit from 'containers/user/Edit';
-// import UserShow from 'containers/User/Show'
 
 export default [
   {

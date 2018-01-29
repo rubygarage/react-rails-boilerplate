@@ -10,7 +10,7 @@ RSpec.describe Avatar::Destroy do
 
     it 'destroys user avatar' do
       expect(subject['model']).to eq avatar
-      expect(subject['model'].persisted?).to be false
+      expect(subject['model']).not_to be_persisted
       expect(subject).to be_success
     end
   end
@@ -26,7 +26,7 @@ RSpec.describe Avatar::Destroy do
     let(:params) { { 'user_id' => other_user.id } }
     it 'operation fails' do
       expect(subject['model']).to eq other_user_avatar
-      expect(subject['model'].persisted?).to be true
+      expect(subject['model']).to be_persisted
       expect(subject).to be_failure
     end
   end

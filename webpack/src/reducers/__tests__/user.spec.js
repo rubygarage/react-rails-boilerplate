@@ -29,7 +29,6 @@ describe('User reducer', () => {
     });
   });
 
-
   it('sets loading: true on update request', () => {
     expect(user(undefined, { type: 'UPDATE_USER_REQUEST' })).toEqual({
       userId: undefined,
@@ -51,7 +50,6 @@ describe('User reducer', () => {
     });
   });
 });
-
 
 it('sets loading: true on destroy avatar request', () => {
   expect(user(undefined, { type: 'DESTROY_AVATAR_REQUEST' })).toEqual({
