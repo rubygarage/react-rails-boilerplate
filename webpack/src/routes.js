@@ -8,6 +8,7 @@ import ConfirmationInstructions from 'components/static/ConfirmationInstructions
 import Confirmation from 'containers/Confirmation';
 import User from 'containers/user/Show';
 import UserEdit from 'containers/user/Edit';
+import authorizeComponent from 'containers/authorizeComponent';
 
 export default [
   {
@@ -46,11 +47,11 @@ export default [
   {
     path: '/user/:id',
     exact: true,
-    component: User,
+    component: authorizeComponent(User),
   },
   {
     path: '/user/:id/edit',
-    component: UserEdit,
+    component: authorizeComponent(UserEdit),
   },
   {
     path: '/*',

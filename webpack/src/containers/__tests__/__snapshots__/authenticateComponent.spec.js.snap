@@ -1,0 +1,230 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`authenticateComponent HoC user is authenticated renders given component 1`] = `
+<Connect(Component)
+  match={
+    Object {
+      "params": Object {
+        "id": "1",
+      },
+    }
+  }
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Component
+    currentUser={
+      Object {
+        "id": "1",
+        "username": "name",
+      }
+    }
+    dispatch={[Function]}
+    match={
+      Object {
+        "params": Object {
+          "id": "1",
+        },
+      }
+    }
+    store={
+      Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      }
+    }
+    storeSubscription={
+      Subscription {
+        "listeners": Object {
+          "clear": [Function],
+          "get": [Function],
+          "notify": [Function],
+          "subscribe": [Function],
+        },
+        "onStateChange": [Function],
+        "parentSub": undefined,
+        "store": Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        },
+        "unsubscribe": [Function],
+      }
+    }
+  >
+    <MockComponent
+      currentUser={
+        Object {
+          "id": "1",
+          "username": "name",
+        }
+      }
+      dispatch={[Function]}
+      match={
+        Object {
+          "params": Object {
+            "id": "1",
+          },
+        }
+      }
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+      storeSubscription={
+        Subscription {
+          "listeners": Object {
+            "clear": [Function],
+            "get": [Function],
+            "notify": [Function],
+            "subscribe": [Function],
+          },
+          "onStateChange": [Function],
+          "parentSub": undefined,
+          "store": Object {
+            "clearActions": [Function],
+            "dispatch": [Function],
+            "getActions": [Function],
+            "getState": [Function],
+            "replaceReducer": [Function],
+            "subscribe": [Function],
+          },
+          "unsubscribe": [Function],
+        }
+      }
+    >
+      <div>
+        Mock Component
+      </div>
+    </MockComponent>
+  </Component>
+</Connect(Component)>
+`;
+
+exports[`authenticateComponent HoC user is not authenticated renders Redirect component if user is not authenticated 1`] = `
+<MemoryRouter
+  keyLength={0}
+>
+  <Router
+    history={
+      Object {
+        "action": "REPLACE",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "pathname": "/sign_in",
+            "search": "",
+            "state": undefined,
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/sign_in",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Connect(Component)
+      match={
+        Object {
+          "params": Object {
+            "id": "1",
+          },
+        }
+      }
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+    >
+      <Component
+        currentUser={Object {}}
+        dispatch={[Function]}
+        match={
+          Object {
+            "params": Object {
+              "id": "1",
+            },
+          }
+        }
+        store={
+          Object {
+            "clearActions": [Function],
+            "dispatch": [Function],
+            "getActions": [Function],
+            "getState": [Function],
+            "replaceReducer": [Function],
+            "subscribe": [Function],
+          }
+        }
+        storeSubscription={
+          Subscription {
+            "listeners": Object {
+              "clear": [Function],
+              "get": [Function],
+              "notify": [Function],
+              "subscribe": [Function],
+            },
+            "onStateChange": [Function],
+            "parentSub": undefined,
+            "store": Object {
+              "clearActions": [Function],
+              "dispatch": [Function],
+              "getActions": [Function],
+              "getState": [Function],
+              "replaceReducer": [Function],
+              "subscribe": [Function],
+            },
+            "unsubscribe": [Function],
+          }
+        }
+      >
+        <Redirect
+          push={false}
+          to="/sign_in"
+        />
+      </Component>
+    </Connect(Component)>
+  </Router>
+</MemoryRouter>
+`;

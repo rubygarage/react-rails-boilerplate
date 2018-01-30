@@ -9,7 +9,7 @@ module Api
         if result.success?
           render json: @model, serializer: Api::V1::UserSerializer
         else
-          head :not_found
+          head(result['result.model'].success? ? :unauthorized : :not_found)
         end
       end
 
