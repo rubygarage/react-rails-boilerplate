@@ -1,8 +1,8 @@
 import React from 'react';
-import authorizeComponent from '../authorizeComponent';
 import { mount } from 'enzyme';
 import { MemoryRouter } from 'react-router-dom';
 import configureStore from 'redux-mock-store';
+import authorizeComponent from '../authorizeComponent';
 
 describe('authorizeComponent HoC', () => {
   const defaultProps = {

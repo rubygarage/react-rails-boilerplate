@@ -23,7 +23,8 @@ describe('UserEdit container', () => {
   });
 
   it('passes empty string to input.onChange on drop', () => {
-    container.props().handleRemoveSelectedFile();
+    const mockEvent = { stopPropagation: jest.fn() };
+    container.props().handleRemoveSelectedFile(mockEvent);
     expect(mockOnChange.mock.calls[1][0]).toEqual('');
   });
 });

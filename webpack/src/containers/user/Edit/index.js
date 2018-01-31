@@ -34,12 +34,17 @@ class UserEdit extends Component {
     this.props.getUserAction(this.props.id);
   }
 
+  avatarRemovalHandler = () => {
+    this.props.avatarRemovalHandler(this.props.user.id, this.props.user.avatar);
+  }
+
   render() {
     const props = {
       ...this.props,
       submitHandler: submit,
-      avatarRemovalHandler: this.props.avatarRemovalHandler,
+      avatarRemovalHandler: this.avatarRemovalHandler,
     };
+
     return <UserEditComponent {...props} />;
   }
 }

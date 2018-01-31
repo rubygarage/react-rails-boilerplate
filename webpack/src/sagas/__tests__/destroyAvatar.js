@@ -7,6 +7,7 @@ describe('destroyAvatar()', () => {
   const userId = 1;
   const id = 7;
   let apiClient;
+
   beforeAll(() => {
     ApiClient.prototype._buildAxiosInstance = (req) => (axios) // eslint-disable-line
     apiClient = new ApiClient().buildClient();
@@ -14,9 +15,7 @@ describe('destroyAvatar()', () => {
 
   it('success', () => {
     const saga = destroyAvatar({ userId, id });
-
     expect(saga.next().value).toEqual(call(apiClient.delete, `/api/v1/users/${userId}/avatar`, userId));
-
     const entities = {
       users: {
         [userId]: {
@@ -27,7 +26,6 @@ describe('destroyAvatar()', () => {
         [id]: null,
       },
     };
-
     expect(saga.next().value).toEqual(put({
       type: 'DESTROY_AVATAR_SUCCESS',
       entities,
@@ -37,9 +35,7 @@ describe('destroyAvatar()', () => {
   it('failure', () => {
     const saga = destroyAvatar({ userId, id });
     const error = { response: { data: 'Error' } };
-
     expect(saga.next().value).toEqual(call(apiClient.delete, `/api/v1/users/${userId}/avatar`, userId));
-
     expect(saga.throw(error).value).toEqual(put({ type: 'DESTROY_AVATAR_ERROR', error }));
   });
 });
@@ -47,9 +43,7 @@ describe('destroyAvatar()', () => {
 describe('watcher()', () => {
   it('gets user', () => {
     const watcher = watchDestroyAvatar();
-
     expect(watcher.next().value).toEqual(takeEvery('DESTROY_AVATAR_REQUEST', destroyAvatar));
-
     expect(watcher.next().done).toBe(true);
   });
 });

@@ -9,19 +9,38 @@ exports[`Show user empty info at the page 1`] = `
     <p
       className="lead"
     >
-       This is User page 
+       
+      <FormattedMessage
+        id="user.title"
+        values={Object {}}
+      />
+       
     </p>
     <p>
-      Username: 
+      <FormattedMessage
+        id="user.username"
+        values={Object {}}
+      />
+       
     </p>
     <p>
-      Email: 
+      <FormattedMessage
+        id="user.email"
+        values={Object {}}
+      />
+       
     </p>
     <p>
-      Avatar:
+      <FormattedMessage
+        id="user.avatar"
+        values={Object {}}
+      />
     </p>
     <p>
-      none
+      <FormattedMessage
+        id="user.no_avatar"
+        values={Object {}}
+      />
     </p>
     <Link
       className="btn btn-primary"
@@ -46,21 +65,40 @@ exports[`Show user get info at the page 1`] = `
     <p
       className="lead"
     >
-       This is User page 
+       
+      <FormattedMessage
+        id="user.title"
+        values={Object {}}
+      />
+       
     </p>
     <p>
-      Username: 
+      <FormattedMessage
+        id="user.username"
+        values={Object {}}
+      />
+       
       Boiler
     </p>
     <p>
-      Email: 
+      <FormattedMessage
+        id="user.email"
+        values={Object {}}
+      />
+       
       example@boiler.com
     </p>
     <p>
-      Avatar:
+      <FormattedMessage
+        id="user.avatar"
+        values={Object {}}
+      />
     </p>
     <p>
-      none
+      <FormattedMessage
+        id="user.no_avatar"
+        values={Object {}}
+      />
     </p>
     <Link
       className="btn btn-primary"

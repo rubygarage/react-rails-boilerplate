@@ -4,7 +4,7 @@ module Api
       before_action :check_authorization
 
       def destroy
-        result = run ::Avatar::Destroy, params, 'current_user' => current_user
+        result = run ::Avatar::Destroy
 
         if result.success?
           head :ok

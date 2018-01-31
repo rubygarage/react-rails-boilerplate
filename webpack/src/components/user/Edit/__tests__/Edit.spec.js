@@ -8,14 +8,7 @@ describe('Edit user', () => {
     handleSubmit: jest.fn(),
     submitHandler: jest.fn(),
     intl: {
-      formatDate: jest.fn(),
-      formatTime: jest.fn(),
-      formatRelative: jest.fn(),
-      formatNumber: jest.fn(),
-      formatPlural: jest.fn(),
-      formatMessage: jest.fn(),
-      formatHTMLMessage: jest.fn(),
-      now: jest.fn(),
+      formatMessage: (...params) => (`intl.formatMessage(${JSON.stringify(params)})`),
     },
   };
 

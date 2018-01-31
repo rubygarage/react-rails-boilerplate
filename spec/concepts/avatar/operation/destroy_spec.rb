@@ -17,13 +17,14 @@ RSpec.describe Avatar::Destroy do
 
   context 'user has no avatar' do
     it 'operation fails' do
-      expect(subject['model']).to eq nil
+      expect(subject['model']).to be_nil
       expect(subject).to be_failure
     end
   end
 
   describe "can not delete other user's avatar" do
     let(:params) { { 'user_id' => other_user.id } }
+
     it 'operation fails' do
       expect(subject['model']).to eq other_user_avatar
       expect(subject['model']).to be_persisted

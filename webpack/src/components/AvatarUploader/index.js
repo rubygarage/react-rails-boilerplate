@@ -24,7 +24,7 @@ function AvatarUploader({
                 <button
                   type="button"
                   className={styles['remove-avatar-preview-button']}
-                  onClick={(event) => { handleRemoveSelectedFile(file); event.stopPropagation(); }}
+                  onClick={handleRemoveSelectedFile}
                 >
                   x
                 </button>

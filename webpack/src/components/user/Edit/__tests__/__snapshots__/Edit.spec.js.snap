@@ -9,16 +9,17 @@ exports[`Edit user render update form where submit available if form is dirty 1`
     <p
       className="lead"
     >
-      User profile edit page for 
-      Boiler
+      intl.formatMessage([{"id":"user_edit.title"},{"name":"Boiler"}])
     </p>
     <form>
-      <p />
+      <p>
+        intl.formatMessage([{"id":"user_edit.avatar"}])
+      </p>
       <div
         className="avatarEdit"
       >
         <img
-          alt="User avatar"
+          alt="intl.formatMessage([{\\"id\\":\\"user_edit.avatar_alt\\"}])"
           className="avatarThumb"
           src="someaddressThumb.jpg"
         />
@@ -32,7 +33,10 @@ exports[`Edit user render update form where submit available if form is dirty 1`
           to=""
           type="button"
         >
-          Remove avatar
+          <FormattedMessage
+            id="user_edit.remove_avatar"
+            values={Object {}}
+          />
         </Button>
       </div>
       <ErrorMessage
@@ -71,16 +75,17 @@ exports[`Edit user render update form where submit unavailable if form is pristi
     <p
       className="lead"
     >
-      User profile edit page for 
-      Boiler
+      intl.formatMessage([{"id":"user_edit.title"},{"name":"Boiler"}])
     </p>
     <form>
-      <p />
+      <p>
+        intl.formatMessage([{"id":"user_edit.avatar"}])
+      </p>
       <div
         className="avatarEdit"
       >
         <img
-          alt="User avatar"
+          alt="intl.formatMessage([{\\"id\\":\\"user_edit.avatar_alt\\"}])"
           className="avatarThumb"
           src="someaddressThumb.jpg"
         />
@@ -94,7 +99,10 @@ exports[`Edit user render update form where submit unavailable if form is pristi
           to=""
           type="button"
         >
-          Remove avatar
+          <FormattedMessage
+            id="user_edit.remove_avatar"
+            values={Object {}}
+          />
         </Button>
       </div>
       <ErrorMessage
@@ -134,16 +142,17 @@ exports[`Edit user render update form where submit unavailable if form is submit
     <p
       className="lead"
     >
-      User profile edit page for 
-      Boiler
+      intl.formatMessage([{"id":"user_edit.title"},{"name":"Boiler"}])
     </p>
     <form>
-      <p />
+      <p>
+        intl.formatMessage([{"id":"user_edit.avatar"}])
+      </p>
       <div
         className="avatarEdit"
       >
         <img
-          alt="User avatar"
+          alt="intl.formatMessage([{\\"id\\":\\"user_edit.avatar_alt\\"}])"
           className="avatarThumb"
           src="someaddressThumb.jpg"
         />
@@ -157,7 +166,10 @@ exports[`Edit user render update form where submit unavailable if form is submit
           to=""
           type="button"
         >
-          Remove avatar
+          <FormattedMessage
+            id="user_edit.remove_avatar"
+            values={Object {}}
+          />
         </Button>
       </div>
       <ErrorMessage
@@ -197,16 +209,17 @@ exports[`Edit user shows current info at the page 1`] = `
     <p
       className="lead"
     >
-      User profile edit page for 
-      Boiler
+      intl.formatMessage([{"id":"user_edit.title"},{"name":"Boiler"}])
     </p>
     <form>
-      <p />
+      <p>
+        intl.formatMessage([{"id":"user_edit.avatar"}])
+      </p>
       <div
         className="avatarEdit"
       >
         <img
-          alt="User avatar"
+          alt="intl.formatMessage([{\\"id\\":\\"user_edit.avatar_alt\\"}])"
           className="avatarThumb"
           src="someaddressThumb.jpg"
         />
@@ -220,7 +233,10 @@ exports[`Edit user shows current info at the page 1`] = `
           to=""
           type="button"
         >
-          Remove avatar
+          <FormattedMessage
+            id="user_edit.remove_avatar"
+            values={Object {}}
+          />
         </Button>
       </div>
       <ErrorMessage

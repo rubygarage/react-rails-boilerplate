@@ -5,6 +5,7 @@ RSpec.describe User::Update do
 
   describe 'update user' do
     let(:params) { { id: user.id, avatar: { image: 'image' } } }
+
     it 'updates user' do
       expect(subject['model']).to eq user
       expect(subject).to be_success

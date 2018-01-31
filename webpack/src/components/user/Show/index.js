@@ -4,26 +4,25 @@ import Header from 'containers/Header';
 import { Link } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 
-// TODO: Better/prettier presentation for User once avatar will be implemented
-function User({ user }) {
+function User({ user, intl: { formatMessage } }) {
   return (
     <main>
       <Header />
       <div className="jumbotron">
-        <p className="lead"> This is User page </p>
+        <p className="lead"> <FormattedMessage id="user.title" /> </p>
 
         <p>
-          Username: {user.username}
+          <FormattedMessage id="user.username" /> {user.username}
         </p>
         <p>
-          Email: {user.email}
+          <FormattedMessage id="user.email" /> {user.email}
         </p>
 
-        <p>Avatar:</p>
+        <p><FormattedMessage id="user.avatar" /></p>
         <p>
           {user.avatar
-            ? <img src={user.avatarThumb} alt="User avatar" className="avatarThumb" />
-            : 'none'
+            ? <img src={user.avatarThumb} alt={formatMessage({ id: 'user.avatar_alt' })} className="avatarThumb" />
+            : <FormattedMessage id="user.no_avatar" />
           }
         </p>
         <Link className="btn btn-primary" to={`/user/${user.id}/edit`}>
@@ -42,6 +41,9 @@ User.propTypes = {
     avatar: PropTypes.string,
     avatarThumb: PropTypes.string,
     avatarFull: PropTypes.string,
+  }),
+  intl: PropTypes.shape({
+    formatMessage: PropTypes.func.isRequired,
   }),
 };
 

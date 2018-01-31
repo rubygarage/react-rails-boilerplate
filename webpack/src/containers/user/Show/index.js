@@ -27,7 +27,12 @@ class User extends Component {
   }
 
   render() {
-    return <UserComponent user={this.props.user} />;
+    const props = {
+      ...this.props,
+      user: this.props.user,
+    };
+
+    return <UserComponent {...props} />;
   }
 }
 
@@ -50,4 +55,5 @@ function preload(params, req, res) {
 }
 User.preload = preload;
 
-export default injectIntl(connect(mapStateToProps, mapDispatchToProps)(User));
+export default connect(mapStateToProps, mapDispatchToProps)(injectIntl(User));
+// export default injectIntl(connect(mapStateToProps, mapDispatchToProps)(User));

@@ -17,8 +17,9 @@ class AvatarUploader extends Component {
     if (accepted && accepted.length) { this.props.input.onChange(accepted); }
   };
 
-  handleRemoveSelectedFile = () => {
+  handleRemoveSelectedFile = (event) => {
     this.props.input.onChange('');
+    event.stopPropagation();
   };
 
   render() {

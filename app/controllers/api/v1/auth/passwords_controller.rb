@@ -26,7 +26,7 @@ module Api
           result = run ::Auth::Password::Update
 
           if result.success?
-            render json: @model, serializer: Api::V1::UserSerializer
+            render json: @model, serializer: Api::V1::UserSerializer, key_transform: :camel_lower, include: '**'
           else
             render json: @form, serializer: ::ErrorSerializer, status: :unprocessable_entity
           end

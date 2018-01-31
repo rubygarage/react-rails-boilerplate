@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Header from 'containers/Header';
-import { FormattedMessage, intlShape } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 import { Field } from 'redux-form';
 import ErrorMessage from 'components/ui/ErrorMessage';
 import AvatarUploader from 'containers/AvatarUploader';
@@ -17,22 +17,22 @@ function UserEdit({
       <Header />
       <div className="jumbotron">
         <p className="lead">
-          User profile edit page for {user.username}
+          {formatMessage({ id: 'user_edit.title' }, { name: user.username })}
         </p>
         <form onSubmit={handleSubmit(submitHandler)}>
           <p>{formatMessage({ id: 'user_edit.avatar' })}</p>
           {
             (user.avatarThumb && !avatarFieldValue) &&
               <div className="avatarEdit">
-                <img src={user.avatarThumb} alt="User avatar" className="avatarThumb" />
+                <img src={user.avatarThumb} alt={formatMessage({ id: 'user_edit.avatar_alt' })} className="avatarThumb" />
                 <br />
                 <Button
                   className="btn btn-primary mb-3"
                   type="button"
                   disabled={!user.avatarThumb}
-                  onClick={() => avatarRemovalHandler(user.id, user.avatar)}
+                  onClick={avatarRemovalHandler}
                 >
-                  Remove avatar
+                  <FormattedMessage id="user_edit.remove_avatar" />
                 </Button>
               </div>
           }
@@ -68,7 +68,9 @@ UserEdit.propTypes = {
     avatarFull: PropTypes.string,
   }),
   avatarRemovalHandler: PropTypes.func.isRequired,
-  intl: intlShape,
+  intl: PropTypes.shape({
+    formatMessage: PropTypes.func.isRequired,
+  }),
   handleSubmit: PropTypes.func.isRequired,
   submitHandler: PropTypes.func.isRequired,
   pristine: PropTypes.bool,
