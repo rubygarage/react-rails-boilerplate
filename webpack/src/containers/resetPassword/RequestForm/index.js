@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { reduxForm, SubmissionError } from 'redux-form';
+import { reduxForm } from 'redux-form';
 import { injectIntl } from 'react-intl';
 import sendRestorePasswordEmail from 'actions/resetPassword';
 
@@ -9,6 +9,7 @@ import Instructions from 'components/resetPassword/RequestForm/Instructions';
 import ResetPasswordRequestFormComponent from 'components/resetPassword/RequestForm';
 
 import validate from './validate';
+import submit from './submit';
 
 export class ResetPasswordRequestForm extends Component {
   static propTypes = {
@@ -19,16 +20,16 @@ export class ResetPasswordRequestForm extends Component {
     resetRequestSubmitted: false,
   }
 
-  submit = values => new Promise((resolve, reject) => {
-    values ? this.props.sendRestorePasswordEmail(values, resolve, reject) : reject();
-  }).then(() => {
-    this.setState({ resetRequestSubmitted: true });
-  }).catch((error) => {
-    throw new SubmissionError({ _error: error.message });
-  })
+  setResetRequestSubmitted = (value) => {
+    this.setState({ resetRequestSubmitted: value });
+  };
+
+  submitAndHandleStateChange = (values, dispatch, props) => {
+    submit(values, dispatch, { ...props, setResetRequestSubmitted: this.setResetRequestSubmitted });
+  }
 
   render() {
-    const props = { ...this.props, submitHandler: this.submit };
+    const props = { ...this.props, submitHandler: this.submitAndHandleStateChange };
     const component = this.state.resetRequestSubmitted
       ? <Instructions />
       : <ResetPasswordRequestFormComponent {...props} />;
@@ -40,5 +41,6 @@ const mapDispatchToProps = { sendRestorePasswordEmail };
 
 export default connect(null, mapDispatchToProps)(injectIntl(reduxForm({
   form: 'resetPassword',
+  fieldsForValidation: ['email'],
   validate,
 })(ResetPasswordRequestForm)));

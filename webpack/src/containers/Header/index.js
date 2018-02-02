@@ -6,7 +6,7 @@ import signOut from 'actions/signout';
 
 import HeaderComponent from 'components/Header';
 
-class Header extends Component {
+export class Header extends Component {
   static propTypes = {
     currentUser: PropTypes.shape({
       id: PropTypes.string,
