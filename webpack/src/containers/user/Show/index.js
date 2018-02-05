@@ -56,4 +56,3 @@ function preload(params, req, res) {
 User.preload = preload;
 
 export default connect(mapStateToProps, mapDispatchToProps)(injectIntl(User));
-// export default injectIntl(connect(mapStateToProps, mapDispatchToProps)(User));
