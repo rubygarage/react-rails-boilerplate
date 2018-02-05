@@ -17,7 +17,9 @@ RSpec.describe User::Contract::Update do
     end
 
     context 'invalid params' do
-      let(:invalid_params) { { id: user.id, avatar: attributes_for(:avatar, :with_wrong_filetype).with_indifferent_access } }
+      let(:invalid_params) do
+        { id: user.id, avatar: attributes_for(:avatar, :with_wrong_filetype).with_indifferent_access }
+      end
 
       before do
         subject.validate(invalid_params)
@@ -26,7 +28,6 @@ RSpec.describe User::Contract::Update do
       it 'is failure' do
         expect(subject).not_to be_valid
         expect(subject.errors).not_to be_empty
-
       end
     end
 
