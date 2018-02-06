@@ -48,7 +48,7 @@ group :test do
   gem 'fuubar'
   gem 'jsonapi-resources-matchers'
   gem 'shoulda-matchers'
-  gem "shrine-memory"
+  gem 'shrine-memory'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

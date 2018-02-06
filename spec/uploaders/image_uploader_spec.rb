@@ -8,16 +8,14 @@ RSpec.describe ImageUploader do
   before :all do
     described_class.storages = {
       cache: Shrine::Storage::Memory.new,
-      store: Shrine::Storage::Memory.new,
+      store: Shrine::Storage::Memory.new
     }
   end
 
   describe 'uploader processes the file' do
     before do
-      allow_any_instance_of(described_class).to receive(:process).and_wrap_original do |m, io, context|
-        if context[:phase] == :store
-          {original: io, thumb: io.download }
-        end
+      allow_any_instance_of(described_class).to receive(:process).and_wrap_original do |_m, io, context|
+        { original: io, thumb: io.download } if context[:phase] == :store
       end
     end
 
@@ -26,7 +24,7 @@ RSpec.describe ImageUploader do
         # #reload is necessary because Shrine's after_commit hook
         # leaves #create result in inconsistent state
         avatar = Avatar.create(image: image, user: user).reload
-        expect(avatar.image.keys).to eq [:original, :thumb]
+        expect(avatar.image.keys).to eq %i[original thumb]
       end
     end
   end
