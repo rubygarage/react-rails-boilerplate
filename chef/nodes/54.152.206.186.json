@@ -1,0 +1,16 @@
+{
+  "name": "production-env-test",
+  "environment": "production",
+  "project": {
+    "branch": "feature/configure_deploy"
+  },
+  "run_list": [
+    "role[setup]",
+    "role[database]",
+    "role[web]",
+    "role[security]"
+  ],
+  "automatic": {
+    "ipaddress": "54.152.206.186"
+  }
+}

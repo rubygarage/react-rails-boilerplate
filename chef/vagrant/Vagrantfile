@@ -1,0 +1,18 @@
+Vagrant.configure("2") do |config|
+  config.vm.define "gastropub"
+
+  config.vm.box = "ubuntu/xenial64"
+  config.vm.hostname = "gastropub"
+
+  config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
+  config.vm.network "private_network", ip: "192.168.33.10"
+
+  config.vm.provider "virtualbox" do |provider|
+    provider.name = "gastropub"
+    provider.cpus = 2
+    provider.memory = 2048
+  end
+end
+
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
