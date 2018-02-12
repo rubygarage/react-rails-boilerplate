@@ -23,7 +23,8 @@ gem 'puma', '~> 3.10'
 gem 'pundit'
 gem 'rails', '~> 5.1.4'
 gem 'rolify'
-gem 'rswag'
+gem 'rswag-api'
+gem 'rswag-ui'
 gem 'shrine'
 gem 'sidekiq'
 gem 'trailblazer-rails'
@@ -37,6 +38,7 @@ group :development, :test do
   gem 'json_spec'
   gem 'rspec-rails'
   gem 'rspec_junit_formatter'
+  gem 'rswag-specs'
 end
 
 group :development do
