@@ -1,4 +1,4 @@
-include_recipe 'nginx::source'
+# include_recipe 'nginx::source'
 
 nginx_dir = node['nginx']['dir']
 
@@ -50,8 +50,10 @@ template "#{nginx_dir}/sites-available/#{node.domain}" do
     domain: node[:domain],
     project_dir: node['project']['root']
   )
-  notifies :restart, 'service[nginx]', :delayed
+  #notifies :restart, 'service[nginx]', :delayed
 end
+
+include_recipe 'nginx::source'
 
 nginx_site node.domain do
   enable true
