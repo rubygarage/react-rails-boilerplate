@@ -107,6 +107,7 @@ timestamped_deploy node['domain'] do
   group deployer
 
   environment(
+    'ENV' => node.environment,
     'RAILS_ENV' => node.environment
   )
 
@@ -121,8 +122,8 @@ timestamped_deploy node['domain'] do
     'public/uploads' => 'public/uploads',
     'tmp/cache' => 'tmp/cache',
     'tmp/pids' => 'tmp/pids',
-    'tmp/sockets' => 'tmp/sockets'
-    # 'webpack/node_modules' => 'webpack/node_modules'
+    'tmp/sockets' => 'tmp/sockets',
+    'webpack/node_modules' => 'webpack/node_modules'
   )
 
   symlink_before_migrate(
@@ -156,13 +157,26 @@ timestamped_deploy node['domain'] do
   migrate true
 
   before_restart do
-    # execute "cd #{release_path}/webpack && yarn global add webpack@2.2.0 && yarn install && yarn build"
     execute 'rails assets:precompile' do
       command "/bin/bash -lc 'source $HOME/.rvm/scripts/rvm && RAILS_ENV=production bundle exec rails assets:precompile'"
       cwd release_path
       user deployer
       group deployer
     end if node['environment'] == 'production'
+
+    execute 'install node modules' do
+      command "/bin/bash -lc 'cd webpack && rm -r node_modules && yarn install'"
+      cwd release_path
+      user deployer
+      group deployer
+    end
+
+    execute 'start node client' do
+      command "/bin/bash -lc 'cd webpack && pm2 restart pm2-app.config.js --env production && pm2 save && sudo pm2 startup'"
+      cwd release_path
+      user deployer
+      group deployer
+    end
   end
 
   if File.exist? puma_state_file

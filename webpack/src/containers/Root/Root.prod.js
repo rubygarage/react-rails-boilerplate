@@ -14,12 +14,16 @@ export default class Root extends React.PureComponent {
   render() {
     const { store, type, req } = this.props;
     let history = {};
-    type === 'server' ? history = createMemoryHistory() : history = new MemoizedBrowserHistory();
 
-    const googleAnalytics = new GoogleAnalytics();
-    history.listen(() => {
-      googleAnalytics.triggerPageView();
-    });
+    if (type === 'server') {
+      history = createMemoryHistory();
+    } else {
+      history = new MemoizedBrowserHistory();
+      const googleAnalytics = new GoogleAnalytics();
+      history.listen(() => {
+        googleAnalytics.triggerPageView(req);
+      });
+    }
 
     if (req) { history.push(req.url); }
 

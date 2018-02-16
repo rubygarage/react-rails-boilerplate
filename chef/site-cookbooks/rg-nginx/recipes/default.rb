@@ -1,4 +1,5 @@
 # include_recipe 'nginx::source'
+include_recipe 'nginx::commons_dir'
 
 nginx_dir = node['nginx']['dir']
 

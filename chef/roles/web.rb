@@ -8,4 +8,5 @@ run_list 'recipe[rg-redis]',
          'recipe[rg-monit::nginx]',
          'recipe[rg-monit::puma]',
          'recipe[rg-monit::redis]',
-         'recipe[rg-monit::sidekiq]'
+         'recipe[rg-monit::sidekiq]',
+         'recipe[rg-pm2]'

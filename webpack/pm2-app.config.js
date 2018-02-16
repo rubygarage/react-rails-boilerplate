@@ -1,11 +1,11 @@
 module.exports = {
   apps: [
     {
-      name: 'pindify-node-client',
+      name: 'boilerplate-node-client',
       script: 'bin/server.js',
-      pid_file: '../tmp/pids/pindify-node.pid',
-      out_file: '../log/pindify-node-out.log',
-      error_file: '../log/pindify-node-err.log',
+      pid_file: '../tmp/pids/boilerplate-node.pid',
+      out_file: '../log/boilerplate-node-out.log',
+      error_file: '../log/boilerplate-node-err.log',
       merge_logs: true,
       combine_logs: true,
       env_development: {
