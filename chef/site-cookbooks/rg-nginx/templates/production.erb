@@ -16,12 +16,12 @@ server {
   server_name <%= @domain %> <%= @ip %>;
 
   access_log /var/log/nginx.access.log;
-  error_log /var/log/nginx.error.log debug;
+  error_log /var/log/nginx.error.log info;
 
   client_max_body_size 64M;
   keepalive_timeout 10;
 
-  root <%= @project_dir %>/current/public;
+  root <%= @project_dir %>/current/webpack/src/static;
 
   resolver 8.8.8.8 8.8.4.4 208.67.222.222 valid=300s;
   resolver_timeout 10s;
@@ -49,6 +49,10 @@ server {
 
     gzip_static on;
     proxy_pass http://puma;
+  }
+
+  location ~ ^/uploads/cache {
+    root <%= @project_dir %>/current/public;
   }
 
   location ~* \.(?:jpg|jpeg|gif|png|svg|ico) {

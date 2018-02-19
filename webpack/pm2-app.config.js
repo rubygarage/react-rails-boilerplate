@@ -2,7 +2,9 @@ module.exports = {
   apps: [
     {
       name: 'boilerplate-node-client',
-      script: 'bin/server.js',
+      // script: 'bin/server.js',
+      script: 'npm',
+      args: 'build-start-prod',
       pid_file: '../tmp/pids/boilerplate-node.pid',
       out_file: '../log/boilerplate-node-out.log',
       error_file: '../log/boilerplate-node-err.log',
