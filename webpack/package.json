@@ -14,7 +14,6 @@
     "build-dev": "better-npm-run build-dev",
     "build": "better-npm-run build",
     "start-prod": "better-npm-run start-prod",
-    "build-start-prod": "better-npm-run build && better-npm-run start-prod",
     "dev": "concurrently --kill-others \"npm run watch-client\" \"npm run start-dev\"",
     "watch-client": "better-npm-run watch-client",
     "eslint:all": "eslint --format codeframe src/",
