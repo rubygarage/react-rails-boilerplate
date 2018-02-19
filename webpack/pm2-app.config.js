@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: 'boilerplate-node-client',
-      script: 'npm',
+      script: 'yarn',
       args: 'start-prod',
       pid_file: '../tmp/pids/boilerplate-node.pid',
       out_file: '../log/boilerplate-node-out.log',
