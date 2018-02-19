@@ -172,7 +172,7 @@ timestamped_deploy node['domain'] do
     end
 
     execute 'start node client' do
-      command "/bin/bash -lc 'cd webpack && yarn build && pm2 restart pm2-app.config.js --env production && pm2 save && sudo pm2 startup'"
+      command "/bin/bash -lc 'cd webpack && yarn build && pm2 delete all && pm2 start pm2-app.config.js --env production && pm2 save && sudo pm2 startup'"
       cwd release_path
       user deployer
       group deployer
