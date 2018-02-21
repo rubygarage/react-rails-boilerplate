@@ -2,7 +2,7 @@
 include_recipe 'nginx::commons_dir'
 
 nginx_dir = node['nginx']['dir']
-
+root_dir = File.join('/home', node['project']['user'], node['domain'])
 # SSL -----------------------------------------------------------------------------------------------------------------
 
 directory "#{nginx_dir}/ssl" do
@@ -49,7 +49,7 @@ template "#{nginx_dir}/sites-available/#{node.domain}" do
   variables(
     ip: node[:ipaddress],
     domain: node[:domain],
-    project_dir: node['project']['root']
+    project_dir: root_dir
   )
   #notifies :restart, 'service[nginx]', :delayed
 end

@@ -5,7 +5,7 @@ encrypted_data = Chef::EncryptedDataBagItem.load('configs', node.environment)
 config = node['project']
 deployer = config['user']
 
-root_path = config['root']
+root_path = File.join('/home', deployer, node['domain'])
 shared_path = File.join(root_path, 'shared')
 bundle_path = File.join(shared_path, 'vendor', 'bundle')
 config_path = File.join(shared_path, 'config')
@@ -171,8 +171,29 @@ timestamped_deploy node['domain'] do
       group deployer
     end
 
-    execute 'start node client' do
-      command "/bin/bash -lc 'cd webpack && yarn build && pm2 delete all && pm2 start pm2-app.config.js --env production && pm2 save && sudo pm2 startup'"
+    # execute 'start node client' do
+    #   command "/bin/bash -lc 'cd webpack && yarn build && pm2 delete all && pm2 start pm2-app.config.js --env production && pm2 save && sudo pm2 startup'"
+    #   cwd release_path
+    #   user deployer
+    #   group deployer
+    # end
+
+    execute 'build webpack' do
+      command "/bin/bash -lc 'cd webpack && yarn build'"
+      cwd release_path
+      user deployer
+      group deployer
+    end
+
+    execute 'pm2 delete all' do
+      command "/bin/bash -lc 'cd webpack && pm2 delete all || :'"
+      cwd release_path
+      user deployer
+      group deployer
+    end
+
+    execute 'pm2 start, startup script' do
+      command "/bin/bash -lc 'cd webpack && pm2 start pm2-app.config.js --env production && pm2 save && sudo pm2 startup'"
       cwd release_path
       user deployer
       group deployer
