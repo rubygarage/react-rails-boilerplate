@@ -102,7 +102,7 @@ timestamped_deploy node['domain'] do
   repository config['repository']
   branch config['branch']
   repository_cache 'repo'
-  deploy_to config['root']
+  deploy_to root_path
   user deployer
   group deployer
 
