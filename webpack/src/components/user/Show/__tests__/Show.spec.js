@@ -3,22 +3,24 @@ import { shallow } from 'enzyme';
 import User from 'components/user/Show';
 
 describe('Show user', () => {
-  it('get info at the page', () => {
-    const props = {
-      user: {
-        username: 'Boiler',
-        email: 'example@boiler.com',
-      },
-    };
-    const component = shallow(<User {...props} />);
+  const defaultProps = {
+    user: {
+      username: 'Boiler',
+      email: 'example@boiler.com',
+    },
+    intl: {
+      formatMessage: (...params) => (`intl.formatMessage(${JSON.stringify(params)})`),
+    },
+  };
 
+  it('get info at the page', () => {
+    const component = shallow(<User {...defaultProps} />);
     expect(component).toMatchSnapshot();
   });
 
   it('empty info at the page', () => {
-    const props = { user: {} };
+    const props = { ...defaultProps, user: {} };
     const component = shallow(<User {...props} />);
-
     expect(component).toMatchSnapshot();
   });
 });

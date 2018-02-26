@@ -1,4 +1,4 @@
-import { GET_USER, UPDATE_USER, REQUEST, SUCCESS, ERROR } from 'constants/actions';
+import { GET_USER, UPDATE_USER, DESTROY_AVATAR, REQUEST, SUCCESS, ERROR } from 'constants/actions';
 
 const initialState = {
   loading: false,
@@ -28,6 +28,10 @@ export default function user(state = initialState, action) {
       };
     }
     case UPDATE_USER + ERROR: return { ...state, loading: false };
+
+    case DESTROY_AVATAR + REQUEST: return { ...state, loading: true };
+    case DESTROY_AVATAR + SUCCESS: return { ...state, loading: false };
+    case DESTROY_AVATAR + ERROR: return { ...state, loading: false };
 
     default: return state;
   }

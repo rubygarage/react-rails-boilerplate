@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'users/omniauth_callbacks#facebook'
   namespace :api, defaults: { format: 'json' } do
     namespace :v1 do
-      resources :users, only: [:show]
+      resources :users, only: %i[show update] do
+        resource :avatar, only: :destroy
+      end
 
       namespace :auth do
         scope :users do

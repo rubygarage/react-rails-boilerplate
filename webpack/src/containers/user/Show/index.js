@@ -5,6 +5,7 @@ import { getUser as getUserSaga } from 'sagas/user';
 import { getUser } from 'selectors/user';
 import getUserAction from 'actions/user';
 import UserComponent from 'components/user/Show';
+import { injectIntl } from 'react-intl';
 
 class User extends Component {
   static propTypes = {
@@ -12,6 +13,9 @@ class User extends Component {
       id: PropTypes.string,
       username: PropTypes.string,
       email: PropTypes.string,
+      avatar: PropTypes.string,
+      avatarThumb: PropTypes.string,
+      avatarFull: PropTypes.string,
     }),
     id: PropTypes.string.isRequired,
     getUserAction: PropTypes.func.isRequired,
@@ -23,7 +27,12 @@ class User extends Component {
   }
 
   render() {
-    return <UserComponent user={this.props.user} />;
+    const props = {
+      ...this.props,
+      user: this.props.user,
+    };
+
+    return <UserComponent {...props} />;
   }
 }
 
@@ -46,4 +55,4 @@ function preload(params, req, res) {
 }
 User.preload = preload;
 
-export default connect(mapStateToProps, mapDispatchToProps)(User);
+export default connect(mapStateToProps, mapDispatchToProps)(injectIntl(User));

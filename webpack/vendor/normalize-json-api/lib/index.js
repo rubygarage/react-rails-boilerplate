@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.normalize = undefined;
 
 var _isObject = require('lodash/isObject');
-
+ 
 var _isObject2 = _interopRequireDefault(_isObject);
 
 var _isArray = require('lodash/isArray');
@@ -25,12 +25,14 @@ var _map = require('lodash/map');
 
 var _map2 = _interopRequireDefault(_map);
 
+var _camelCase = require('lodash/camelCase');
+
+var _camelCase2 = _interopRequireDefault(_camelCase);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var camelizeString = function camelizeString(str) {
-  return str.replace(/-(.)/g, function (match, group) {
-    return group.toUpperCase();
-  });
+  return (0, _camelCase2.default)(str);
 };
 
 var entityNormalizers = {};

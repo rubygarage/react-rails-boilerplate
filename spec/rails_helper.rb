@@ -27,6 +27,7 @@ require 'spec_helper'
 require 'swagger_helper'
 require 'rspec/rails'
 require 'sidekiq/testing'
+require 'shrine/storage/memory'
 
 Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 
@@ -58,6 +59,7 @@ RSpec.configure do |config|
 
   config.before(:each) { DatabaseCleaner.strategy = :transaction }
   config.before(:each, js: true) { DatabaseCleaner.strategy = :truncation }
+  config.before(:each, shrine: true) { DatabaseCleaner.strategy = :truncation }
   config.before(:each) { DatabaseCleaner.start }
   config.append_after(:each) { DatabaseCleaner.clean }
 end

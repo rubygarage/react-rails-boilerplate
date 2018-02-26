@@ -1,10 +1,12 @@
 import { all, join, fork } from 'redux-saga/effects';
+import watchDestroyAvatar from 'sagas/destroyAvatar';
 import watchGetUser from 'sagas/user';
 import watchSignIn from 'sagas/signin';
 import watchSignOut from 'sagas/signout';
 import watchSignUp from 'sagas/signup';
 import watchOauth from 'sagas/oauth';
 import { watchSendRestorePassword, watchUpdatePassword } from 'sagas/resetPassword';
+import watchUpdateUser from 'sagas/updateUser';
 
 export const waitAll = sagas => function* genTasks() {
   const tasks = yield sagas.map(([saga, ...params]) => fork(saga, ...params));
@@ -14,6 +16,7 @@ export const waitAll = sagas => function* genTasks() {
 // NOTE! Please sort the lists above and below alphabetically
 export default function* rootSaga() {
   yield all([
+    watchDestroyAvatar(),
     watchGetUser(),
     watchOauth(),
     watchSignIn(),
@@ -21,5 +24,6 @@ export default function* rootSaga() {
     watchSignUp(),
     watchSendRestorePassword(),
     watchUpdatePassword(),
+    watchUpdateUser(),
   ]);
 }

@@ -85,5 +85,18 @@
   "validation.max_length": "{field} is too long (maximum is {count} characters)",
 
   "header.sign_in": "Sign In",
-  "header.sign_up": "Sign Up"
+  "header.sign_up": "Sign Up",
+
+  "user.title": "This is User page",
+  "user.username": "Username:",
+  "user.email": "Email:",
+  "user.avatar": "Avatar:",
+  "user.avatar_alt": "User avatar",
+  "user.no_avatar": "none",
+  "user.edit_user_data": "Edit User data",
+  "user_edit.title": "User profile edit page for {name}",
+  "user_edit.save_changes": "Save Changes",
+  "user_edit.avatar": "Avatar",
+  "user_edit.avatar_alt": "User current avatar",
+  "user_edit.remove_avatar": "Remove avatar"
 }

@@ -20,6 +20,10 @@ module Api
 
         request.headers['Authorization'].split(' ').last
       end
+
+      def _run_options(options)
+        options.merge('current_user' => current_user)
+      end
     end
   end
 end

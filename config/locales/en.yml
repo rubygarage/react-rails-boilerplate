@@ -8,6 +8,7 @@ en:
         eql?: doesn't match
         confirmed?: email is not confirmed
         credentials_valid?: invalid credentials
+        avatar_valid?: "isn't of allowed type (allowed types: image/jpeg, image/jpg, image/png)"
         uniq_in_provider_scope?: is not unique
         permitted?: is not permitted
   active_admin:

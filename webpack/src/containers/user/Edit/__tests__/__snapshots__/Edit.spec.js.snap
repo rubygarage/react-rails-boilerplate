@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserEdit container renders UserEdit component 1`] = `
+<InjectIntl(ReduxForm)
+  avatarFieldValue={Array []}
+  avatarRemovalHandler={[Function]}
+  getUserAction={[Function]}
+  id="1"
+  match={
+    Object {
+      "params": Object {
+        "id": "1",
+      },
+    }
+  }
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+  storeSubscription={
+    Subscription {
+      "listeners": Object {
+        "clear": [Function],
+        "get": [Function],
+        "notify": [Function],
+        "subscribe": [Function],
+      },
+      "onStateChange": [Function],
+      "parentSub": undefined,
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "unsubscribe": [Function],
+    }
+  }
+  user={
+    Object {
+      "id": "1",
+      "username": "name",
+    }
+  }
+/>
+`;

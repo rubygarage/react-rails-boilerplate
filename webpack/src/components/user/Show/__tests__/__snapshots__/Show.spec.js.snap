@@ -9,14 +9,49 @@ exports[`Show user empty info at the page 1`] = `
     <p
       className="lead"
     >
-       This is User page 
+       
+      <FormattedMessage
+        id="user.title"
+        values={Object {}}
+      />
+       
     </p>
     <p>
-      Username: 
+      <FormattedMessage
+        id="user.username"
+        values={Object {}}
+      />
+       
     </p>
     <p>
-      Email: 
+      <FormattedMessage
+        id="user.email"
+        values={Object {}}
+      />
+       
     </p>
+    <p>
+      <FormattedMessage
+        id="user.avatar"
+        values={Object {}}
+      />
+    </p>
+    <p>
+      <FormattedMessage
+        id="user.no_avatar"
+        values={Object {}}
+      />
+    </p>
+    <Link
+      className="btn btn-primary"
+      replace={false}
+      to="/user/undefined/edit"
+    >
+      <FormattedMessage
+        id="user.edit_user_data"
+        values={Object {}}
+      />
+    </Link>
   </div>
 </main>
 `;
@@ -30,16 +65,51 @@ exports[`Show user get info at the page 1`] = `
     <p
       className="lead"
     >
-       This is User page 
+       
+      <FormattedMessage
+        id="user.title"
+        values={Object {}}
+      />
+       
     </p>
     <p>
-      Username: 
+      <FormattedMessage
+        id="user.username"
+        values={Object {}}
+      />
+       
       Boiler
     </p>
     <p>
-      Email: 
+      <FormattedMessage
+        id="user.email"
+        values={Object {}}
+      />
+       
       example@boiler.com
     </p>
+    <p>
+      <FormattedMessage
+        id="user.avatar"
+        values={Object {}}
+      />
+    </p>
+    <p>
+      <FormattedMessage
+        id="user.no_avatar"
+        values={Object {}}
+      />
+    </p>
+    <Link
+      className="btn btn-primary"
+      replace={false}
+      to="/user/undefined/edit"
+    >
+      <FormattedMessage
+        id="user.edit_user_data"
+        values={Object {}}
+      />
+    </Link>
   </div>
 </main>
 `;

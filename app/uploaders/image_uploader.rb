@@ -4,8 +4,8 @@ class ImageUploader < Shrine
   include ImageProcessing::MiniMagick
   plugin :validation_helpers
   plugin :processing
-  plugin :versions   # enable Shrine to handle a hash of files
-  plugin :delete_raw # delete processed files after uploading
+  plugin :versions # enable Shrine to handle a hash of files
+  plugin :delete_raw unless Rails.env.test? # delete processed files after uploading
 
   process(:store) do |io, _context|
     original = io.download
