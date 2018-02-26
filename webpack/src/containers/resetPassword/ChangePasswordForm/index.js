@@ -1,11 +1,11 @@
 import React from 'react';
 import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-
+import { injectIntl } from 'react-intl';
 import ChangePasswordFormComponent from 'components/resetPassword/ChangePasswordForm';
-
 import { validateToken } from 'sagas/resetPassword';
 import submit from './submit';
+import validate from './validate';
 
 export class ChangePasswordForm extends React.PureComponent {
   render() {
@@ -38,7 +38,8 @@ function preload(params, req, res) {
 }
 ChangePasswordForm.preload = preload;
 
-export default connect(mapStateToProps)(reduxForm({
+export default connect(mapStateToProps)(injectIntl(reduxForm({
   form: 'changePassword',
   fieldsForValidation: ['password'],
-})(ChangePasswordForm));
+  validate,
+})(ChangePasswordForm)));

@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Root.prod container renders Root 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(IntlProvider)>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "blank",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Switch>
+        <Route
+          exact={true}
+          key="0"
+          path="/"
+          render={[Function]}
+        />
+        <Route
+          exact={true}
+          key="1"
+          path="/sign_in"
+          render={[Function]}
+        />
+        <Route
+          exact={true}
+          key="2"
+          path="/sign_up"
+          render={[Function]}
+        />
+        <Route
+          key="3"
+          path="/sign_up/success"
+          render={[Function]}
+        />
+        <Route
+          key="4"
+          path="/email_confirmation/:confirmation_token"
+          render={[Function]}
+        />
+        <Route
+          exact={true}
+          key="5"
+          path="/reset_password"
+          render={[Function]}
+        />
+        <Route
+          exact={true}
+          key="6"
+          path="/reset_password/:reset_password_token"
+          render={[Function]}
+        />
+        <Route
+          key="7"
+          path="/user/:id"
+          render={[Function]}
+        />
+        <Route
+          key="8"
+          path="/*"
+          render={[Function]}
+        />
+      </Switch>
+    </Router>
+  </Connect(IntlProvider)>
+</Provider>
+`;
