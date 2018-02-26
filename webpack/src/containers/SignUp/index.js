@@ -1,7 +1,6 @@
 import React from 'react';
 import { reduxForm } from 'redux-form';
 import { injectIntl } from 'react-intl';
-
 import SignUpComponent from 'components/SignUp';
 
 import validate from './validate';
