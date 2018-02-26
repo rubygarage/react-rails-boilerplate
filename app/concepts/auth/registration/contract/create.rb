@@ -3,6 +3,8 @@ class Auth::Registration::Contract::Create < Reform::Form
   property :email
   property :username
   property :password
+  property :provider
+  property :uid
   property :password_confirmation
 
   validation :default do

@@ -9,7 +9,6 @@ RSpec.describe Admin::Auth::Session::Create do
 
       it 'sets session' do
         expect(subject['model']).to eq admin
-        expect(subject['auth_token']).to be
         expect(subject[:cookies]['authToken']).to start_with 'Bearer '
         expect(subject).to be_success
       end

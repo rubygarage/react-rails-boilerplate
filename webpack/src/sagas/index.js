@@ -3,6 +3,7 @@ import watchGetUser from 'sagas/user';
 import watchSignIn from 'sagas/signin';
 import watchSignOut from 'sagas/signout';
 import watchSignUp from 'sagas/signup';
+import watchOauth from 'sagas/oauth';
 import { watchSendRestorePassword, watchUpdatePassword } from 'sagas/resetPassword';
 
 export const waitAll = sagas => function* genTasks() {
@@ -14,6 +15,7 @@ export const waitAll = sagas => function* genTasks() {
 export default function* rootSaga() {
   yield all([
     watchGetUser(),
+    watchOauth(),
     watchSignIn(),
     watchSignOut(),
     watchSignUp(),

@@ -11,6 +11,8 @@ default: &default
   S3_SECRET_ACCESS_KEY: ''
   S3_REGION:            ''
   S3_BUCKET:            ''
+  FACEBOOK_KEY:         ''
+  FACEBOOK_SECRET:      ''
 
 development:
   <<: *default

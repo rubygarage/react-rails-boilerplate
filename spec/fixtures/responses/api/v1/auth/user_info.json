@@ -4,7 +4,9 @@
     "type": "users",
     "attributes": {
       "email": "test@example.com",
-      "username": "new_test_user"
+      "username": "new_test_user",
+      "provider": null,
+      "uid": null
     },
     "relationships": {
       "avatar": {

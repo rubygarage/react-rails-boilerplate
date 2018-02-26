@@ -4,6 +4,7 @@ import { FormattedMessage, intlShape } from 'react-intl';
 import { Link } from 'react-router-dom';
 import { Field } from 'redux-form';
 import ErrorMessage from 'components/ui/ErrorMessage';
+import Oauth from 'containers/Oauth';
 
 import styles from './styles.css';
 
@@ -19,6 +20,9 @@ function SignUp({
             <div className="card">
               <div className="card-header text-center">
                 <h2> <FormattedMessage id="sign_up.register" /> </h2>
+              </div>
+              <div className="text-center">
+                <Oauth type="icon-fb" provider="facebook" button />
               </div>
               <div className="card-block">
                 <form onSubmit={handleSubmit(submitHandler)}>

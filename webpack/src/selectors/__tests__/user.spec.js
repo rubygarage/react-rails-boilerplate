@@ -11,6 +11,7 @@ describe('User selector', () => {
       },
     },
     signin: { currentUser: { users: [1] } },
+    oauth: { uid: '1385488138', provider: 'facebook' },
   };
 
   describe('getCurrentUser', () => {
