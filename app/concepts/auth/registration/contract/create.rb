@@ -9,7 +9,6 @@ class Auth::Registration::Contract::Create < Reform::Form
 
   validation :default do
     configure do
-      config.messages = :i18n
       config.namespace = :user
 
       def unique?(attr_name, value)

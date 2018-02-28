@@ -6,7 +6,6 @@ class Auth::Password::Contract::Update < Reform::Form
 
   validation :default do
     config do
-      config.messages = :i18n
       config.namespace = :user
     end
 

@@ -9,7 +9,6 @@ class Auth::Omniauth::Contract::Create < Reform::Form
 
   validation :default do
     configure do
-      config.messages = :i18n
       config.namespace = :user
 
       def uniq_in_provider_scope?(attr_name, value)
