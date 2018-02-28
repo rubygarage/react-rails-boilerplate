@@ -5,10 +5,6 @@ class Auth::Password::Contract::Update < Reform::Form
   property :password_confirmation
 
   validation :default do
-    config do
-      config.namespace = :user
-    end
-
     required(:password).filled(:str?, min_size?: 8).confirmation
   end
 end

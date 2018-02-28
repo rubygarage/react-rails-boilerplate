@@ -9,8 +9,6 @@ class Auth::Omniauth::Contract::Create < Reform::Form
 
   validation :default do
     configure do
-      config.namespace = :user
-
       def uniq_in_provider_scope?(attr_name, value)
         User.where(
           attr_name => value,

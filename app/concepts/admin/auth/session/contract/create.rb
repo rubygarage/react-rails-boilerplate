@@ -7,7 +7,6 @@ class Admin::Auth::Session::Contract::Create < Reform::Form
   validation with: { form: true } do
     configure do
       option :form
-      config.namespace = :user
 
       def credentials_valid?
         return false unless form.model

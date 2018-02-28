@@ -7,7 +7,6 @@ class Auth::Session::Contract::Create < Reform::Form
   validation with: { form: true } do
     configure do
       option :form
-      config.namespace = :user
 
       def confirmed?
         form.model.confirmed_at?

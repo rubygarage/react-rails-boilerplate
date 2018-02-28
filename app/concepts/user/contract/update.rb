@@ -7,7 +7,6 @@ class User::Contract::Update < Reform::Form
   validation :default, with: { form: true } do
     configure do
       option :form
-      config.namespace = :user
 
       def avatar_valid?(value)
         return true if value.persisted?

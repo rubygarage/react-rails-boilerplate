@@ -4,10 +4,6 @@ class Auth::Password::Contract::Create < Reform::Form
   property :email, virtual: true
 
   validation :default do
-    configure do
-      config.namespace = :user
-    end
-
     required(:email).filled(:str?, format?: URI::MailTo::EMAIL_REGEXP)
   end
 end

@@ -9,8 +9,6 @@ class Auth::Registration::Contract::Create < Reform::Form
 
   validation :default do
     configure do
-      config.namespace = :user
-
       def unique?(attr_name, value)
         User.where(attr_name => value).empty?
       end
