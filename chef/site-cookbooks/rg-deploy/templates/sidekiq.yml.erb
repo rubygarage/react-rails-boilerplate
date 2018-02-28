@@ -1,0 +1,14 @@
+---
+<%= @environment %>:
+  :verbose: true
+  :logfile: log/sidekiq.log
+  :concurrency:  1
+  :strict: false
+  :pidfile: tmp/pids/sidekiq.pid
+  :queues:
+    - [default, 1]
+    - [mailers, 1]
+    - [messages, 1]
+    - [notifications, 1]
+    - [counting_jams, 1]
+    - [stripe_account, 1]

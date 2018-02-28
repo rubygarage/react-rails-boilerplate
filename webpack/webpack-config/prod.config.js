@@ -6,7 +6,6 @@ var webpack = require('webpack');
 var CleanPlugin = require('clean-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var strip = require('strip-loader');
-var HappyPack = require('happypack');
 
 var projectRootPath = path.resolve(__dirname, '../');
 var assetsPath = path.resolve(projectRootPath, './src/static/dist');
@@ -34,8 +33,9 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         use: [
-          'happypack/loader'
-        ]
+          strip.loader('debug'),
+          'babel-loader',
+        ],
       },
       {
         test: /\global.css$/,
@@ -88,12 +88,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new HappyPack({
-      // loaders is the only required parameter:
-      threads: 4,
-      loaders: [ strip.loader('debug'), 'babel-loader' ],
-    }),
-
     new CleanPlugin([assetsPath], { root: projectRootPath }),
 
     // css files from the extract-text-plugin loader

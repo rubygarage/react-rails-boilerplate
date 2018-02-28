@@ -1,0 +1,7 @@
+name             'rg-pm2'
+maintainer       'Dmitriy Grechukha'
+maintainer_email 'dmitriy.grechukha@gmail.com'
+license          'All rights reserved'
+description      'PM2 installation'
+long_description 'PM2 installation'
+version          '0.1.0'

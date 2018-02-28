@@ -1,0 +1,15 @@
+{
+  "application": {
+    "encrypted_data": "hKQy4x0RF/VshrbOUUS0vji39LfR+0w/aF3lPWNVNE6ylEFlNEcpJqKuYZYN\nyUJSB8GJkOV8tBUlNoxIDwHwGeB5YfbJ3ESdTt/ME/jBhC3gSK4vmKUkEKeV\nTUWvh0BixjVw83KElbYBgagLt7qpGeY714bIAXpWG6Cbj7HzpnL3qJUecdQS\narp+SHp4vYNdC+dkcF1Tq5zSTyaKSrq7zli/F208ALspBIpFbGzM3xs=\n",
+    "iv": "y7sF8FU9NA+8zpleswfz0w==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "database": {
+    "encrypted_data": "J3sNa6oW9fknU56cX18MveItfXnDQL508a5O/HdYI9jG3ExQTR/5SQprJ2cF\nmsU3xYpYvEfQN4IV8LfNx21o8REqjGhy3mJSn0ZGwWfYqb8/dIxRszcndLcC\nSQGa8sb0\n",
+    "iv": "v6hyv7pHMuzLEPZjpHwljg==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "id": "dev"
+}

@@ -1,0 +1,15 @@
+{
+  "application": {
+    "encrypted_data": "IIQY1OU8JxK8+YKYK58QqLy/ujIBbDQQTh+9sXrKo2oSXIwg0vUh6XZ5ZcNT\nYV/cTyZ7l2DvEYyAGZKoQYcwH8RY0mBprRmwvtCIWelTQmpmTW0VkO/sPVPF\nQSEpYWIEJxyAi1KjTZxfeoW38e2DBvJTMsYMag4oHKbwN3t/4NcbkTY1HrCI\njEZWqNBgbRwouYnvq30LOqTYzdMf1+kEsKRjQNXaQBEMY4OOf+Zfqnw=\n",
+    "iv": "JllFtdZctBALvqqj9wFOQQ==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "database": {
+    "encrypted_data": "ERfr8DZYpDpk1qObP4P3KizmEUfOPPePIzfEgP9fVY6prszVmAqjZx/QNOqx\nQssDdOuoViWWqTpNdRUI8Ibiua/dB1LrvObPjMQRARNqCmNGeVJRB9iYzsQi\nNOBuICvPBj6eNmUOB7VsY9LfQYlPHw==\n",
+    "iv": "vb+Ogtop4HC1V/TqY/2xqg==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "id": "staging"
+}

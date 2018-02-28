@@ -1,0 +1,9 @@
+{
+  "id": "deployer",
+  "password": "$1$pLkeCZ5O$zKvLFmXDtQhhB3Ur6ual71",
+  "ssh_keys": [
+    "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCshIMka2tUWo+uPSaPIx/1abmUFrgySYoAy6FVhIVBPnQgD6edZudZ29tuopAx3YY4kAR94804kfYydHXVf0Ic1HF3PZFpC74B4+kcGBvTlbCDX1KYp+ka6c/syJwmShyhzlyYeH0lUb5xq4cNIemOmcm+cZAmVBzPIhDB3LEKTDOvy+DQz5kNrl57acRmHUmYBQklemZ5IwdkR8oGYN5JfAHTrGVeDEkEQLQR2hgHp1M6ujZnVdwZaBsTWzfL0WdTUPxKomitZM9MLK5sjBsbJ230WEZs+Di43dE3wjE5+aD+2rJUPwBB/1Jbhnqz8QzglJwZkTAp4GLl/yD0RSDv dell@dell-Vostro-5568"
+  ],
+  "groups": ["sudo" ,"sysadmin", "www-data"],
+  "shell": "/bin/zsh"
+}

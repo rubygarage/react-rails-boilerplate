@@ -1,0 +1,15 @@
+{
+  "application": {
+    "encrypted_data": "Gt4qsGsUNQ83to7zh+XqBPyUVJBgvynj3fo9+JpyPWqE6roO9S67Hznnue49\n08/Ca7g7TeJ1Yct03HQjHQxmLOCconngR/zSjERuypHCmgjPZcem9BSf9yzk\nXdDwvIO9obkwSmmze1JseiF+2RRop7QIInwqxYbx2Pp+DkcZKHHpfd2MM5vJ\nveqMiNytT5w0vlVGtUIBO3oU2DCNPjQRN0/fEjrG2R8fjHBpIBo97Zfc5hCP\nSfWwT1f9NxnizxFwz8icD56PM9CbIgMzypCkKrU/LvG92YgaL2Al983amqYk\nSQrHA1nanz9VSYN/OsegVWLz+P/fxY/y52Vh+zwlN3tF/PmBxH4Wd2kL8qne\nEcI1PY18WlyvzoHGSVjKOsddz5IleVPHDoeCnA+sqy3BVkSAOX0TrEm0U5NY\neDWKdMlnRsBkcmRRYW6qJUAOf2l1Em1JhyG5RFx7hum0VqE8c9SojefhNAJz\n/auaKktpfH+J/aIDaQjt50pmdBdfdHbO/5C+XhZL9nQf45eh86lPWqlhqP9N\n2gj50gYhil1PHtUluagmQaU66eXuei/zyR0/SkKZjzn7xkHQW/u98JqXBTck\nnJXApuMquNhhzjPvuyiliGQOjFgvcYZWWwyYa9zV04maDIq0OkthQz8FC5Pi\nINMeGVHwP9C0Q8Lzpa3wmlOnXzkgHb2JWjtzcuWEmnloqCdPh19/B4Zuj0ih\neRaW6FHXc5aRGddLXiaMQmXE+8M=\n",
+    "iv": "Wql7Q3yydXDfPi+ZhUayLg==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "database": {
+    "encrypted_data": "yGedfVx3elP38BWBR/jrbQApgU4dmIPezOHR1JPcCt/APOx8FDhykr8tysvy\nAOc8bJpv9kJ1Na77ZEiuR77gN2dDPCtyMNcHPTxGzVVZgd+SKjpHm8V+TaBl\nZAVGokBUQPE5BIwNmNmdrQ7oKFCEpg==\n",
+    "iv": "F2N6qNLXJd/9YpCuBS+Iqg==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "id": "production"
+}

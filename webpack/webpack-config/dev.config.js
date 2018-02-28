@@ -4,7 +4,6 @@ const ENV = process.env.ENV || 'development'
 var fs = require('fs');
 var path = require('path');
 var webpack = require('webpack');
-var HappyPack = require('happypack');
 
 var assetsPath = path.resolve(__dirname, '../src/static/dist');
 var host = (process.env.HOST || 'localhost');
@@ -83,8 +82,9 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         use: [
-          'happypack/loader'
-        ]
+          { loader: 'babel-loader', options: babelLoaderQuery },
+          'eslint-loader'
+        ],
       },
       {
         test: /\global.css$/,
@@ -133,14 +133,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new HappyPack({
-      // loaders is the only required parameter:
-      threads: 4,
-      loaders: [
-        { loader: 'babel-loader', options: babelLoaderQuery },
-        'eslint-loader'
-      ],
-    }),
     // hot reload
     new webpack.HotModuleReplacementPlugin(),
     new webpack.IgnorePlugin(/webpack-stats\.json$/),
