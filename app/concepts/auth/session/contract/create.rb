@@ -8,7 +8,7 @@ class Auth::Session::Contract::Create < Reform::Form
     configure do
       option :form
 
-      def confirmed?
+      def email_confirmed?
         form.model.confirmed_at?
       end
 
@@ -18,7 +18,7 @@ class Auth::Session::Contract::Create < Reform::Form
       end
     end
 
-    required(:username).filled(:str?, :credentials_valid?, :confirmed?)
+    required(:username).filled(:str?, :credentials_valid?, :email_confirmed?)
     required(:password).filled
   end
 end
