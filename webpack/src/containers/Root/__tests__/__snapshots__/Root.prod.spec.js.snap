@@ -78,12 +78,18 @@ exports[`Root.prod container renders Root 1`] = `
           render={[Function]}
         />
         <Route
+          exact={true}
           key="7"
           path="/user/:id"
           render={[Function]}
         />
         <Route
           key="8"
+          path="/user/:id/edit"
+          render={[Function]}
+        />
+        <Route
+          key="9"
           path="/*"
           render={[Function]}
         />
