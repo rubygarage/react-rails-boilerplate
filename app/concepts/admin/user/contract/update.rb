@@ -7,8 +7,6 @@ class Admin::User::Contract::Update < Reform::Form
   validation :default, with_form: true do
     configure do
       option :form
-      config.messages = :i18n
-      config.namespace = :user
 
       def unique?(attr_name, value)
         User.where(attr_name => value).where.not(id: form.model.id).empty?

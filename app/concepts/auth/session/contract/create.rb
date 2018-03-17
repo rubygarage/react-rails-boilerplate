@@ -7,10 +7,8 @@ class Auth::Session::Contract::Create < Reform::Form
   validation with: { form: true } do
     configure do
       option :form
-      config.messages = :i18n
-      config.namespace = :user
 
-      def confirmed?
+      def email_confirmed?
         form.model.confirmed_at?
       end
 
@@ -20,7 +18,7 @@ class Auth::Session::Contract::Create < Reform::Form
       end
     end
 
-    required(:username).filled(:str?, :credentials_valid?, :confirmed?)
+    required(:username).filled(:str?, :credentials_valid?, :email_confirmed?)
     required(:password).filled
   end
 end
