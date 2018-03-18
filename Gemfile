@@ -9,7 +9,6 @@ gem 'active_model_serializers'
 gem 'activeadmin'
 gem 'aws-sdk-s3', '~> 1.2' # for Amazon S3 storage
 gem 'bcrypt'
-gem 'bootsnap', require: false
 gem 'dry-validation'
 gem 'figaro'
 gem 'haml-rails'

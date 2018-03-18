@@ -1,19 +1,19 @@
 default: &default
   adapter: postgresql
-  encoding: unicode
+  pool: 5
   host: localhost
-  user: postgres
-
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-
-development:
-  <<: *default
-  database: react_rails_boilerplate_development
+  port: 5432
+  username: postgres
+  password: postgres
 
 test:
   <<: *default
-  database: react_rails_boilerplate_test
+  database: rg_isomorphic_test
+
+development:
+  <<: *default
+  database: rg_isomorphic_dev
 
 production:
   <<: *default
-  database: react_rails_boilerplate_production
+  database: rg_isomorphic
