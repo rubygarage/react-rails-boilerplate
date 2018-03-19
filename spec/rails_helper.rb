@@ -1,8 +1,11 @@
 ENV['RAILS_ENV'] ||= 'test'
 require 'simplecov'
 
+SimpleCov.minimum_coverage 70
+
 SimpleCov.start 'rails' do
-  coverage_dir File.join('doc', 'coverage')
+  dir = File.join(ENV.fetch('CIRCLE_ARTIFACTS', 'doc'), 'coverage')
+  coverage_dir dir
 
   groups = %w[channels commands concepts controllers decorators features forms
               helpers jobs libs mailers middlewares models policies resources

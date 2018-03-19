@@ -29,3 +29,5 @@ test:
   post:
     - cd webpack/ && nvm use 8.2.0 && yarn && yarn eslint:all
     - bundle exec rubocop -R
+    - bundle exec brakeman --ensure-latest --rails5 --exit-on-warn
+    - bundle exec bundle-audit check

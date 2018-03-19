@@ -31,3 +31,4 @@
 /chef/encrypted_data_bag_secret
 
 /public/uploads/cache/*
+/vendor/bundle
