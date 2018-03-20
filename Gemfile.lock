@@ -110,7 +110,7 @@ GEM
     benchmark-ips (2.7.2)
     binding_of_caller (0.7.3)
       debug_inspector (>= 0.0.1)
-    brakeman (4.1.1)
+    brakeman (4.2.0)
     builder (3.2.3)
     bullet (5.7.0)
       activesupport (>= 3.0.0)
@@ -548,6 +548,7 @@ DEPENDENCIES
   activeadmin
   aws-sdk-s3 (~> 1.2)
   bcrypt
+  bundler-audit
   byebug
   database_cleaner
   dry-validation
@@ -579,6 +580,7 @@ DEPENDENCIES
   shrine
   shrine-memory
   sidekiq
+  simplecov
   trailblazer-rails
   tzinfo-data
   uglifier

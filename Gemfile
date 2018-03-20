@@ -45,11 +45,13 @@ group :development do
 end
 
 group :test do
+  gem 'bundler-audit'
   gem 'database_cleaner'
   gem 'fuubar'
   gem 'jsonapi-resources-matchers'
   gem 'shoulda-matchers'
   gem 'shrine-memory'
+  gem 'simplecov', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
