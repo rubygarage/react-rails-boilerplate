@@ -79,4 +79,5 @@ Rails.application.configure do
       bullet.airbrake = false
     end
   end
+  config.read_encrypted_secrets = true
 end
