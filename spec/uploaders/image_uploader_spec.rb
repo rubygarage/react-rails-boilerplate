@@ -12,6 +12,18 @@ RSpec.describe ImageUploader do
     }
   end
 
+  describe 'uploader process works fine' do
+    it 'resize image', shrine: true do
+      expect_any_instance_of(described_class).to receive(:resize_to_limit!).and_call_original
+
+      Sidekiq::Testing.inline! do
+        # #reload is necessary because Shrine's after_commit hook
+        # leaves #create result in inconsistent state
+        Avatar.create(image: image, user: user).reload
+      end
+    end
+  end
+
   describe 'uploader processes the file' do
     before do
       allow_any_instance_of(described_class).to receive(:process).and_wrap_original do |_m, io, context|
