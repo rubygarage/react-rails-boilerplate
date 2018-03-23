@@ -286,6 +286,7 @@ GEM
     kgio (2.11.2)
     launchy (2.4.3)
       addressable (~> 2.3)
+    libv8 (3.16.14.19)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -409,6 +410,7 @@ GEM
       codeclimate-engine-rb (~> 0.4.0)
       parser (>= 2.4.0.0, < 2.5)
       rainbow (~> 2.0)
+    ref (2.0.0)
     reform (2.2.4)
       disposable (>= 0.4.1)
       representable (>= 2.4.0, < 3.1.0)
@@ -507,6 +509,9 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     temple (0.8.0)
+    therubyracer (0.12.3)
+      libv8 (~> 3.16.14.15)
+      ref
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
@@ -557,6 +562,7 @@ DEPENDENCIES
   byebug
   database_cleaner
   dry-validation
+  execjs
   factory_bot_rails (~> 4.8)
   ffaker
   figaro
@@ -586,6 +592,7 @@ DEPENDENCIES
   shrine-memory
   sidekiq
   simplecov
+  therubyracer
   trailblazer-rails
   tzinfo-data
   uglifier

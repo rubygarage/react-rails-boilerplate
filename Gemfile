@@ -55,6 +55,8 @@ group :test do
 end
 
 group :production do
+  gem 'therubyracer'
+  gem 'execjs'
   gem 'unicorn'
 end
 
