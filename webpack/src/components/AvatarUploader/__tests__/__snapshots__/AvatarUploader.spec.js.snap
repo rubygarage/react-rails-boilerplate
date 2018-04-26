@@ -2,7 +2,7 @@
 
 exports[`Show user renders no preview when no file is selected 1`] = `
 <div>
-  <Dropzone
+  <t
     accept="image/jpeg, image/png"
     disableClick={false}
     disablePreview={false}
@@ -17,13 +17,13 @@ exports[`Show user renders no preview when no file is selected 1`] = `
     <div>
       Try dropping some files here, or click to select files to upload.
     </div>
-  </Dropzone>
+  </t>
 </div>
 `;
 
 exports[`Show user renders preview when file is selected 1`] = `
 <div>
-  <Dropzone
+  <t
     accept="image/jpeg, image/png"
     disableClick={false}
     disablePreview={false}
@@ -52,6 +52,6 @@ exports[`Show user renders preview when file is selected 1`] = `
         x
       </button>
     </div>
-  </Dropzone>
+  </t>
 </div>
 `;
