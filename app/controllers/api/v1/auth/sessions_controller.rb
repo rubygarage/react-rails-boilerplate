@@ -5,19 +5,16 @@ module Api
         before_action :check_authorization, only: :show
 
         def show
-          render json: current_user, serializer: Api::V1::UserSerializer, key_transform: :camel_lower, include: '**'
+          render json: Api::V1::UserSerializer.new(current_user).serialized_json
         end
 
         def create
           result = run ::Auth::Session::Create, params, response: response
 
           if result.success?
-            render json: @model,
-                   serializer: Api::V1::UserSerializer,
-                   key_transform: :camel_lower,
-                   include: '**'
+            render json: Api::V1::UserSerializer.new(@model, include: [:avatar]).serialized_json
           else
-            render json: @form, serializer: ::ErrorSerializer, status: :unauthorized
+            render json: ErrorSerializer.new(@form).serialized_json, status: :unauthorized
           end
         end
       end

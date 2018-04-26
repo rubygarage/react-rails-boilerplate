@@ -7,7 +7,7 @@ module Api
         result = run ::User::Show
 
         if result.success?
-          render json: @model, serializer: Api::V1::UserSerializer, key_transform: :camel_lower, include: '**'
+          render json: Api::V1::UserSerializer.new(@model, include: [:avatar]).serialized_json
         else
           head(result['result.model'].success? ? :unauthorized : :not_found)
         end
@@ -17,9 +17,9 @@ module Api
         result = run ::User::Update
 
         if result.success?
-          render json: @model, serializer: Api::V1::UserSerializer, key_transform: :camel_lower, include: '**'
+          render json: Api::V1::UserSerializer.new(@model, include: [:avatar]).serialized_json
         else
-          render json: @form, serializer: ::ErrorSerializer, status: :unprocessable_entity
+          render json: @form, serializer: ErrorSerializer, status: :unprocessable_entity
         end
       end
     end

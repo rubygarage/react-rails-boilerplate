@@ -21,9 +21,7 @@ module Users
     end
 
     def serialize(user)
-      ActiveModelSerializers::SerializableResource.new(
-        user, key_transform: :camel_lower, include: '**', serializer: Api::V1::UserSerializer
-      ).to_json
+      Api::V1::UserSerializer.new(user, include: [:avatar]).serialized_json
     end
   end
 end
