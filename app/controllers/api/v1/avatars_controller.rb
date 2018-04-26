@@ -9,7 +9,7 @@ module Api
         if result.success?
           head :ok
         else
-          head :not_modified
+          head :not_found
         end
       end
     end

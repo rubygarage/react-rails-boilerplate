@@ -19,7 +19,7 @@ RSpec.describe 'Avatar', type: :request do
         end
       end
 
-      response '304', 'Destroy avatar' do
+      response '404', 'Destroy avatar' do
         it 'returns not modified' do
           delete api_v1_user_avatar_path(user.id)
         end
