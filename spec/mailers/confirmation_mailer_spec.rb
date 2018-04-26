@@ -2,16 +2,12 @@ require 'rails_helper'
 
 RSpec.describe ConfirmationMailer, type: :mailer do
   describe 'confirmation email' do
-    let(:user) { create(:user) }
-    let(:mail) { ConfirmationMailer.confirmation_email(user) }
-    let(:token) { FFaker::Guid.guid }
+    subject { ConfirmationMailer.confirmation_email(user) }
 
-    before do
-      allow(Auth::Token::ResetPassword).to receive(:generate).and_return(token)
-    end
+    let(:user) { create(:user) }
 
     it 'renders the headers' do
-      expect(mail.to).to eq([user.email])
+      expect(subject.to).to eq([user.email])
     end
   end
 end
