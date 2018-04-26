@@ -1,15 +1,15 @@
 module Api
   module V1
-    class UserSerializer < ActiveModel::Serializer
-      type 'users'
+    class UserSerializer < ApplicationSerializer
+      set_type :users
+      set_key_transform :camel_lower
 
-      attributes  :id,
-                  :email,
-                  :username,
-                  :provider,
-                  :uid
+      attributes :email,
+                 :username,
+                 :provider,
+                 :uid
 
-      has_one :avatar, serializer: Api::V1::AvatarSerializer
+      has_one :avatar
     end
   end
 end
