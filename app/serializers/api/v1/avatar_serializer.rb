@@ -1,18 +1,15 @@
 module Api
   module V1
-    class AvatarSerializer < ActiveModel::Serializer
-      type 'avatars'
+    class AvatarSerializer < ApplicationSerializer
+      set_type :avatars
+      set_key_transform :camel_lower
 
-      attributes :id, :thumb_image, :original_image
-
-      belongs_to :user, serializer: Api::V1::UserSerializer
-
-      def thumb_image
-        object&.image_url(:thumb)
+      attribute :thumb_image do |object|
+        object.image_url(:thumb)
       end
 
-      def original_image
-        object&.image_url(:original)
+      attribute :original_image do |object|
+        object.image_url(:original)
       end
     end
   end
