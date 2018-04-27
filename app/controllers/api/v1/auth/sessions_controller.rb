@@ -5,7 +5,7 @@ module Api
         before_action :check_authorization, only: :show
 
         def show
-          render json: Api::V1::UserSerializer.new(current_user).serialized_json
+          render json: Api::V1::UserSerializer.new(current_user, include: [:avatar]).serialized_json
         end
 
         def create
