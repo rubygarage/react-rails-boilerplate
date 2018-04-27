@@ -5,16 +5,17 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'active_model_serializers'
 gem 'activeadmin'
 gem 'aws-sdk-s3', '~> 1.2' # for Amazon S3 storage
 gem 'bcrypt'
 gem 'dry-validation'
+gem 'fast_jsonapi'
 gem 'figaro'
 gem 'haml-rails'
 gem 'image_processing'
 gem 'jwt'
 gem 'mini_magick'
+gem 'oj'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'pg'

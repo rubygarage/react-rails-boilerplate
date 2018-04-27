@@ -6,9 +6,9 @@ module Api
           result = run ::Auth::Registration::Create
 
           if result.success?
-            render json: @model, serializer: Api::V1::UserSerializer, key_transform: :camel_lower, include: '**'
+            render json: Api::V1::UserSerializer.new(@model).serialized_json
           else
-            render json: @form, serializer: ::ErrorSerializer, status: :unprocessable_entity
+            render json: ErrorSerializer.new(@form).serialized_json, status: :unprocessable_entity
           end
         end
       end
