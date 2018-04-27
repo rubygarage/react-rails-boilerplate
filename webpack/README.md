@@ -93,7 +93,6 @@ $ yarn start
 ### Tools
 
 - [Webpack 2](https://webpack.js.org/configuration)
-- [Redux Devtools](https://github.com/gaearon/redux-devtools)
 - [Redux Devtools (browser extension)](https://github.com/zalmoxisus/redux-devtools-extension)
 - [React Devtools (browser extension)](https://github.com/facebook/react-devtools)
 
