@@ -5,11 +5,14 @@ import rootReducer from '../reducers';
 
 const configureStore = (initialState) => {
   const sagaMiddleware = createSagaMiddleware();
+  const composeEnhancers = composeWithDevTools({
+    name: 'react-rails-boilerplate',
+  });
 
   const store = createStore(
     rootReducer,
     initialState,
-    composeWithDevTools(applyMiddleware(sagaMiddleware)),
+    composeEnhancers(applyMiddleware(sagaMiddleware)),
   );
 
   if (module.hot) {
