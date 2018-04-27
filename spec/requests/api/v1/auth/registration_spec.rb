@@ -19,6 +19,7 @@ RSpec.describe 'Registration', type: :request do
         let(:params) { attributes_for(:user) }
 
         it 'returns User information' do
+          params[:password_confirmation] = params[:password]
           post api_v1_auth_registration_path, params: params
         end
 

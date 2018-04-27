@@ -57,7 +57,7 @@ RSpec.describe 'Session', type: :request do
 
       response '422', 'Invalid request' do
         it 'returns an error status' do
-          post api_v1_auth_registration_path, params: {}
+          post api_v1_auth_session_path, params: {}
         end
       end
     end
