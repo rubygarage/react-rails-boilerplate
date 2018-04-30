@@ -9,7 +9,7 @@ module Api
                  :provider,
                  :uid
 
-      has_one :avatar
+      has_one :avatar, record_type: :avatars
     end
   end
 end

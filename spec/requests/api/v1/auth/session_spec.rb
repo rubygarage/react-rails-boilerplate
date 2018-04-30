@@ -10,14 +10,18 @@ RSpec.describe 'Session', type: :request do
       response '200', 'User information' do
         let(:user) { create(:user, email: 'test@example.com', username: 'new_test_user') }
         let(:token) { Auth::Token::Session.generate(user) }
+        let!(:avatar) { create(:avatar, :with_image, user: user) }
 
         it 'returns User information' do
+          expected_json = response_schema('auth', :user_with_avatar).to_json
           get api_v1_auth_session_path, headers: { authorization: token }
 
-          expect(body).to be_json_eql response_schema('auth', :user_info).to_json
+          expect(body).to be_json_eql(expected_json).excluding('included')
+          expect(body).to have_json_path('included/0/attributes/thumbImage')
+          expect(body).to have_json_path('included/0/attributes/originalImage')
         end
 
-        examples 'application/vnd.api+json' => response_schema('auth', :user_info)
+        examples 'application/vnd.api+json' => response_schema('auth', :user_with_avatar)
       end
 
       response '401', 'Unauthorized' do
