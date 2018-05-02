@@ -5,10 +5,13 @@ machine:
 dependencies:
   pre:
     - gem install bundler -v '1.16.0'
+    - cd webpack/ && nvm use 8.2.0 && yarn
+  cache_directories:
+    - webpack/node_modules
 
 services:
-    - redis
-    - sidekiq
+  - redis
+  - sidekiq
 
 database:
   override:
