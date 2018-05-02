@@ -187,7 +187,9 @@
                   "type": "users",
                   "attributes": {
                     "email": "test@example.com",
-                    "username": "new_test_user"
+                    "username": "new_test_user",
+                    "provider": null,
+                    "uid": null
                   },
                   "relationships": {
                     "avatar": {
@@ -254,7 +256,9 @@
                   "type": "users",
                   "attributes": {
                     "email": "test@example.com",
-                    "username": "new_test_user"
+                    "username": "new_test_user",
+                    "provider": null,
+                    "uid": null
                   },
                   "relationships": {
                     "avatar": {
@@ -342,14 +346,29 @@
                   "type": "users",
                   "attributes": {
                     "email": "test@example.com",
-                    "username": "new_test_user"
+                    "username": "new_test_user",
+                    "provider": null,
+                    "uid": null
                   },
                   "relationships": {
                     "avatar": {
-                      "data": null
+                      "data": {
+                        "id": 1,
+                        "type": "avatars"
+                      }
                     }
                   }
-                }
+                },
+                "included": [
+                  {
+                    "id": 1,
+                    "type": "avatars",
+                    "attributes": {
+                      "thumbImage": "/path/to/image-thumb.jpg",
+                      "originalImage": "/path/to/image.jpg"
+                    }
+                  }
+                ]
               }
             }
           },
@@ -396,6 +415,116 @@
           },
           "422": {
             "description": "Invalid request"
+          }
+        }
+      }
+    },
+    "/avatars": {
+      "delete": {
+        "summary": "Delete avatar",
+        "tags": [
+          "Avatars"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Destroy avatar"
+          },
+          "404": {
+            "description": "Destroy avatar"
+          }
+        }
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "summary": "Show user",
+        "tags": [
+          "Users"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Show user",
+            "examples": {
+              "application/vnd.api+json": {
+                "data": {
+                  "id": 1,
+                  "type": "users",
+                  "attributes": {
+                    "email": "test@example.com",
+                    "username": "new_test_user",
+                    "provider": null,
+                    "uid": null
+                  },
+                  "relationships": {
+                    "avatar": {
+                      "data": {
+                        "id": 1,
+                        "type": "avatars"
+                      }
+                    }
+                  }
+                },
+                "included": [
+                  {
+                    "id": 1,
+                    "type": "avatars",
+                    "attributes": {
+                      "thumbImage": "/path/to/image-thumb.jpg",
+                      "originalImage": "/path/to/image.jpg"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "401": {
+            "description": "You are not authenticated"
+          },
+          "403": {
+            "description": "You don’t have permission to access this resource"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      },
+      "post": {
+        "summary": "Update",
+        "tags": [
+          "Users"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Updates user"
+          },
+          "422": {
+            "description": "Error update user"
           }
         }
       }
