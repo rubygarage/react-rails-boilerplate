@@ -30,15 +30,15 @@ Rails.application.configure do
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.asset_host = Figaro.env.host
-  config.action_mailer.default_url_options = { host: Figaro.env.host, port: 4000 }
+  config.action_mailer.asset_host = Figaro.env.backend_host
+  config.action_mailer.default_url_options = { host: Figaro.env.client_host, port: 4000 }
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     user_name: Figaro.env.mailtrap_username,
     password: Figaro.env.mailtrap_password,
-    address: 'mailtrap.io',
-    domain: 'mailtrap.io',
+    address: 'smtp.mailtrap.io',
+    domain: 'smtp.mailtrap.io',
     port: '2525',
     authentication: :cram_md5
   }
