@@ -419,7 +419,7 @@
         }
       }
     },
-    "/avatars": {
+    "/users/{user_id}/avatar": {
       "delete": {
         "summary": "Delete avatar",
         "tags": [
@@ -431,12 +431,26 @@
         "produces": [
           "application/json"
         ],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          }
+        ],
         "responses": {
           "200": {
             "description": "Destroy avatar"
           },
+          "401": {
+            "description": "You are not authenticated"
+          },
+          "403": {
+            "description": "You don’t have permission to access this resource"
+          },
           "404": {
-            "description": "Destroy avatar"
+            "description": "Avatar not found"
           }
         }
       }

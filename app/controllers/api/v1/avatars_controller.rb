@@ -9,7 +9,7 @@ module Api
         if result.success?
           head :ok
         else
-          head :not_found
+          head(@model.present? ? :forbidden : :not_found)
         end
       end
     end
