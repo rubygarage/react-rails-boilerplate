@@ -59,10 +59,13 @@
         "consumes": [
           "application/json"
         ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "confirmation_token",
-            "in": "path",
+            "in": "query",
             "type": "string",
             "required": true
           }

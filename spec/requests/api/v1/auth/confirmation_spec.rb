@@ -6,18 +6,24 @@ RSpec.describe 'Confirmation', type: :request do
     post 'Confirm user' do
       tags 'Confirmation'
       consumes 'application/json'
-
-      parameter name: :confirmation_token, in: :path, type: :string
+      produces 'application/json'
+      parameter name: :confirmation_token, in: :query, type: :string, required: true
 
       response '200', 'User confirmed' do
         it 'marks User as confirmed' do
           post api_v1_auth_confirmation_path, params: { confirmation_token: token }
+
+          expect(response).to be_success
         end
       end
 
       response '404', 'User not found' do
+        let(:user) { build_stubbed(:user) }
+
         it 'returns an error' do
-          post api_v1_auth_confirmation_path, params: { confirmation_token: token.sub(/\w$/, 'Y') }
+          post api_v1_auth_confirmation_path, params: { confirmation_token: token }
+
+          expect(response).to be_not_found
         end
       end
     end
