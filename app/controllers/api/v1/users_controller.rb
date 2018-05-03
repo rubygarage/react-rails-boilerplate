@@ -18,6 +18,10 @@ module Api
 
         if result.success?
           render json: Api::V1::UserSerializer.new(@model, include: [:avatar]).serialized_json
+        elsif result['result.model'].failure?
+          head :not_found
+        elsif result['result.policy.default'].failure?
+          head :forbidden
         else
           render json: ErrorSerializer.new(@form).serialized_json, status: :unprocessable_entity
         end

@@ -14,6 +14,7 @@ RSpec.configure do |config|
       produces: ['application/vnd.api+json'],
       consumes: ['application/vnd.api+json'],
       securityDefinitions: {
+        token: { type: :apiKey, in: :header, name: :authorization },
         access_token: { type: 'apiKey', in: 'header', name: 'access-token' },
         token_type: { type: 'apiKey', in: 'header', name: 'token-type' },
         client: { type: 'apiKey', in: 'header', name: 'client' },

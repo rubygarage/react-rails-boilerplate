@@ -12,6 +12,11 @@
     "application/vnd.api+json"
   ],
   "securityDefinitions": {
+    "token": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "authorization"
+    },
     "access_token": {
       "type": "apiKey",
       "in": "header",
@@ -585,23 +590,90 @@
           }
         }
       },
-      "post": {
+      "put": {
         "summary": "Update",
         "tags": [
           "Users"
         ],
         "consumes": [
-          "application/json"
+          "multipart/form-data"
         ],
         "produces": [
           "application/json"
         ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "avatar[image]",
+            "in": "formData",
+            "type": "file",
+            "required": true
+          }
+        ],
         "responses": {
           "200": {
-            "description": "Updates user"
+            "description": "Updates user",
+            "examples": {
+              "application/vnd.api+json": {
+                "data": {
+                  "id": 1,
+                  "type": "users",
+                  "attributes": {
+                    "email": "test@example.com",
+                    "username": "new_test_user",
+                    "provider": null,
+                    "uid": null
+                  },
+                  "relationships": {
+                    "avatar": {
+                      "data": {
+                        "id": 1,
+                        "type": "avatars"
+                      }
+                    }
+                  }
+                },
+                "included": [
+                  {
+                    "id": 1,
+                    "type": "avatars",
+                    "attributes": {
+                      "thumbImage": "/path/to/image-thumb.jpg",
+                      "originalImage": "/path/to/image.jpg"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "401": {
+            "description": "You are not authenticated"
+          },
+          "403": {
+            "description": "You don’t have permission to access this resource"
+          },
+          "404": {
+            "description": "User not found"
           },
           "422": {
-            "description": "Error update user"
+            "description": "Error update user",
+            "examples": {
+              "application/vnd.api+json": {
+                "errors": [
+                  {
+                    "source": {
+                      "pointer": "/data/attributes/avatar"
+                    },
+                    "detail": "isn't of allowed type (allowed types: image/jpeg, image/jpg, image/png)"
+                  }
+                ]
+              }
+            }
           }
         }
       }

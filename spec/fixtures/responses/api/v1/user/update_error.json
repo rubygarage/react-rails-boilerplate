@@ -1,0 +1,10 @@
+{
+  "errors": [
+    {
+      "source": {
+        "pointer": "/data/attributes/avatar"
+      },
+      "detail": "isn't of allowed type (allowed types: image/jpeg, image/jpg, image/png)"
+    }
+  ]
+}
