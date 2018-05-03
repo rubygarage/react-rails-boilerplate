@@ -4,22 +4,27 @@ RSpec.describe 'Password', type: :request do
   let(:password) { 'NewPassword' }
 
   path '/auth/users/password' do
-    get 'Show Password' do
+    get 'Validate reset token (Show Password)' do
       tags 'Password'
       consumes 'application/json'
       produces 'application/json'
-
-      parameter name: 'reset_token', in: :path, type: :string
+      parameter name: :reset_token, in: :query, type: :string, required: true
 
       response '200', 'Validate reset token' do
         it 'returns OK' do
           get api_v1_auth_password_path, params: { reset_token: token }
+
+          expect(response).to be_success
         end
       end
 
       response '404', 'Not found' do
+        let(:user) { build_stubbed(:user) }
+
         it 'returns an error' do
-          get api_v1_auth_password_path, params: { reset_token: token.sub(/\w$/, 'Y') }
+          get api_v1_auth_password_path, params: { reset_token: token }
+
+          expect(response).to be_not_found
         end
       end
     end

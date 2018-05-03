@@ -82,7 +82,7 @@
     },
     "/auth/users/password": {
       "get": {
-        "summary": "Show Password",
+        "summary": "Validate reset token (Show Password)",
         "tags": [
           "Password"
         ],
@@ -95,7 +95,7 @@
         "parameters": [
           {
             "name": "reset_token",
-            "in": "path",
+            "in": "query",
             "type": "string",
             "required": true
           }
