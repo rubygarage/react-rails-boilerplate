@@ -4,7 +4,6 @@ RSpec.describe 'Session', type: :request do
       tags 'Session'
       consumes 'application/json'
       produces 'application/json'
-
       parameter name: 'authorization', in: :header, type: :string
 
       response '200', 'User information' do
@@ -13,20 +12,24 @@ RSpec.describe 'Session', type: :request do
         let!(:avatar) { create(:avatar, :with_image, user: user) }
 
         it 'returns User information' do
-          expected_json = response_schema('auth', :user_with_avatar).to_json
+          expected_json = response_schema('auth/session', :user_info).to_json
+
           get api_v1_auth_session_path, headers: { authorization: token }
 
+          expect(response).to be_success
           expect(body).to be_json_eql(expected_json).excluding('included')
           expect(body).to have_json_path('included/0/attributes/thumbImage')
           expect(body).to have_json_path('included/0/attributes/originalImage')
         end
 
-        examples 'application/vnd.api+json' => response_schema('auth', :user_with_avatar)
+        examples 'application/vnd.api+json' => response_schema('auth/session', :user_info)
       end
 
       response '401', 'Unauthorized' do
         it 'returns an error' do
           get api_v1_auth_session_path, headers: { authorization: '' }
+
+          expect(response).to be_unauthorized
         end
       end
     end
