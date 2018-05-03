@@ -78,7 +78,6 @@ RSpec.describe 'Password', type: :request do
       tags 'Password'
       consumes 'application/json'
       produces 'application/json'
-
       parameter name: :body, in: :body, required: true, schema: {
         properties: {
           reset_token: { type: :string },
@@ -89,17 +88,16 @@ RSpec.describe 'Password', type: :request do
       }
 
       response '200', "Update user's password" do
-        it 'returns User' do |example|
+        it 'returns User' do
           patch api_v1_auth_password_path, params: { reset_token: token,
                                                      password: password,
                                                      password_confirmation: password }
 
-          expect(body).to be_json_eql response_schema('auth', :user_info).to_json
-
-          assert_response_matches_metadata(example.metadata)
+          expect(response).to be_success
+          expect(body).to be_json_eql response_schema('auth/password', :user_info).to_json
         end
 
-        examples 'application/vnd.api+json' => response_schema('auth', :user_info)
+        examples 'application/vnd.api+json' => response_schema('auth/password', :user_info)
       end
 
       response '422', 'Unprocessable Entity' do
@@ -107,7 +105,12 @@ RSpec.describe 'Password', type: :request do
           patch api_v1_auth_password_path, params: { reset_token: token,
                                                      password: password,
                                                      password_confirmation: password + '123' }
+
+          expect(response).to be_unprocessable
+          expect(body).to be_json_eql response_schema('auth/password', :update_error).to_json
         end
+
+        examples 'application/vnd.api+json' => response_schema('auth/password', :update_error)
       end
     end
   end

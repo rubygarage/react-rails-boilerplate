@@ -218,7 +218,19 @@
             }
           },
           "422": {
-            "description": "Unprocessable Entity"
+            "description": "Unprocessable Entity",
+            "examples": {
+              "application/vnd.api+json": {
+                "errors": [
+                  {
+                    "source": {
+                      "pointer": "/data/attributes/passwordConfirmation"
+                    },
+                    "detail": "doesn't match"
+                  }
+                ]
+              }
+            }
           }
         }
       }

@@ -1,0 +1,10 @@
+{
+  "errors": [
+    {
+      "source": {
+        "pointer": "/data/attributes/passwordConfirmation"
+      },
+      "detail": "doesn't match"
+    }
+  ]
+}
