@@ -270,7 +270,8 @@
               "required": [
                 "username",
                 "email",
-                "password"
+                "password",
+                "password_confirmation"
               ]
             }
           }

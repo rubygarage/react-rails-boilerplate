@@ -4,7 +4,6 @@ RSpec.describe 'Registration', type: :request do
       tags 'Registration'
       consumes 'application/json'
       produces 'application/json'
-
       parameter name: :body, in: :body, required: true, schema: {
         properties: {
           username: { type: :string },
@@ -12,7 +11,7 @@ RSpec.describe 'Registration', type: :request do
           password: { type: :string },
           password_confirmation: { type: :string }
         },
-        required: %i[username email password]
+        required: %i[username email password password_confirmation]
       }
 
       response '200', 'User information' do
@@ -23,17 +22,17 @@ RSpec.describe 'Registration', type: :request do
           post api_v1_auth_registration_path, params: params
         end
 
-        examples 'application/vnd.api+json' => response_schema('auth', :user_info)
+        examples 'application/vnd.api+json' => response_schema('auth/registration', :user_info)
       end
 
       response '422', 'Invalid request' do
         it 'returns an error' do
           post api_v1_auth_registration_path, params: {}
 
-          expect(body).to be_json_eql response_schema('auth', :registration_error).to_json
+          expect(body).to be_json_eql response_schema('auth/registration', :create_error).to_json
         end
 
-        examples 'application/vnd.api+json' => response_schema('auth', :registration_error)
+        examples 'application/vnd.api+json' => response_schema('auth/registration', :create_error)
       end
     end
   end
