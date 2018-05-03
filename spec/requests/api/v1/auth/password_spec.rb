@@ -33,25 +33,28 @@ RSpec.describe 'Password', type: :request do
   #  ------------------------------------------------------------------------------------------------------------------
 
   path '/auth/users/password' do
-    post 'Create Password' do
+    post 'Send confirmation instructions (Create Password)' do
       tags 'Password'
       consumes 'application/json'
       produces 'application/json'
-
       parameter name: :body, in: :body, required: true, schema: {
         properties: {
           email: { type: :string }
         },
-        required: :email
+        required: %i[email]
       }
 
       response '200', 'Email found' do
         it 'informs that provided email is found in database' do
           post api_v1_auth_password_path, params: { email: user.email }
+
+          expect(response).to be_success
         end
 
         it 'returns ok even if email did not found in database, for security reason' do
           post api_v1_auth_password_path, params: { email: 'random_email_123@test.com' }
+
+          expect(response).to be_success
         end
       end
 
@@ -59,9 +62,11 @@ RSpec.describe 'Password', type: :request do
         it 'returns an error' do
           post api_v1_auth_password_path, params: { email: 'invalid.email.com' }
 
-          expect(body).to have_json_path('errors/0/detail')
-          expect(body).to match(/is in invalid format/)
+          expect(response).to be_unprocessable
+          expect(body).to be_json_eql response_schema('auth/password', :create_error).to_json
         end
+
+        examples 'application/vnd.api+json' => response_schema('auth/password', :create_error)
       end
     end
   end

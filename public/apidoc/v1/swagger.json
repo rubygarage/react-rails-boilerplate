@@ -110,7 +110,7 @@
         }
       },
       "post": {
-        "summary": "Create Password",
+        "summary": "Send confirmation instructions (Create Password)",
         "tags": [
           "Password"
         ],
@@ -131,7 +131,9 @@
                   "type": "string"
                 }
               },
-              "required": "email"
+              "required": [
+                "email"
+              ]
             }
           }
         ],
@@ -140,7 +142,19 @@
             "description": "Email found"
           },
           "422": {
-            "description": "Unprocessable Entity"
+            "description": "Unprocessable Entity",
+            "examples": {
+              "application/vnd.api+json": {
+                "errors": [
+                  {
+                    "source": {
+                      "pointer": "/data/attributes/email"
+                    },
+                    "detail": "is in invalid format"
+                  }
+                ]
+              }
+            }
           }
         }
       },
