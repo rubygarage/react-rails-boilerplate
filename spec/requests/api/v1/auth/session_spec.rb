@@ -42,30 +42,39 @@ RSpec.describe 'Session', type: :request do
       tags 'Session'
       consumes 'application/json'
       produces 'application/json'
-
       parameter name: :body, in: :body, required: true, schema: {
         properties: {
           username: { type: :string },
-          password: { type: :string }
+          password: { type: :string },
+          remember: { type: :boolean }
         },
         required: %i[username password]
       }
 
       response '200', 'Authorization token' do
-        let(:user) { create(:user, password: 'password') }
+        let(:user) { create(:user, password: password) }
+        let(:token) { 'an_awesome_token' }
+        let(:password) { 'an_awesome_password' }
 
         it "returns user's authorization token" do
-          post api_v1_auth_session_path, params: { username: user.username, password: 'password' }
+          expect(Auth::Token::Session).to receive(:generate) { token }
 
-          expect(response.headers).to include('authorization')
-          expect(response.headers['authorization']).to start_with('Bearer')
+          post api_v1_auth_session_path, params: { username: user.username, password: password }
+
+          expect(response).to be_success
+          expect(response.headers['authorization']).to eq("Bearer #{token}")
         end
       end
 
       response '422', 'Invalid request' do
         it 'returns an error status' do
           post api_v1_auth_session_path, params: {}
+
+          expect(response).to be_unprocessable
+          expect(body).to be_json_eql response_schema('auth/session', :create_error).to_json
         end
+
+        examples 'application/vnd.api+json' => response_schema('auth/session', :create_error)
       end
     end
   end

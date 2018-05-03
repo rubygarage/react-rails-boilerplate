@@ -1,0 +1,28 @@
+{
+  "errors": [
+    {
+      "source": {
+        "pointer": "/data/attributes/username"
+      },
+      "detail": "must be filled"
+    },
+    {
+      "source": {
+        "pointer": "/data/attributes/username"
+      },
+      "detail": "invalid credentials"
+    },
+    {
+      "source": {
+        "pointer": "/data/attributes/username"
+      },
+      "detail": "email is not confirmed"
+    },
+    {
+      "source": {
+        "pointer": "/data/attributes/password"
+      },
+      "detail": "must be filled"
+    }
+  ]
+}

@@ -14,7 +14,7 @@ module Api
           if result.success?
             render json: Api::V1::UserSerializer.new(@model, include: [:avatar]).serialized_json
           else
-            render json: ErrorSerializer.new(@form).serialized_json, status: :unauthorized
+            render json: ErrorSerializer.new(@form).serialized_json, status: :unprocessable_entity
           end
         end
       end
