@@ -6,3 +6,8 @@ en:
       subject: Confirm email
       confirm_account_link: Confirm
       confirm_link_message: Please verify your email by clicking on the 'Confirm' button below
+  reset_password_mailer:
+    reset_instructions:
+      subject: Reset password instructions
+      reset_password: Reset password
+      reset_link_message: Please follow link below to reset your password
