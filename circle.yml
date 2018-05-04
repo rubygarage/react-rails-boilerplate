@@ -1,14 +1,13 @@
-machine:
-  ruby:
-    version:
-      2.4.3
 dependencies:
   pre:
     - gem install bundler -v '1.16.0'
+    - cd webpack/ && nvm use 8.2.0 && yarn
+  cache_directories:
+    - webpack/node_modules
 
 services:
-    - redis
-    - sidekiq
+  - redis
+  - sidekiq
 
 database:
   override:
@@ -25,9 +24,9 @@ machine:
 test:
   override:
     - bundle exec rspec spec/ --format doc
-    - cd webpack/ && nvm use 8.2.0 && yarn && yarn test
+    - cd webpack/ && nvm use 8.2.0 && yarn test
   post:
-    - cd webpack/ && nvm use 8.2.0 && yarn && yarn eslint:all
+    - cd webpack/ && nvm use 8.2.0 && yarn eslint:all
     - bundle exec rubocop -R
     - bundle exec brakeman --ensure-latest --rails5 --exit-on-warn
     - bundle exec bundle-audit check
