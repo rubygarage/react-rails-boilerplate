@@ -566,6 +566,7 @@ DEPENDENCIES
   puma (~> 3.10)
   pundit
   rails (~> 5.1.4)
+  redis
   rolify
   rspec-rails
   rspec_junit_formatter
