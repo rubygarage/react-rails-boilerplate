@@ -1,6 +1,6 @@
 # include custom auth module
 ActiveAdmin::BaseController.class_eval do
-  include Admin::Authenticable
+  include Admin::Mixins::Authenticable
 end
 
 ActiveAdmin.setup do |config|
@@ -10,7 +10,7 @@ ActiveAdmin.setup do |config|
   # for each of the active admin pages.
   #
   config.site_title = 'Rg React Isomorphic Boilerplate'
-
+  config.load_paths = [File.join(Rails.root, "apps", "admin", "active_admin")]
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
   #
