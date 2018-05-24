@@ -1,7 +1,7 @@
-class User::Contract::Update < Reform::Form
+class Storefront::Concepts::User::Contract::Update < Reform::Form
   include Dry
   property :avatar, populator: lambda { |fragment:, **|
-    self.avatar = Avatar.new(image: fragment['image']) if fragment['image']
+    self.avatar = Storefront::Models::Avatar.new(image: fragment['image']) if fragment['image']
   }
 
   validation :default, with: { form: true } do
@@ -10,7 +10,7 @@ class User::Contract::Update < Reform::Form
 
       def avatar_valid?(value)
         return true if value.persisted?
-        attacher = ImageUploader::Attacher.new(form.avatar, :image)
+        attacher = Storefront::Uploaders::ImageUploader::Attacher.new(form.avatar, :image)
         attacher.validate
       end
     end

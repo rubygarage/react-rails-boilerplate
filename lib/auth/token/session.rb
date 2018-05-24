@@ -21,7 +21,7 @@ module Auth
           token = JWT.decode(token, Figaro.env.jwt_signature, true, aud: SESSION_AUD_CLAIM, verify_aud: true)
           user_id = token[0]['sub']
 
-          User.find_by(id: user_id)
+          ::Auth::Models::User.find_by(id: user_id)
         end
       end
     end

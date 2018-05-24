@@ -28,7 +28,7 @@ describe('signIn()', () => {
   it('success', () => {
     const saga = signIn(params);
 
-    expect(saga.next().value).toEqual(call(apiClient.post, '/api/v1/auth/users/session', params.values));
+    expect(saga.next().value).toEqual(call(apiClient.post, '/api/v1/session', params.values));
 
     expect(saga.next({ data: response }).value).toEqual(call(normalize, response));
 
@@ -54,7 +54,7 @@ describe('signIn()', () => {
     const saga = signIn(params);
     const error = { response: { data: 'Error' } };
 
-    expect(saga.next().value).toEqual(call(apiClient.post, '/api/v1/auth/users/session', params.values));
+    expect(saga.next().value).toEqual(call(apiClient.post, '/api/v1/session', params.values));
 
     expect(saga.throw(error).value).toEqual(put({ type: 'SIGN_IN_ERROR', error }));
 

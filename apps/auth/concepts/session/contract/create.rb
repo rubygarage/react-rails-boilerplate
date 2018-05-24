@@ -1,4 +1,4 @@
-class Auth::Session::Contract::Create < Reform::Form
+class Auth::Concepts::Session::Contract::Create < Reform::Form
   include Dry
 
   property :username, virtual: true

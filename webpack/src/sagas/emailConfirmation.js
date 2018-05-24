@@ -7,7 +7,7 @@ export function* emailConfirmation({ confirmationToken }, res) {
   const apiClient = new ApiClient().buildClient();
 
   try {
-    yield call(apiClient.post, '/api/v1/auth/users/confirmation', { confirmation_token: confirmationToken });
+    yield call(apiClient.post, '/api/v1/users/confirmation', { confirmation_token: confirmationToken });
     yield put({ type: GET_EMAIL_CONFIRMATION + SUCCESS });
   } catch (error) {
     yield put({ type: GET_EMAIL_CONFIRMATION + ERROR });

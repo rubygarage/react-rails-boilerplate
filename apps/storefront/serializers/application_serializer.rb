@@ -1,3 +1,6 @@
-class ApplicationSerializer
-  include FastJsonapi::ObjectSerializer
+module Storefront
+  module Serializers
+    class ApplicationSerializer < ::ApplicationSerializer
+    end
+  end
 end

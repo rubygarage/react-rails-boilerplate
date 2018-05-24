@@ -29,7 +29,7 @@ describe('signUp()', () => {
   it('success', () => {
     const saga = signUp(params);
 
-    expect(saga.next().value).toEqual(call(apiClient.post, '/api/v1/auth/users/registration', params.values));
+    expect(saga.next().value).toEqual(call(apiClient.post, '/api/v1/users/registration', params.values));
 
     expect(saga.next({ data: response }).value).toEqual(call(normalize, response));
 
@@ -52,7 +52,7 @@ describe('signUp()', () => {
     const saga = signUp(params);
     const error = { response: { data: 'Error' } };
 
-    expect(saga.next().value).toEqual(call(apiClient.post, '/api/v1/auth/users/registration', params.values));
+    expect(saga.next().value).toEqual(call(apiClient.post, '/api/v1/users/registration', params.values));
 
     expect(saga.throw(error).value).toEqual(put({ type: 'SIGN_UP_ERROR', error }));
 

@@ -8,7 +8,7 @@ export function* signUp({ values, resolve, reject }) {
   const apiClient = new ApiClient().buildClient();
 
   try {
-    const response = yield call(apiClient.post, '/api/v1/auth/users/registration', values);
+    const response = yield call(apiClient.post, '/api/v1/users/registration', values);
     const { entities, results } = yield call(normalize, response.data);
     yield put({ type: SIGN_UP + SUCCESS, entities, results });
 

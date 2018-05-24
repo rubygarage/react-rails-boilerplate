@@ -29,7 +29,7 @@ describe('resetPassword', () => {
     it('success', () => {
       const saga = sendRestorePasswordEmail(params);
 
-      expect(saga.next().value).toEqual(call(apiClient.post, '/api/v1/auth/users/password', params.values));
+      expect(saga.next().value).toEqual(call(apiClient.post, '/api/v1/users/password', params.values));
 
       expect(saga.next().value).toEqual(put({
         type: 'SEND_RESTORE_PASSWORD_EMAIL_SUCCESS',
@@ -43,7 +43,7 @@ describe('resetPassword', () => {
     it('failure', () => {
       const saga = sendRestorePasswordEmail(params);
 
-      expect(saga.next().value).toEqual(call(apiClient.post, '/api/v1/auth/users/password', params.values));
+      expect(saga.next().value).toEqual(call(apiClient.post, '/api/v1/users/password', params.values));
 
       expect(saga.throw(error).value).toEqual(put({ type: 'SEND_RESTORE_PASSWORD_EMAIL_SUCCESS', error }));
 
@@ -60,13 +60,13 @@ describe('resetPassword', () => {
     it('success', () => {
       const saga = validateToken(token, res);
 
-      expect(saga.next().value).toEqual(call(apiClient.get, `/api/v1/auth/users/password?reset_token=${token}`));
+      expect(saga.next().value).toEqual(call(apiClient.get, `/api/v1/users/password?reset_token=${token}`));
     });
 
     it('failure', () => {
       const saga = validateToken(token, res);
 
-      expect(saga.next().value).toEqual(call(apiClient.get, `/api/v1/auth/users/password?reset_token=${token}`));
+      expect(saga.next().value).toEqual(call(apiClient.get, `/api/v1/users/password?reset_token=${token}`));
 
       expect(saga.throw(error).value).toEqual(call(redirect, '/404', res));
     });
@@ -76,7 +76,7 @@ describe('resetPassword', () => {
     it('success', () => {
       const saga = updatePassword(params);
 
-      expect(JSON.stringify(saga.next().value)).toEqual(JSON.stringify(call(apiClient.post, '/api/v1/auth/users/password', params.values)));
+      expect(JSON.stringify(saga.next().value)).toEqual(JSON.stringify(call(apiClient.post, '/api/v1/users/password', params.values)));
 
       expect(saga.next().value).toEqual(put({ type: 'UPDATE_PASSWORD_SUCCESS' }));
 
@@ -90,7 +90,7 @@ describe('resetPassword', () => {
     it('failure', () => {
       const saga = updatePassword(params);
 
-      expect(JSON.stringify(saga.next().value)).toEqual(JSON.stringify(call(apiClient.post, '/api/v1/auth/users/password', params.values)));
+      expect(JSON.stringify(saga.next().value)).toEqual(JSON.stringify(call(apiClient.post, '/api/v1/users/password', params.values)));
 
       expect(saga.throw(error).value).toEqual(put({ type: 'UPDATE_PASSWORD_ERROR', error }));
 

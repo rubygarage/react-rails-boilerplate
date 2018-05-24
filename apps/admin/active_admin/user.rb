@@ -1,6 +1,6 @@
 ActiveAdmin.register Admin::Models::User do
   menu label: "Users"
-  permit_params :username, :email, avatar_attributes: %i[id image _destroy]
+  permit_params :username, :email, avatar_attributes: %i[id image_destroy]
 
   index do
     selectable_column

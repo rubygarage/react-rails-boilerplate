@@ -1,4 +1,4 @@
-class UserPolicy < ApplicationPolicy
+class Storefront::Policies::UserPolicy < Storefront::Policies::ApplicationPolicy
   def show?
     user.id == record.id
   end

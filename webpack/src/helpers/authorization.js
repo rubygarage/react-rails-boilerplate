@@ -6,7 +6,7 @@ import ApiClient from 'utils/apiClient';
 const authorizeUser = (req, resolve) => {
   const apiClient = new ApiClient().buildClient(req);
 
-  apiClient.get('/api/v1/auth/users/session').then((response) => {
+  apiClient.get('/api/v1/users/1').then((response) => {
     const { entities, results } = normalize(response.data);
 
     if (isClient()) { setTokenToStorage(response.headers); }
