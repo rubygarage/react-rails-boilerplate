@@ -8,11 +8,13 @@ module Auth
       class << self
         def generate(user, remember_me = false)
           expiration_interval = remember_me ? REMEMBER_ME_EXPIRATION_TIME : DEFAULT_EXPIRATION_TIME
+          roles = user.roles.pluck(:name)
 
           payload = {
             aud: SESSION_AUD_CLAIM,
             sub: user.id,
-            exp: (Time.current + expiration_interval).to_i
+            exp: (Time.current + expiration_interval).to_i,
+            roles: roles
           }
           JWT.encode(payload, Figaro.env.jwt_signature)
         end

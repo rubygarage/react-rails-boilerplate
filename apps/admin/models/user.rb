@@ -1,7 +1,6 @@
 module Admin
   module Models
-    class User < ::ApplicationRecord
-      rolify
+    class User < Admin::Models::ApplicationRecord
       has_secure_password
 
       has_one :avatar, dependent: :destroy

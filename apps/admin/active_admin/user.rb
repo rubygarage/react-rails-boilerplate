@@ -1,6 +1,6 @@
-ActiveAdmin.register Admin::Models::User do
+ActiveAdmin.register Admin::Models::User, as: 'User' do
   menu label: "Users"
-  permit_params :username, :email, avatar_attributes: %i[id image_destroy]
+  permit_params :username, :email, avatar_attributes: %i[id image _destroy]
 
   index do
     selectable_column
@@ -14,9 +14,9 @@ ActiveAdmin.register Admin::Models::User do
 
     actions do |resource|
       if resource.confirmed_at
-        item I18n.t('active_admin.user.unconfirm_email'), unconfirm_email_admin_admin_models_user_path(resource), method: :post
+        item I18n.t('active_admin.user.unconfirm_email'), unconfirm_email_admin_user_path(resource), method: :post
       else
-        item I18n.t('active_admin.user.confirm_email'), confirm_email_admin_admin_models_user_path(resource), method: :post
+        item I18n.t('active_admin.user.confirm_email'), confirm_email_admin_user_path(resource), method: :post
       end
     end
   end
@@ -53,11 +53,11 @@ ActiveAdmin.register Admin::Models::User do
   end
 
   action_item :confirm_email, only: %i[show edit], if: proc { !resource.confirmed_at? } do
-    link_to I18n.t('active_admin.user.confirm_email'), confirm_email_admin_admin_models_user_path(resource), method: :post
+    link_to I18n.t('active_admin.user.confirm_email'), confirm_email_admin_user_path(resource), method: :post
   end
 
   action_item :unconfirm_email, only: %i[show edit], if: proc { resource.confirmed_at? } do
-    link_to I18n.t('active_admin.user.unconfirm_email'), unconfirm_email_admin_admin_models_user_path(resource), method: :post
+    link_to I18n.t('active_admin.user.unconfirm_email'), unconfirm_email_admin_user_path(resource), method: :post
   end
 
   show do

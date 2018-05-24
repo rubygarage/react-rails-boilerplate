@@ -1,9 +1,6 @@
 module Storefront
   module Models
-    class User < ApplicationRecord
-      rolify
-      has_secure_password
-
+    class User < Storefront::Models::ApplicationRecord
       has_one :avatar, dependent: :destroy
     end
   end

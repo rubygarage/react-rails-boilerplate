@@ -4,26 +4,15 @@ module Admin
       protect_from_forgery with: :null_session
       before_action :set_views
 
-      def current_user
-        ::Auth::Token::Session.user_by_token(token_from_headers)
-      rescue JWT::ExpiredSignature, JWT::InvalidAudError, JWT::DecodeError
-        nil
-      end
-
-      def check_authorization
-        head :unauthorized unless current_user
-      end
-
       private
 
       def set_views
+        # prepend views lookup path so templates will be found in our custom
+        # domain-specific folder. Remove this once you move this domain to
+        # a separate Rails app
+        # P.S. prepend only works for *1* request, so it is called in
+        # a before_action to ensure it is always refreshed
         prepend_view_path "#{Rails.root.join('apps', 'admin', 'views')}"
-      end
-
-      def token_from_headers
-        return unless request.headers['Authorization']
-
-        request.headers['Authorization'].split(' ').last
       end
     end
   end
