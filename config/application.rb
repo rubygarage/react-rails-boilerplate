@@ -19,5 +19,6 @@ module RgReactIsomorphicBoilerplate
     config.eager_load_paths << Rails.root.join('apps/shared/jobs')
     config.eager_load_paths << Rails.root.join('apps/shared/policies')
     config.eager_load_paths << Rails.root.join('apps/shared/serializers')
+    config.eager_load_paths << Rails.root.join('apps/shared/value_objects')
   end
 end

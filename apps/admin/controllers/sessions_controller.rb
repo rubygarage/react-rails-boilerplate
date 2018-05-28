@@ -12,7 +12,7 @@ module Admin
         # HARDCODED EXAMPLE BELOW:
 
         # result = run ::Admin::Concepts::Session::Operation::Create, params, cookies: cookies
-        auth_token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJzZXNzaW9uIiwic3ViIjoxLCJleHAiOjE1MjcyODIxNDEsInJvbGVzIjpbImFkbWluIl19.ZquLkDgD_59qo_bkck0ILIYtRo-y9b36_zoI64tep9c"
+        auth_token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJzZXNzaW9uIiwic3ViIjoxLCJleHAiOjE1Mjc1OTEzMDksInJvbGVzIjpbImFkbWluIl19.FagUfLaSsva6ci-fXxdolbU0UczpVCai6aVfyO1JirQ"
         cookies['authToken'] = "Bearer #{auth_token}"
 
         if auth_token # result.success?

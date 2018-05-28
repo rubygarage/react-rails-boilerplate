@@ -9,6 +9,8 @@ gem 'activeadmin'
 gem 'aws-sdk-s3', '~> 1.2' # for Amazon S3 storage
 gem 'bcrypt'
 gem 'dry-validation'
+gem 'dry-struct', '>= 0.5.0'
+gem 'dry-types'
 gem 'fast_jsonapi'
 gem 'figaro'
 gem 'haml-rails'

@@ -6,7 +6,7 @@ module Storefront
           protect_from_forgery with: :null_session
 
           def current_user
-            ::Auth::Token::Session.user_by_token(token_from_headers)
+            @user ||= { id: user_id }
           rescue JWT::ExpiredSignature, JWT::InvalidAudError, JWT::DecodeError
             nil
           end
@@ -16,6 +16,15 @@ module Storefront
           end
 
           private
+
+          def user_id
+            decoded_token = decode_token(token_from_headers)
+            decoded_token[0]['sub']
+          end
+
+          def decode_token(token)
+            JWT.decode(token, Figaro.env.jwt_signature, true, aud: 'session', verify_aud: true)
+          end
 
           def token_from_headers
             return unless request.headers['Authorization']

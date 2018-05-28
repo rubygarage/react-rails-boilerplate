@@ -2,18 +2,17 @@ module Admin
   module Mixins
     module Authenticable
       def current_admin_user
-        @user_id ||= admin_user_id
+        @user ||= { id: admin_user_id }
       rescue JWT::ExpiredSignature, JWT::InvalidAudError, JWT::DecodeError
         nil
       end
 
       def authenticate_admin_user!
-        current_admin_user
+        current_admin_user.id
       end
 
       def authorized?(_action, _subject = nil)
-        return true if current_admin_user
-
+        return true if current_admin_user.id
         request.cookies['authToken'] = nil
         redirect_to admin_session_path
       end

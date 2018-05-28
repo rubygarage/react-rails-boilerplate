@@ -19,6 +19,8 @@ Rails.application.routes.draw do
         resources :users, only: %i[show update] do
           resource :avatar, only: :destroy
         end
+
+        resource :current_profile, only: %i[show]
       end
     end
   end
@@ -26,10 +28,8 @@ Rails.application.routes.draw do
   scope module: 'auth/controllers' do
     namespace :api, defaults: { format: 'json' } do
       namespace :v1 do
-        resource :confirmation, only: [:create]
         resource :session, only: %i[show create]
         resource :registration, only: [:create]
-        resource :password, only: %i[show create update]
       end
     end
   end
