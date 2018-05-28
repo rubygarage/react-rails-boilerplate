@@ -19,6 +19,8 @@ Rails.application.routes.draw do
         resources :users, only: %i[show update] do
           resource :avatar, only: :destroy
         end
+
+        resources :orders, only: %i[show create]
       end
     end
   end
