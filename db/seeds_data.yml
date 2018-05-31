@@ -1,3 +1,34 @@
 roles:
   -
     name: admin
+products:
+  -
+    name: Dell XPS 15
+    description: Flagship ultrabook from Dell with 15" screen.
+    meta_title: Dell XPS 15 buy now. Factory new and refurbished
+    meta_keywords: Dell, XPS
+    price: 1200
+  -
+    name: Dell XPS 13
+    description: Flagship ultrabook from Dell with 13" screen.
+    meta_title: Dell XPS 13 buy now. Factory new and refurbished
+    meta_keywords: Dell, XPS
+    price: 1100
+  -
+    name: New Dell XPS 13
+    description: New version of Dell flagship ultrabook. Thinner, more ram, more cpu cores, more issues.
+    meta_title: New Dell XPS 13 buy now. Factory new and refurbished
+    meta_keywords: Dell, XPS, New Dell XPS
+    price: 1180
+  -
+    name: MacBook Pro 2016
+    description: One of the best notebooks on the market from Apple.
+    meta_title: MBP 2016 late buy now. Factory new and refurbished
+    meta_keywords: MPB, macbook pro, Apple
+    price: 1500
+  -
+    name: MacBook Pro 2017
+    description: 1% thinner, 0.5% lighter and much more expensive.
+    meta_title: MBP 2017 late buy now. Factory new only
+    meta_keywords: MPB, macbook pro, Apple, available NOW, pro 2017, garageband
+    price: 2000

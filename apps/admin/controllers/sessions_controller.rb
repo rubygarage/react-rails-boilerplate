@@ -6,16 +6,9 @@ module Admin
       end
 
       def create
-        # Make gRPC request to an AUTH domain here and receive a jwt token.
-        # Set it in the cookies of original request. No other changes are needed to make it work.
-        # Also, please use Operation for that. There is one already created for you
-        # HARDCODED EXAMPLE BELOW:
+        result = run ::Admin::Concepts::Session::Operation::Create, params, cookies: cookies
 
-        # result = run ::Admin::Concepts::Session::Operation::Create, params, cookies: cookies
-        auth_token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJzZXNzaW9uIiwic3ViIjoxLCJleHAiOjE1Mjc1OTEzMDksInJvbGVzIjpbImFkbWluIl19.FagUfLaSsva6ci-fXxdolbU0UczpVCai6aVfyO1JirQ"
-        cookies['authToken'] = "Bearer #{auth_token}"
-
-        if auth_token # result.success?
+        if result.success?
           redirect_to admin_dashboard_path
         else
           flash.now[:alert] = I18n.t('errors.admin.invalid')
